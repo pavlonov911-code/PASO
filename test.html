@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>БАЗИС-МЕБЕЛЬ 44 — Инженерное производство мебели на заказ в Костроме</title>
+  <meta name="description" content="Кухни, шкафы-купе, гардеробные и прихожие на заказ в Костроме от инженеров-конструкторов. Точный 3D-проект в Базис-Мебельщик, ЧПУ-раскрой без сколов, цены без накруток салонов.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            brand: {
+              50: '#fdf8f3',
+              100: '#f9ede0',
+              500: '#d97706',
+              600: '#b45309',
+              900: '#1c1917'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-stone-950 text-stone-100 font-sans antialiased selection:bg-amber-500 selection:text-stone-950">
+
+  <!-- Верхняя панель акции -->
+  <div class="bg-amber-500 text-stone-950 text-xs sm:text-sm font-semibold py-2.5 px-4 text-center">
+    🔥 АКЦИЯ В КОСТРОМЕ: Возьмем еще 3 заказа в этом месяце с минимальной наценкой 15% за фото- и видеоотзыв в портфолио!
+    <a href="#calculator" class="underline ml-2 font-bold hover:text-stone-800">Рассчитать со скидкой →</a>
+  </div>
+
+  <!-- Навигация -->
+  <header class="sticky top-0 z-50 bg-stone-950/90 backdrop-blur-md border-b border-stone-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-amber-500 flex items-center justify-center text-stone-950 font-extrabold text-xl">
+          Б44
+        </div>
+        <div>
+          <span class="font-extrabold text-lg tracking-tight block leading-none text-white">БАЗИС-МЕБЕЛЬ 44</span>
+          <span class="text-xs text-stone-400">Мастерская Павлинова и Соколова • Кострома</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-stone-300">
+        <a href="#catalog" class="hover:text-amber-400 transition">Что мы делаем</a>
+        <a href="#advantages" class="hover:text-amber-400 transition">Инженерный подход</a>
+        <a href="#calculator" class="hover:text-amber-400 transition">Калькулятор цены</a>
+        <a href="#steps" class="hover:text-amber-400 transition">Этапы работы</a>
+        <a href="#contacts" class="hover:text-amber-400 transition">Контакты</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <div class="hidden sm:block text-right">
+          <a href="tel:+79632178278" class="font-bold text-white hover:text-amber-400 transition block text-sm">+7 (963) 217-82-78</a>
+          <span class="text-xs text-emerald-400 flex items-center justify-end gap-1">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Выезд на замер — 0 ₽
+          </span>
+        </div>
+        <a href="#calculator" class="bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-sm px-4 py-2.5 rounded-lg transition shadow-lg shadow-amber-500/20">
+          Рассчитать проект
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Главный экран (Hero) -->
+  <section class="relative overflow-hidden py-16 sm:py-24 lg:py-28 border-b border-stone-800/80">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-500/15 via-stone-950 to-stone-950 -z-10"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12 items-center">
+      
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-stone-900 border border-stone-700 text-amber-400 text-xs font-semibold">
+          <span>⚙️ Дипломированные инженеры-технологи КГУ</span>
+          <span>•</span>
+          <span>ЧПУ-точность до 0,1 мм</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
+          Корпусная мебель в Костроме <span class="text-amber-500">без наценок</span> мебельных салонов
+        </h1>
+
+        <p class="text-stone-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+          Проектируем кухни, шкафы-купе и гардеробные в профессиональном САПР <strong>«Базис-Мебельщик»</strong>. Заводской раскрой и присадка на станках с ЧПУ, адресная маркировка каждой детали и чистовой монтаж точно по уровню. Вы платите за материалы и инженерную работу, а не за аренду торгового центра.
+        </p>
+
+        <div class="grid sm:grid-cols-3 gap-4 pt-2">
+          <div class="bg-stone-900/80 border border-stone-800 p-4 rounded-xl">
+            <div class="text-amber-500 font-extrabold text-2xl">0% брака</div>
+            <div class="text-xs text-stone-400 mt-1">Цифровой раскрой и ЧПУ-присадка всех отверстий по чертежам</div>
+          </div>
+          <div class="bg-stone-900/80 border border-stone-800 p-4 rounded-xl">
+            <div class="text-amber-500 font-extrabold text-2xl">До 35% выгоднее</div>
+            <div class="text-xs text-stone-400 mt-1">Работаем напрямую без шоурумов и посредников</div>
+          </div>
+          <div class="bg-stone-900/80 border border-stone-800 p-4 rounded-xl">
+            <div class="text-amber-500 font-extrabold text-2xl">От 14 дней</div>
+            <div class="text-xs text-stone-400 mt-1">Срок изготовления и чистовой сборки у вас дома</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+          <a href="#calculator" class="bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold px-7 py-4 rounded-xl text-center transition shadow-xl shadow-amber-500/20">
+            Узнать стоимость за 1 минуту
+          </a>
+          <a href="https://t.me/+79632178278" target="_blank" class="bg-stone-900 hover:bg-stone-800 border border-stone-700 text-white font-semibold px-7 py-4 rounded-xl text-center transition flex items-center justify-center gap-2">
+            <span>Написать конструктору в Telegram</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Карточка-визитка основателей -->
+      <div class="lg:col-span-5">
+        <div class="bg-stone-900 border border-stone-800 rounded-2xl p-6 sm:p-8 shadow-2xl relative">
+          <div class="flex items-center justify-between border-b border-stone-800 pb-4 mb-6">
+            <div>
+              <h3 class="font-bold text-lg text-white">Личная ответственность мастеров</h3>
+              <p class="text-xs text-stone-400">Общаетесь напрямую с теми, кто проектирует и собирает вашу мебель</p>
+            </div>
+            <span class="bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs font-bold px-3 py-1 rounded-md">Кострома</span>
+          </div>
+
+          <div class="space-y-5">
+            <div class="flex gap-4 items-start bg-stone-950/60 p-4 rounded-xl border border-stone-800/80">
+              <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center font-bold text-amber-400 shrink-0">
+                АП
+              </div>
+              <div>
+                <div class="font-bold text-white">Павлинов Андрей</div>
+                <div class="text-xs text-amber-400 font-medium mb-1">Главный инженер-конструктор, замерщик</div>
+                <p class="text-xs text-stone-400 leading-relaxed">
+                  Опыт проектирования мебели и запуска цехов до 1000 м². Разрабатывает 3D-модель, конструкторскую документацию в «Базис-Мебельщик» и смету до последнего винтика.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 items-start bg-stone-950/60 p-4 rounded-xl border border-stone-800/80">
+              <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center font-bold text-amber-400 shrink-0">
+                НС
+              </div>
+              <div>
+                <div class="font-bold text-white">Соколов Никита</div>
+                <div class="text-xs text-amber-400 font-medium mb-1">Руководитель сборки, монтажа и ЧПУ-контроля</div>
+                <p class="text-xs text-stone-400 leading-relaxed">
+                  Более 3 лет опыта бригадиром и оператором ЧПУ на мебельном производстве. Отвечает за идеальную геометрию корпусов, отсутствие сколов и монтаж по лазерному уровню.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-5 border-t border-stone-800 flex items-center justify-between text-xs text-stone-400">
+            <span>📍 Приезжаем на замер с образцами ЛДСП и фасадов</span>
+            <a href="#contacts" class="text-amber-400 font-semibold hover:underline">Вызвать замерщика →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Каталог направлений -->
+  <section id="catalog" class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-white">Изготавливаем мебель под ваши размеры с точностью до миллиметра</h2>
+      <p class="text-stone-400 mt-3 text-sm sm:text-base">Используем плиты Свеза, Egger и Kronospan, надежную фурнитуру с доводчиками и фабричные фасады на выбор (пленка ПВХ, пластик HPL/Fenix, AGT, эмаль).</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-stone-900 border border-stone-800 rounded-2xl p-6 flex flex-col justify-between hover:border-amber-500/50 transition">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">Хит заказов</div>
+          <h3 class="text-xl font-bold text-white mb-2">Кухни на заказ</h3>
+          <p class="text-sm text-stone-400 leading-relaxed mb-4">
+            Прямые, угловые и кухни под потолок. Влагостойкие столешницы, фасады МДФ (ПВХ, эмаль, пластик HPL, AGT), идеальная присадка под встраиваемую технику.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-stone-800 flex items-center justify-between">
+          <span class="text-sm font-bold text-white">от 28 000 ₽ / п.м.</span>
+          <a href="#calculator" class="text-xs font-bold text-amber-400 hover:underline">Рассчитать →</a>
+        </div>
+      </div>
+
+      <div class="bg-stone-900 border border-stone-800 rounded-2xl p-6 flex flex-col justify-between hover:border-amber-500/50 transition">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">Хранение</div>
+          <h3 class="text-xl font-bold text-white mb-2">Шкафы-купе и распашные</h3>
+          <p class="text-sm text-stone-400 leading-relaxed mb-4">
+            Встроенные и корпусные шкафы в спальню или коридор. Зеркала в пол, скрытый крепеж, продуманные секции под одежду, обувь и бытовую технику.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-stone-800 flex items-center justify-between">
+          <span class="text-sm font-bold text-white">от 35 000 ₽</span>
+          <a href="#calculator" class="text-xs font-bold text-amber-400 hover:underline">Рассчитать →</a>
+        </div>
+      </div>
+
+      <div class="bg-stone-900 border border-stone-800 rounded-2xl p-6 flex flex-col justify-between hover:border-amber-500/50 transition">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">Эргономика</div>
+          <h3 class="text-xl font-bold text-white mb-2">Гардеробные и прихожие</h3>
+          <p class="text-sm text-stone-400 leading-relaxed mb-4">
+            Задействуем каждый сантиметр ниши. Выдвижные ящики полного выдвижения, пантографы, обувницы, мягкие зоны с каретной стяжкой или рейками.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-stone-800 flex items-center justify-between">
+          <span class="text-sm font-bold text-white">от 30 000 ₽</span>
+          <a href="#calculator" class="text-xs font-bold text-amber-400 hover:underline">Рассчитать →</a>
+        </div>
+      </div>
+
+      <div class="bg-stone-900 border border-stone-800 rounded-2xl p-6 flex flex-col justify-between hover:border-amber-500/50 transition">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">Для дома и офиса</div>
+          <h3 class="text-xl font-bold text-white mb-2">Рабочие зоны и ТВ-группы</h3>
+          <p class="text-sm text-stone-400 leading-relaxed mb-4">
+            Компьютерные и геймерские столы со скрытым кабель-менеджментом, детские комнаты, подвесные тумбы под ТВ и стеллажи.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-stone-800 flex items-center justify-between">
+          <span class="text-sm font-bold text-white">от 18 000 ₽</span>
+          <a href="#calculator" class="text-xs font-bold text-amber-400 hover:underline">Рассчитать →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Почему мы (Инженерный подход) -->
+  <section id="advantages" class="py-16 bg-stone-900/60 border-y border-stone-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-12">
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white">Почему наша мебель собирается без перекосов, щелей и нервов</h2>
+        <p class="text-stone-400 mt-3 text-sm sm:text-base">Мы перенесли стандарты крупного цифрового производства в индивидуальные заказы.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-stone-950 border border-stone-800 p-6 rounded-2xl">
+          <div class="w-10 h-10 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold mb-4">01</div>
+          <h3 class="font-bold text-lg text-white mb-2">Проектирование в «Базис-Мебельщик»</h3>
+          <p class="text-sm text-stone-400 leading-relaxed">
+            Никаких рисунков «на коленке». Вы получаете точный 3D-проект и полную конструкторскую документацию, где каждое отверстие под петлю или направляющую рассчитано программой без человеческого фактора.
+          </p>
+        </div>
+
+        <div class="bg-stone-950 border border-stone-800 p-6 rounded-2xl">
+          <div class="w-10 h-10 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold mb-4">02</div>
+          <h3 class="font-bold text-lg text-white mb-2">ЧПУ-раскрой, ПУР/ПВХ-кромка и маркировка</h3>
+          <p class="text-sm text-stone-400 leading-relaxed">
+            Детали раскраиваются и сверлятся на промышленных станках с ЧПУ по нашим электронным картам. На каждую деталь клеится бирка с маркировкой — на монтаже у вас дома не будет гор опилок и лишних дырок.
+          </p>
+        </div>
+
+        <div class="bg-stone-950 border border-stone-800 p-6 rounded-2xl">
+          <div class="w-10 h-10 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold mb-4">03</div>
+          <h3 class="font-bold text-lg text-white mb-2">Контрольная сборка перед выездом</h3>
+          <p class="text-sm text-stone-400 leading-relaxed">
+            Мы предварительно собираем и проверяем ключевые модули в нашей мастерской, комплектуем фурнитуру и приезжаем к вам уже с готовыми узлами для быстрой и чистой установки.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Интерактивный калькулятор стоимости -->
+  <section id="calculator" class="py-16 sm:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-stone-900 border border-stone-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Онлайн-смета</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Рассчитайте ориентировочную стоимость вашей мебели</h2>
+        <p class="text-stone-400 text-sm mt-2">Выберите параметры и отправьте расчет напрямую конструктору Андрею Павлинову для точной деталировки в «Базис-Смета».</p>
+      </div>
+
+      <div class="grid md:grid-cols-12 gap-8 items-center">
+        <div class="md:col-span-7 space-y-6">
+          
+          <!-- Тип изделия -->
+          <div>
+            <label class="block text-sm font-semibold text-stone-300 mb-2">1. Что нужно изготовить?</label>
+            <div class="grid grid-cols-2 gap-3" id="typeSelector">
+              <button type="button" onclick="setProductType('Кухня на заказ', 32000, this)" class="calc-type-btn active border-2 border-amber-500 bg-amber-500/10 text-white font-semibold py-3 px-4 rounded-xl text-sm text-left transition">
+                🍳 Кухня
+              </button>
+              <button type="button" onclick="setProductType('Шкаф-купе / Распашной', 19000, this)" class="calc-type-btn border border-stone-700 bg-stone-950 text-stone-300 font-semibold py-3 px-4 rounded-xl text-sm text-left transition hover:border-stone-500">
+                🚪 Шкаф в потолок
+              </button>
+              <button type="button" onclick="setProductType('Гардеробная система', 16000, this)" class="calc-type-btn border border-stone-700 bg-stone-950 text-stone-300 font-semibold py-3 px-4 rounded-xl text-sm text-left transition hover:border-stone-500">
+                🧥 Гардеробная
+              </button>
+              <button type="button" onclick="setProductType('Прихожая / Рабочая зона', 15000, this)" class="calc-type-btn border border-stone-700 bg-stone-950 text-stone-300 font-semibold py-3 px-4 rounded-xl text-sm text-left transition hover:border-stone-500">
+                🏠 Прихожая / Стол
+              </button>
+            </div>
+          </div>
+
+          <!-- Длина в погонных метрах -->
+          <div>
+            <div class="flex justify-between text-sm font-semibold mb-2">
+              <label for="lengthRange" class="text-stone-300">2. Примерная длина по стене:</label>
+              <span class="text-amber-400 font-bold"><span id="lengthVal">3.0</span> пог. м</span>
+            </div>
+            <input id="lengthRange" type="range" min="1.0" max="6.5" step="0.5" value="3.0" oninput="updateCalculation()" class="w-full accent-amber-500 cursor-pointer">
+            <div class="flex justify-between text-xs text-stone-500 mt-1">
+              <span>1.0 м</span>
+              <span>3.5 м (средняя)</span>
+              <span>6.5 м</span>
+            </div>
+          </div>
+
+          <!-- Материал фасадов -->
+          <div>
+            <label for="facadeSelect" class="block text-sm font-semibold text-stone-300 mb-2">3. Материал фасадов и фурнитура:</label>
+            <select id="facadeSelect" onchange="updateCalculation()" class="w-full bg-stone-950 border border-stone-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500">
+              <option value="1.0">Практичный: ЛДСП Egger / Свеза в кромке ПВХ 2 мм</option>
+              <option value="1.25" selected>Оптимальный: МДФ в пленке ПВХ + петли с доводчиками</option>
+              <option value="1.45">Премиум: Панели AGT / Пластик HPL / Матовая эмаль</option>
+            </select>
+          </div>
+
+          <!-- Галочка акции "За отзыв" -->
+          <label class="flex items-start gap-3 bg-amber-500/10 border border-amber-500/30 p-4 rounded-xl cursor-pointer">
+            <input id="promoCheck" type="checkbox" checked onchange="updateCalculation()" class="mt-1 w-4 h-4 accent-amber-500 rounded">
+            <span class="text-xs sm:text-sm text-stone-200">
+              <strong>Хочу спеццену «За портфолио» (наценка всего 15–20%):</strong> разрешаю сделать красивое фото и видео готовой мебели после монтажа для вашего каталога.
+            </span>
+          </label>
+
+        </div>
+
+        <!-- Блок результата -->
+        <div class="md:col-span-5 bg-stone-950 border border-stone-800 rounded-2xl p-6 space-y-5">
+          <div>
+            <div class="text-xs text-stone-400">Ориентировочная стоимость под ключ:</div>
+            <div class="text-3xl sm:text-4xl font-extrabold text-amber-400 mt-1" id="finalPrice">96 000 ₽</div>
+            <div class="text-xs text-stone-500 line-through mt-1" id="oldPrice">В мебельных салонах: ~145 000 ₽</div>
+          </div>
+
+          <ul class="text-xs text-stone-300 space-y-2 border-y border-stone-800 py-4">
+            <li class="flex items-center gap-2">✅ Выезд на замер по Костроме и 3D-проект — <strong>0 ₽</strong></li>
+            <li class="flex items-center gap-2">✅ Заводской ЧПУ-раскрой и присадка отверстий</li>
+            <li class="flex items-center gap-2">✅ Сборка и чистовой монтаж включены</li>
+          </ul>
+
+          <div class="space-y-3">
+            <input id="clientPhone" type="tel" placeholder="Ваш телефон (для связи или Telegram)" class="w-full bg-stone-900 border border-stone-700 rounded-xl px-4 py-3 text-sm text-white placeholder-stone-500 focus:outline-none focus:border-amber-500">
+            <button type="button" onclick="sendCalcToTelegram()" class="w-full bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold py-3.5 px-4 rounded-xl text-sm transition shadow-lg shadow-amber-500/20">
+              Зафиксировать расчет и вызвать замерщика
+            </button>
+          </div>
+          <p class="text-[11px] text-stone-500 text-center">После нажатия откроется чат с конструктором с уже заполненными параметрами вашего расчета.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Этапы работы -->
+  <section id="steps" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl sm:text-4xl font-extrabold text-white text-center mb-12">5 простых шагов от идеи до готовой мебели</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <div class="bg-stone-900 border border-stone-800 p-5 rounded-2xl">
+        <div class="text-amber-500 font-black text-xl mb-2">Шаг 1</div>
+        <h3 class="font-bold text-white text-sm mb-1">Лазерный замер и образцы</h3>
+        <p class="text-xs text-stone-400">Приезжаем в удобное время с раскладками ЛДСП, столешниц и пленок фасадов. Замеряем стены и углы лазером.</p>
+      </div>
+      <div class="bg-stone-900 border border-stone-800 p-5 rounded-2xl">
+        <div class="text-amber-500 font-black text-xl mb-2">Шаг 2</div>
+        <h3 class="font-bold text-white text-sm mb-1">3D-проект и смета</h3>
+        <p class="text-xs text-stone-400">Андрей проектирует мебель в «Базис-Мебельщик» и формирует прозрачную смету в «Базис-Смета» без скрытых доплат.</p>
+      </div>
+      <div class="bg-stone-900 border border-stone-800 p-5 rounded-2xl">
+        <div class="text-amber-500 font-black text-xl mb-2">Шаг 3</div>
+        <h3 class="font-bold text-white text-sm mb-1">ЧПУ-раскрой и фасады</h3>
+        <p class="text-xs text-stone-400">Передаем цифровые карты раскроя и присадки на промышленный станок, а фасады заказываем на профильной фабрике.</p>
+      </div>
+      <div class="bg-stone-900 border border-stone-800 p-5 rounded-2xl">
+        <div class="text-amber-500 font-black text-xl mb-2">Шаг 4</div>
+        <h3 class="font-bold text-white text-sm mb-1">Сборка узлов в мастерской</h3>
+        <p class="text-xs text-stone-400">Никита принимает детали по биркам, проверяет качество кромки и собирает основные корпуса в нашей мастерской.</p>
+      </div>
+      <div class="bg-stone-900 border border-stone-800 p-5 rounded-2xl">
+        <div class="text-amber-500 font-black text-xl mb-2">Шаг 5</div>
+        <h3 class="font-bold text-white text-sm mb-1">Чистовой монтаж у вас</h3>
+        <p class="text-xs text-stone-400">Аккуратно заносим, выставляем мебель по уровню, навешиваем и регулируем фасады, убираем за собой упаковку.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Контакты и подвал -->
+  <footer id="contacts" class="bg-stone-900 border-t border-stone-800 py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-10">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-9 h-9 rounded-lg bg-amber-500 flex items-center justify-center text-stone-950 font-extrabold">Б44</div>
+          <span class="font-extrabold text-lg text-white">БАЗИС-МЕБЕЛЬ 44</span>
+        </div>
+        <p class="text-xs text-stone-400 leading-relaxed">
+          Инженерное проектирование и производство корпусной мебели на заказ в г. Кострома и Костромской области.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-white text-sm mb-3">Прямая связь с основателями:</h4>
+        <ul class="space-y-2 text-sm text-stone-300">
+          <li>
+            <span class="text-stone-500 text-xs block">Проектирование, замер и расчет сметы (Андрей):</span>
+            <a href="tel:+79632178278" class="font-bold text-amber-400 hover:underline">+7 (963) 217-82-78</a> (Telegram / Звонок)
+          </li>
+          <li>
+            <span class="text-stone-500 text-xs block">Сборка, доставка и монтаж (Никита):</span>
+            <a href="tel:+79536605759" class="font-bold text-white hover:underline">+7 (953) 660-57-59</a>
+          </li>
+          <li>
+            <span class="text-stone-500 text-xs block">Почта для дизайн-проектов и эскизов:</span>
+            <a href="mailto:pavlinov_as@mail.ru" class="text-stone-300 hover:text-amber-400">pavlinov_as@mail.ru</a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-white text-sm mb-3">Есть эскиз или расчет из другого салона?</h4>
+        <p class="text-xs text-stone-400 mb-4">
+          Пришлите нам проект любого костромского салона в Telegram — мы пересчитаем его в «Базис-Смета» и покажем, сколько вы сэкономите без потери качества материалов.
+        </p>
+        <a href="https://t.me/+79632178278" target="_blank" class="inline-block bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs px-5 py-3 rounded-xl transition">
+          Отправить эскиз на пересчет в Telegram →
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Скрипт калькулятора -->
+  <script>
+    let currentProduct = 'Кухня на заказ';
+    let baseRatePerMeter = 32000;
+
+    function setProductType(name, rate, btnElement) {
+      currentProduct = name;
+      baseRatePerMeter = rate;
+      document.querySelectorAll('.calc-type-btn').forEach(btn => {
+        btn.className = 'calc-type-btn border border-stone-700 bg-stone-950 text-stone-300 font-semibold py-3 px-4 rounded-xl text-sm text-left transition hover:border-stone-500';
+      });
+      btnElement.className = 'calc-type-btn active border-2 border-amber-500 bg-amber-500/10 text-white font-semibold py-3 px-4 rounded-xl text-sm text-left transition';
+      updateCalculation();
+    }
+
+    function updateCalculation() {
+      const length = parseFloat(document.getElementById('lengthRange').value);
+      const facadeMultiplier = parseFloat(document.getElementById('facadeSelect').value);
+      const isPromo = document.getElementById('promoCheck').checked;
+
+      document.getElementById('lengthVal').innerText = length.toFixed(1);
+
+      let standardPrice = Math.round((baseRatePerMeter * length * facadeMultiplier) / 1000) * 1000;
+      let calculatedPrice = isPromo ? Math.round((standardPrice * 0.72) / 1000) * 1000 : standardPrice;
+      let salonPrice = Math.round((standardPrice * 1.35) / 1000) * 1000;
+
+      document.getElementById('finalPrice').innerText = calculatedPrice.toLocaleString('ru-RU') + ' ₽';
+      document.getElementById('oldPrice').innerText = 'В мебельных салонах: ~' + salonPrice.toLocaleString('ru-RU') + ' ₽';
+    }
+
+    function sendCalcToTelegram() {
+      const length = document.getElementById('lengthRange').value;
+      const facadeText = document.getElementById('facadeSelect').options[document.getElementById('facadeSelect').selectedIndex].text;
+      const isPromo = document.getElementById('promoCheck').checked ? 'Да (По акции за фотоотзыв)' : 'Стандартный заказ';
+      const price = document.getElementById('finalPrice').innerText;
+      const phone = document.getElementById('clientPhone').value || 'не указан';
+
+      const msg = `Здравствуйте, Андрей! Хочу рассчитать мебель на заказ в Костроме:\n` +
+                  `• Изделие: ${currentProduct}\n` +
+                  `• Длина: ${length} п.м.\n` +
+                  `• Комплектация: ${facadeText}\n` +
+                  `• Спеццена за отзыв: ${isPromo}\n` +
+                  `• Расчет на сайте: ${price}\n` +
+                  `• Мой телефон: ${phone}`;
+
+      const telegramUrl = `https://t.me/+79632178278?text=${encodeURIComponent(msg)}`;
+      window.open(telegramUrl, '_blank');
+    }
+
+    updateCalculation();
+  </script>
+</body>
+</html>
