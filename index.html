@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>СТУДИЯ PASO — Корпусная мебель по индивидуальным размерам</title>
+  <title>PASO — Студия корпусной мебели по индивидуальным размерам</title>
   <meta
     name="description"
-    content="Проектируем кухни, шкафы, прихожие и рабочие кабинеты по индивидуальным размерам — от первого чертежа до сборки у вас дома. Два уровня исполнения."
+    content="Студия корпусной мебели PASO. Проектируем кухни, шкафы, прихожие и рабочие кабинеты по индивидуальным размерам — от первого чертежа до сборки у вас дома."
   />
 
-  <!-- Шрифты: выразительный засечковый для заголовков и нейтральный гротеск для текста -->
+  <!-- Шрифты -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -17,7 +17,7 @@
     rel="stylesheet"
   />
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -83,8 +83,13 @@
   ====================================================================== -->
   <header class="sticky top-0 z-40 bg-milk/95 backdrop-blur-sm border-b border-stoneBeige/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <a href="#" class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-graphite hover:text-olive transition-colors" data-studio-name>
-        СТУДИЯ PASO
+      <a href="#" class="flex items-baseline gap-2.5 group">
+        <span class="font-serif text-2xl sm:text-3xl font-bold tracking-wider text-graphite group-hover:text-olive transition-colors">
+          PASO
+        </span>
+        <span class="hidden sm:inline-block text-xs uppercase tracking-widest text-mutedText">
+          мебельная студия
+        </span>
       </a>
 
       <!-- Десктопное меню -->
@@ -96,8 +101,14 @@
         <a href="#contact-form" class="hover:text-olive transition-colors py-1">Контакты</a>
       </nav>
 
-      <!-- Кнопка справа -->
-      <div class="hidden md:flex items-center">
+      <!-- Быстрая связь и кнопка расчёта -->
+      <div class="hidden md:flex items-center gap-4">
+        <a
+          href="tel:+79632178278"
+          class="text-sm font-semibold text-graphite hover:text-olive transition-colors"
+        >
+          +7 (963) 217-82-78
+        </a>
         <a
           href="#calculator"
           class="inline-flex items-center gap-2 bg-olive hover:bg-olive-hover text-white text-sm font-medium px-5 py-2.5 rounded transition-colors"
@@ -132,7 +143,13 @@
         <a href="#about-studio" class="mobile-nav-link px-3 py-2.5 text-base font-medium text-graphite hover:bg-sand rounded">О студии</a>
         <a href="#contact-form" class="mobile-nav-link px-3 py-2.5 text-base font-medium text-graphite hover:bg-sand rounded">Контакты</a>
       </nav>
-      <div class="pt-2">
+      <div class="pt-2 border-t border-stoneBeige/60 flex flex-col gap-2.5">
+        <a
+          href="tel:+79632178278"
+          class="px-3 py-2 text-sm font-semibold text-graphite"
+        >
+          Тел.: +7 (963) 217-82-78
+        </a>
         <a
           href="#calculator"
           class="mobile-nav-link w-full inline-flex items-center justify-center bg-olive hover:bg-olive-hover text-white text-sm font-medium px-5 py-3 rounded transition-colors"
@@ -152,7 +169,7 @@
         <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           <div class="lg:col-span-6 space-y-6">
             <div class="inline-block px-3.5 py-1.5 bg-sand text-mutedText text-xs uppercase tracking-widest font-medium rounded-sm">
-              Студия корпусной мебели на заказ
+              Студия корпусной мебели PASO
             </div>
 
             <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-graphite leading-[1.1]">
@@ -184,7 +201,7 @@
             <div class="relative overflow-hidden rounded bg-sand aspect-[4/3] border border-stoneBeige">
               <img
                 src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1400&q=85"
-                alt="Современный интерьер кухни и корпусной мебели по индивидуальному проекту"
+                alt="Современный интерьер кухни и корпусной мебели студии PASO"
                 class="w-full h-full object-cover"
               />
             </div>
@@ -232,7 +249,7 @@
     <section id="catalog" class="py-16 sm:py-24 border-b border-stoneBeige/60">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl mb-12">
-          <span class="text-xs uppercase tracking-widest text-olive font-semibold">Каталог направлений</span>
+          <span class="text-xs uppercase tracking-widest text-olive font-semibold">Каталог направлений PASO</span>
           <h2 class="font-serif text-3xl sm:text-4xl font-bold text-graphite mt-2">
             Какую мебель мы изготавливаем
           </h2>
@@ -242,7 +259,7 @@
         </div>
 
         <div id="catalogGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          <!-- Генерируется из CONFIG.catalogCategories -->
+          <!-- Генерируется скриптом -->
         </div>
       </div>
     </section>
@@ -405,7 +422,7 @@
     <section id="calculator" class="py-16 sm:py-24 border-b border-stoneBeige/60">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mb-12">
-          <span class="text-xs uppercase tracking-widest text-olive font-semibold">Онлайн-оценка проекта</span>
+          <span class="text-xs uppercase tracking-widest text-olive font-semibold">Онлайн-оценка проекта PASO</span>
           <h2 class="font-serif text-3xl sm:text-4xl font-bold text-graphite mt-2">
             Рассчитайте примерную стоимость мебели
           </h2>
@@ -556,7 +573,7 @@
               <span class="text-xs font-semibold uppercase tracking-wider text-olive block mb-2">Шаг 4</span>
               <h3 class="font-serif text-2xl font-bold text-graphite mb-3">Материалы фасадов</h3>
               <div id="calcFacadeButtons" class="grid sm:grid-cols-2 gap-3">
-                <!-- Генерируется скриптом с учётом зависимостей от категории -->
+                <!-- Генерируется скриптом -->
               </div>
             </div>
 
@@ -576,7 +593,7 @@
 
             <hr class="border-stoneBeige/70" />
 
-            <!-- Шаг 6. Дополнительные параметры (условное отображение) -->
+            <!-- Шаг 6. Дополнительные параметры -->
             <div>
               <span class="text-xs font-semibold uppercase tracking-wider text-olive block mb-2">Шаг 6</span>
               <h3 class="font-serif text-2xl font-bold text-graphite mb-4">Дополнительные параметры</h3>
@@ -658,7 +675,7 @@
               <!-- Динамическая схема пропорций -->
               <div class="bg-milk border border-stoneBeige/70 rounded p-4 flex flex-col items-center justify-center min-h-[240px]">
                 <svg id="furnitureSchematicSvg" viewBox="0 0 360 250" class="w-full max-w-[340px] h-auto" role="img" aria-label="Схематичное представление габаритов мебели">
-                  <!-- Отрисовывается динамически в renderSchematicSvg() -->
+                  <!-- Отрисовывается динамически -->
                 </svg>
                 <p class="text-[11px] text-mutedText text-center mt-2">
                   Схематичная иллюстрация пропорций по выбранным габаритам. Точный чертёж разрабатывается при проектировании.
@@ -706,7 +723,7 @@
                 </div>
 
                 <p id="priceDisclaimerText" class="text-xs text-mutedText mt-2 leading-relaxed">
-                  Расчёт выполнен в демонстрационном режиме по условным ставкам. Итоговая стоимость зависит от точной деталировки, количества деталей, распила, присадки и выбранных декоров.
+                  Расчёт ориентировочный. Итоговая стоимость зависит от точной деталировки, количества деталей, распила, присадки и выбранных декоров.
                 </p>
 
                 <button
@@ -729,7 +746,7 @@
     <section id="portfolio" class="py-16 sm:py-24 bg-sand/40 border-b border-stoneBeige/60">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl mb-10">
-          <span class="text-xs uppercase tracking-widest text-olive font-semibold">Примеры и концепты</span>
+          <span class="text-xs uppercase tracking-widest text-olive font-semibold">Примеры и концепты PASO</span>
           <h2 class="font-serif text-3xl sm:text-4xl font-bold text-graphite mt-2">
             Наши проекты и концептуальные решения
           </h2>
@@ -761,11 +778,10 @@
             Как мы работаем
           </h2>
           <p class="text-mutedText mt-3 text-sm sm:text-base leading-relaxed">
-            Вы общаетесь напрямую с конструктором, который сопровождает проект от первых замеров и чертежей до сборки готовой мебели у вас дома.
+            В студии PASO вы общаетесь напрямую с конструктором, который сопровождает проект от первых замеров и чертежей до сборки готовой мебели у вас дома.
           </p>
         </div>
 
-        <!-- Горизонтальная последовательность на ПК, вертикальная на телефоне -->
         <div class="grid md:grid-cols-2 lg:grid-cols-6 gap-5">
           <div class="bg-cardBg border border-stoneBeige rounded p-6 flex flex-col justify-between">
             <div>
@@ -837,12 +853,12 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-12 gap-10 items-start">
           <div class="lg:col-span-5">
-            <span class="text-xs uppercase tracking-widest text-olive font-semibold">Преимущества формата</span>
+            <span class="text-xs uppercase tracking-widest text-olive font-semibold">О студии PASO</span>
             <h2 class="font-serif text-3xl sm:text-4xl font-bold text-graphite mt-2">
               Почему такой подход удобен
             </h2>
             <p class="text-mutedText mt-4 text-sm sm:text-base leading-relaxed">
-              Мы не строим из себя гигантскую фабрику с дорогими салонами. Наша ценность — в грамотном инженерном конструировании, оптимизации стоимости материалов и личной ответственности за сборку.
+              Мы делаем ставку на грамотное инженерное конструирование, оптимизацию стоимости материалов и личную ответственность за сборку каждого изделия.
             </p>
           </div>
 
@@ -903,13 +919,13 @@
     </section>
 
     <!-- =====================================================================
-         БЛОК 10. ФИНАЛЬНЫЙ ПРИЗЫВ И ФОРМА ЗАЯВКИ
+         БЛОК 10. ФИНАЛЬНЫЙ ПРИЗЫВ И ФОРМА ЗАЯВКИ (ПОЧТА + TELEGRAM)
     ====================================================================== -->
     <section id="contact-form" class="py-16 sm:py-24 bg-sand/50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           <div class="lg:col-span-5 space-y-6">
-            <span class="text-xs uppercase tracking-widest text-olive font-semibold">Обсуждение проекта</span>
+            <span class="text-xs uppercase tracking-widest text-olive font-semibold">Связь со студией PASO</span>
             <h2 class="font-serif text-3xl sm:text-5xl font-bold text-graphite leading-tight">
               Есть идея? Давайте превратим её в проект
             </h2>
@@ -927,35 +943,80 @@
               </button>
             </div>
 
+            <!-- Прямые кликабельные контакты студии PASO -->
             <div class="pt-4 space-y-3 border-t border-stoneBeige text-sm">
               <div class="text-xs font-semibold uppercase tracking-wider text-mutedText">
-                Каналы связи (заглушки для ваших контактов)
+                Прямые контакты конструктора
               </div>
-              <div class="p-3.5 bg-cardBg border border-stoneBeige rounded">
-                <span class="text-xs text-mutedText block">Телефон:</span>
-                <span class="font-medium text-graphite" data-studio-phone>+79632178278</span>
-              </div>
-              <div class="p-3.5 bg-cardBg border border-stoneBeige rounded">
-                <span class="text-xs text-mutedText block">Электронная почта:</span>
-                <span class="font-medium text-graphite" data-studio-email>[EMAIL СТУДИИ]</span>
-              </div>
-              <div class="p-3.5 bg-cardBg border border-stoneBeige rounded">
-                <span class="text-xs text-mutedText block">Мессенджеры:</span>
-                <div class="flex flex-wrap gap-3 mt-1 font-medium text-olive">
-                  <a href="#contact-form" class="hover:underline">[TELEGRAM]</a>
-                  <span>@Pavlin_AS</span>
-                  <a href="#contact-form" class="hover:underline">[WHATSAPP]</a>
-                  <span>•</span>
-                  <a href="#contact-form" class="hover:underline">[ВКОНТАКТЕ]</a>
+
+              <div class="p-3.5 bg-cardBg border border-stoneBeige rounded flex items-center justify-between">
+                <div>
+                  <span class="text-xs text-mutedText block">Телефон и WhatsApp:</span>
+                  <a href="tel:+79632178278" class="font-semibold text-graphite hover:text-olive transition-colors">
+                    +7 (963) 217-82-78
+                  </a>
                 </div>
+                <a
+                  href="https://wa.me/79632178278"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="px-3 py-1.5 bg-sand hover:bg-stoneBeige text-graphite text-xs font-medium rounded transition-colors"
+                >
+                  Написать в WhatsApp
+                </a>
+              </div>
+
+              <div class="p-3.5 bg-cardBg border border-stoneBeige rounded flex items-center justify-between">
+                <div>
+                  <span class="text-xs text-mutedText block">Telegram:</span>
+                  <a
+                    href="https://t.me/Pavlin_AS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="font-semibold text-olive hover:underline"
+                  >
+                    @Pavlin_AS
+                  </a>
+                </div>
+                <a
+                  href="https://t.me/Pavlin_AS"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="px-3 py-1.5 bg-olive text-white hover:bg-olive-hover text-xs font-medium rounded transition-colors"
+                >
+                  Открыть Telegram
+                </a>
+              </div>
+
+              <div class="p-3.5 bg-cardBg border border-stoneBeige rounded flex items-center justify-between">
+                <div>
+                  <span class="text-xs text-mutedText block">Электронная почта студии:</span>
+                  <a
+                    href="mailto:pavlinov_as@mail.ru"
+                    class="font-semibold text-graphite hover:text-olive transition-colors"
+                  >
+                    pavlinov_as@mail.ru
+                  </a>
+                </div>
+                <a
+                  href="https://vk.ru/id172271841"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="px-3 py-1.5 bg-sand hover:bg-stoneBeige text-graphite text-xs font-medium rounded transition-colors"
+                >
+                  ВКонтакте
+                </a>
               </div>
             </div>
           </div>
 
           <div class="lg:col-span-7 bg-cardBg border border-stoneBeige rounded p-6 sm:p-9">
-            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-graphite mb-6">
-              Форма заявки на расчёт
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-graphite mb-2">
+              Отправить заявку на расчёт
             </h3>
+            <p class="text-xs sm:text-sm text-mutedText mb-6">
+              Заявка со всеми выбранными параметрами отправится на почту студии <strong>pavlinov_as@mail.ru</strong> и сформирует готовое сообщение в Telegram <strong>@Pavlin_AS</strong>.
+            </p>
 
             <form id="projectApplicationForm" novalidate class="space-y-5">
               <!-- Сводка проекта перед отправкой -->
@@ -977,6 +1038,7 @@
                   </label>
                   <input
                     id="clientNameInput"
+                    name="name"
                     type="text"
                     required
                     placeholder="Как к вам обращаться"
@@ -991,9 +1053,10 @@
                   </label>
                   <input
                     id="clientContactInput"
+                    name="contact"
                     type="text"
                     required
-                    placeholder="Телефон, Telegram или Email"
+                    placeholder="+7 (___) ___-__-__ или @telegram"
                     class="w-full px-4 py-3 bg-milk border border-stoneBeige rounded text-sm text-graphite"
                   />
                   <p id="errClientContact" class="hidden text-xs text-terracotta mt-1.5"></p>
@@ -1006,6 +1069,7 @@
                 </label>
                 <textarea
                   id="clientCommentInput"
+                  name="comment"
                   rows="3"
                   placeholder="Опишите задачу, пожелания по материалам или особенности помещения..."
                   class="w-full px-4 py-3 bg-milk border border-stoneBeige rounded text-sm text-graphite"
@@ -1020,10 +1084,18 @@
                 <div class="flex flex-wrap items-center gap-3">
                   <label class="inline-flex items-center gap-2 px-4 py-2.5 bg-milk hover:bg-sand border border-stoneBeige rounded text-xs sm:text-sm font-medium text-graphite cursor-pointer transition-colors">
                     <span>📎 Выбрать файл</span>
-                    <input id="clientFileInput" type="file" accept="image/*,.pdf,.dwg" class="hidden" />
+                    <input id="clientFileInput" name="attachment" type="file" accept="image/*,.pdf,.dwg" class="hidden" />
                   </label>
-                  <span id="fileStatusText" class="text-xs text-mutedText">Файл не выбран (допускаются фото, эскизы, PDF)</span>
+                  <span id="fileStatusText" class="text-xs text-mutedText">Файл не выбран (фото, эскиз от руки или PDF)</span>
                 </div>
+              </div>
+
+              <!-- Выбор способа дублирования в мессенджер -->
+              <div class="p-3.5 bg-milk border border-stoneBeige rounded">
+                <label class="flex items-center gap-2.5 cursor-pointer text-xs sm:text-sm font-medium text-graphite">
+                  <input id="chkOpenTelegramInstant" type="checkbox" checked class="w-4 h-4 accent-olive" />
+                  <span>После отправки на почту сразу открыть диалог в Telegram (@Pavlin_AS) с текстом моего расчёта</span>
+                </label>
               </div>
 
               <div>
@@ -1038,26 +1110,43 @@
 
               <button
                 type="submit"
+                id="submitAppBtn"
                 class="w-full bg-olive hover:bg-olive-hover text-white font-medium py-4 px-6 rounded transition-colors text-sm sm:text-base"
               >
-                Отправить заявку на расчёт
+                Отправить заявку на почту и в Telegram
               </button>
 
-              <!-- Результат обработки формы (честный статус без имитации фейковой отправки) -->
+              <!-- Блок статуса отправки и быстрых кнопок -->
               <div id="formResultBox" class="hidden p-5 bg-olive-light border border-olive rounded space-y-3 fade-in">
                 <div class="font-semibold text-sm text-graphite" id="formResultTitle">
-                  Сводка заявки подготовлена
+                  Заявка обработана!
                 </div>
-                <p class="text-xs text-mutedText leading-relaxed" id="formResultDescription">
-                  Серверный обработчик формы (`CONFIG.formEndpoint`) пока не подключён. Чтобы не имитировать фиктивную отправку, мы собрали вашу заявку и параметры расчёта в готовый текст — скопируйте его одной кнопкой ниже или укажите URL вашего обработчика в настройках.
-                </p>
-                <div class="flex flex-wrap gap-3">
+                <p class="text-xs text-mutedText leading-relaxed" id="formResultDescription"></p>
+                <div class="flex flex-wrap gap-2.5 pt-1">
+                  <a
+                    id="directTelegramLinkBtn"
+                    href="https://t.me/Pavlin_AS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 bg-olive text-white text-xs font-medium px-4 py-2.5 rounded hover:bg-olive-hover transition-colors"
+                  >
+                    Написать в Telegram (@Pavlin_AS) →
+                  </a>
+                  <a
+                    id="directWhatsappLinkBtn"
+                    href="https://wa.me/79632178278"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 bg-cardBg border border-stoneBeige text-graphite text-xs font-medium px-4 py-2.5 rounded hover:bg-sand transition-colors"
+                  >
+                    Отправить в WhatsApp →
+                  </a>
                   <button
                     type="button"
                     id="copyApplicationBtn"
-                    class="inline-flex items-center gap-1.5 bg-olive text-white text-xs font-medium px-4 py-2.5 rounded hover:bg-olive-hover transition-colors"
+                    class="inline-flex items-center gap-1.5 bg-cardBg border border-stoneBeige text-graphite text-xs font-medium px-4 py-2.5 rounded hover:bg-sand transition-colors"
                   >
-                    Скопировать текст заявки со сводкой
+                    Скопировать текст заявки
                   </button>
                 </div>
               </div>
@@ -1075,8 +1164,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-12 gap-10 pb-10 border-b border-white/10">
         <div class="md:col-span-5 space-y-3">
-          <a href="#" class="font-serif text-2xl font-bold text-white tracking-tight" data-studio-name>
-            СТУДИЯ PASO
+          <a href="#" class="font-serif text-3xl font-bold text-white tracking-wider">
+            PASO
           </a>
           <p class="text-sm text-stoneBeige/80 max-w-sm leading-relaxed">
             Студия изготовления корпусной мебели по индивидуальным размерам. Проектирование, оптимизация стоимости и ответственная сборка.
@@ -1096,16 +1185,30 @@
         </div>
 
         <div class="md:col-span-4 space-y-2.5 text-sm">
-          <div class="text-xs font-semibold uppercase tracking-wider text-oak">Контакты</div>
-          <p class="text-stoneBeige/85">Регион: <span data-studio-city>[ГОРОД / РЕГИОН]</span></p>
-          <p class="text-stoneBeige/85">Телефон: <span data-studio-phone>+79632178278</span></p>
-          <p class="text-stoneBeige/85">Email: <span data-studio-email>[EMAIL СТУДИИ]</span></p>
+          <div class="text-xs font-semibold uppercase tracking-wider text-oak">Контакты студии PASO</div>
+          <p class="text-stoneBeige/85">
+            Телефон / WhatsApp: <a href="tel:+79632178278" class="text-white hover:underline">+7 (963) 217-82-78</a>
+          </p>
+          <p class="text-stoneBeige/85">
+            Email: <a href="mailto:pavlinov_as@mail.ru" class="text-white hover:underline">pavlinov_as@mail.ru</a>
+          </p>
+          <div class="flex flex-wrap gap-4 pt-2 text-xs font-medium text-oak">
+            <a href="https://t.me/Pavlin_AS" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+              Telegram (@Pavlin_AS)
+            </a>
+            <a href="https://wa.me/79632178278" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+              WhatsApp
+            </a>
+            <a href="https://vk.ru/id172271841" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+              ВКонтакте
+            </a>
+          </div>
         </div>
       </div>
 
       <div class="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-stoneBeige/70">
         <div>
-          © <span id="currentYear"></span> <span data-studio-name>Студия PASO</span>. Все права защищены.
+          © <span id="currentYear"></span> Мебельная студия PASO. Все права защищены.
         </div>
         <div class="flex flex-wrap gap-5">
           <button type="button" onclick="openLegalModal('privacy')" class="hover:text-white underline underline-offset-4">
@@ -1136,7 +1239,7 @@
         </button>
         <div class="absolute bottom-4 left-4">
           <span class="px-3 py-1 bg-graphite/90 text-white text-xs font-medium rounded">
-            Демонстрационный концепт
+            Демонстрационный концепт PASO
           </span>
         </div>
       </div>
@@ -1181,10 +1284,10 @@
       </div>
       <div class="text-sm text-mutedText space-y-3 leading-relaxed">
         <p>
-          Данный раздел подготовлен для размещения юридических реквизитов вашей студии (<strong data-studio-name>СТУДИЯ PASO</strong>). Перед коммерческим запуском укажите здесь данные оператора персональных данных и актуальный контактный адрес (<span data-studio-email>[EMAIL СТУДИИ]</span>).
+          Мебельная студия <strong>PASO</strong> бережно относится к персональным данным пользователей. По всем вопросам обработки данных вы можете обратиться по электронной почте: <strong>pavlinov_as@mail.ru</strong> или по телефону <strong>+7 (963) 217-82-78</strong>.
         </p>
         <p>
-          Информация, передаваемая через форму расчёта стоимости (имя, контактные данные, габариты мебели и приложенные эскизы), используется исключительно для подготовки предварительной оценки проекта и связи с клиентом.
+          Информация, передаваемая через форму расчёта стоимости (имя, контактные данные, габариты мебели и приложенные эскизы), используется исключительно для подготовки предварительной оценки проекта и обратной связи с клиентом.
         </p>
       </div>
       <div class="pt-2 flex justify-end">
@@ -1196,24 +1299,28 @@
   </div>
 
   <!-- =====================================================================
-       ЕДИНЫЙ КОНФИГУРАЦИОННЫЙ И ВЫЧИСЛИТЕЛЬНЫЙ СКРИПТ
+       СКРИПТ КАЛЬКУЛЯТОРА И ОТПРАВКИ ЗАЯВОК (EMAIL + TELEGRAM)
   ====================================================================== -->
   <script>
-    /**
-     * 1. КОНФИГУРАЦИЯ СТУДИИ И ТАРИФОВ КАЛЬКУЛЯТОРА
-     * Все заглушки, расценки, коэффициенты и диапазоны размеров настраиваются здесь.
-     */
     const CONFIG = {
-      studioName: 'СТУДИЯ PASO',
-      city: 'Кострома / Костромской регион',
-      phone: '+79632178278',
-      email: '[EMAIL СТУДИИ]',
-      formEndpoint: '', // Укажите URL вашего серверного обработчика форм, когда он будет готов
+      studioName: 'PASO',
+      phoneDisplay: '+7 (963) 217-82-78',
+      whatsappNumber: '79632178278',
+      telegramUsername: 'Pavlin_AS',
+      telegramUrl: 'https://t.me/Pavlin_AS',
+      vkUrl: 'https://vk.ru/id172271841',
+      email: 'pavlinov_as@mail.ru',
 
-      // Режим расчёта: 'demo' (демонстрационный расчёт с предупреждением) | 'upon_request' («Требуется уточнение стоимости»)
+      // Автоматическая отправка на почту pavlinov_as@mail.ru через FormSubmit AJAX
+      formSubmitAjaxUrl: 'https://formsubmit.co/ajax/pavlinov_as@mail.ru',
+
+      // Опционально: если создадите бота в @BotFather, впишите сюда токен и ваш Chat ID
+      // для тихой фоновой отправки в Telegram. Пока поля пустые, сайт открывает диалог t.me/Pavlin_AS с готовым текстом.
+      telegramBotToken:  '8957720234:AAHgOTvQ-hx2qLpd7dC8xf0yLhtnLs8X_KE',
+      telegramChatId: '6263694551',
+
       pricingMode: 'demo',
 
-      // Условные демонстрационные ставки (легко заменить на реальные расценки)
       demoRates: {
         minOrderCost: 18000,
         baseEngineeringFee: 4500,
@@ -1567,7 +1674,7 @@
         },
         {
           q: 'Можно ли изготовить мебель по фотографии?',
-          a: 'Да. Пришлите фотографию понравившегося интерьера, эскиз от руки или проект дизайнера. Конструктор адаптирует пропорции под ваше помещение, предложит подходящие материалы и разработает рабочий чертёж.',
+          a: 'Да. Пришлите фотографию понравившегося интерьера, эскиз от руки или проект дизайнера нам в Telegram (@Pavlin_AS) или через форму на сайте. Конструктор адаптирует пропорции под ваше помещение, предложит подходящие материалы и разработает рабочий чертёж.',
         },
         {
           q: 'Что делать, если точных размеров пока нет?',
@@ -1596,9 +1703,6 @@
       ],
     };
 
-    /**
-     * 2. СОСТОЯНИЕ ПРИЛОЖЕНИЯ
-     */
     const state = {
       categoryId: 'kitchen',
       width: 2800,
@@ -1622,18 +1726,8 @@
       latestSummaryText: '',
     };
 
-    /**
-     * 3. ИНИЦИАЛИЗАЦИЯ СТРАНИЦЫ
-     */
     document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-      // Подстановка заглушек из CONFIG
-      document.querySelectorAll('[data-studio-name]').forEach(el => el.textContent = CONFIG.studioName);
-      document.querySelectorAll('[data-studio-city]').forEach(el => el.textContent = CONFIG.city);
-      document.querySelectorAll('[data-studio-phone]').forEach(el => el.textContent = CONFIG.phone);
-      document.querySelectorAll('[data-studio-email]').forEach(el => el.textContent = CONFIG.email);
-
       initMobileMenu();
       initComparisonToggle();
       renderCatalog();
@@ -1645,9 +1739,6 @@
       initContactForm();
     });
 
-    /**
-     * Мобильное меню
-     */
     function initMobileMenu() {
       const btn = document.getElementById('mobileMenuBtn');
       const panel = document.getElementById('mobileMenuPanel');
@@ -1669,9 +1760,6 @@
       });
     }
 
-    /**
-     * Блок 4: Сравнение уровней исполнения
-     */
     function initComparisonToggle() {
       const toggleBtn = document.getElementById('toggleCompareBtn');
       const closeBtn = document.getElementById('closeCompareBtn');
@@ -1699,9 +1787,6 @@
       document.getElementById('calculator').scrollIntoView({ behavior: 'smooth' });
     }
 
-    /**
-     * Блок 3: Рендер каталога мебели
-     */
     function renderCatalog() {
       const grid = document.getElementById('catalogGrid');
       grid.innerHTML = CONFIG.catalogCards.map(card => `
@@ -1757,9 +1842,6 @@
       document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
     }
 
-    /**
-     * Блок 5: Калькулятор мебели
-     */
     function selectCalculatorCategory(categoryId, isInitial = false) {
       const cat = CONFIG.categories[categoryId];
       state.categoryId = categoryId;
@@ -1845,7 +1927,6 @@
         });
       });
 
-      // Чекбоксы опций
       const bindCheckbox = (id, key) => {
         document.getElementById(id).addEventListener('change', (e) => {
           state.options[key] = e.target.checked;
@@ -1858,7 +1939,6 @@
       bindCheckbox('chkPullOuts', 'pullOuts');
       bindCheckbox('chkAssembly', 'assembly');
 
-      // Кнопка передачи параметров в форму заявки
       document.getElementById('transferToFormBtn').addEventListener('click', () => {
         document.getElementById('chkAttachSummary').checked = true;
         document.getElementById('formProjectSummaryPreview').classList.remove('hidden');
@@ -1888,7 +1968,6 @@
     function renderCalculatorControls() {
       const cat = CONFIG.categories[state.categoryId];
 
-      // 1. Кнопки категорий
       document.getElementById('calcCategoryButtons').innerHTML = Object.keys(CONFIG.categories).map(catKey => {
         const item = CONFIG.categories[catKey];
         const active = state.categoryId === catKey;
@@ -1907,7 +1986,6 @@
         `;
       }).join('');
 
-      // 3. Кнопки уровня исполнения
       document.getElementById('calcTierButtons').innerHTML = Object.keys(CONFIG.tiers).map(tKey => {
         const tObj = CONFIG.tiers[tKey];
         const active = state.tier === tKey;
@@ -1930,7 +2008,6 @@
         `;
       }).join('');
 
-      // 4. Материалы фасадов с зависимостями от категории
       document.getElementById('calcFacadeButtons').innerHTML = Object.keys(CONFIG.facadeMaterials).map(mKey => {
         const mObj = CONFIG.facadeMaterials[mKey];
         const allowed = cat.allowedFacades.includes(mKey);
@@ -1957,7 +2034,6 @@
         `;
       }).join('');
 
-      // 5. Фурнитура
       document.getElementById('calcHardwareButtons').innerHTML = Object.keys(CONFIG.hardwareClasses).map(hKey => {
         const hObj = CONFIG.hardwareClasses[hKey];
         const active = state.hardwareClass === hKey;
@@ -1977,7 +2053,6 @@
         `;
       }).join('');
 
-      // 6. Условное отображение дополнительных опций
       document.getElementById('optDrawersBlock').classList.toggle('hidden', !cat.availableOptions.drawers);
       document.getElementById('optDoorsBlock').classList.toggle('hidden', !cat.availableOptions.doors);
       document.getElementById('optOpenShelvesBlock').classList.toggle('hidden', !cat.availableOptions.openShelves);
@@ -1996,7 +2071,6 @@
       document.getElementById('chkPullOuts').checked = state.options.pullOuts;
       document.getElementById('chkAssembly').checked = state.options.assembly;
 
-      // Сложность конструкции
       document.getElementById('calcComplexityButtons').innerHTML = Object.keys(CONFIG.complexityLevels).map(cKey => {
         const cObj = CONFIG.complexityLevels[cKey];
         const active = state.options.complexity === cKey;
@@ -2017,14 +2091,10 @@
       }).join('');
     }
 
-    /**
-     * Вычисление предварительной стоимости (с учётом Ш, В, Г, площади деталей, фасадов и фурнитуры)
-     */
     function recalculateAndRender() {
       const cat = CONFIG.categories[state.categoryId];
       const rates = CONFIG.demoRates;
 
-      // Валидация габаритов
       let isValid = true;
       ['width', 'height', 'depth'].forEach(dim => {
         const cap = dim.charAt(0).toUpperCase() + dim.slice(1);
@@ -2048,12 +2118,10 @@
       const hM = Math.max(100, state.height) / 1000;
       const dM = Math.max(100, state.depth) / 1000;
 
-      // Площадь деталей корпуса (перегородки, полки, горизонты — зависят от Ш, В и Г)
       const verticalsCount = Math.max(2, Math.ceil(wM / 0.6) + 1);
       const horizontalsCount = Math.max(2, Math.ceil(hM / 0.45) + 1);
       const corpusAreaM2 = ((verticalsCount * hM * dM) + (horizontalsCount * wM * dM) + (wM * hM * 0.45)) * (cat.internalDensity / 1.7);
 
-      // Площадь фасадов
       const openShelfFactor = (cat.availableOptions.openShelves && state.options.openShelves) ? 0.78 : 1.0;
       const facadeAreaM2 = wM * hM * cat.facadeCoverage * openShelfFactor;
 
@@ -2099,7 +2167,6 @@
       const minPrice = Math.round((rawTotal * (1 - rates.priceSpreadPercent)) / 500) * 500;
       const maxPrice = Math.round((rawTotal * (1 + rates.priceSpreadPercent)) / 500) * 500;
 
-      // Список активных опций
       const activeExtras = [];
       if (cat.availableOptions.drawers && state.options.drawersCount > 0) activeExtras.push(`ящики: ${state.options.drawersCount} шт.`);
       if (cat.availableOptions.doors && state.options.doorsCount > 0) activeExtras.push(`двери: ${state.options.doorsCount} шт.`);
@@ -2109,7 +2176,6 @@
       if (cat.availableOptions.pullOuts && state.options.pullOuts) activeExtras.push('системы выдвижения');
       if (state.options.assembly) activeExtras.push('монтаж и доставка');
 
-      // Обновление DOM сводки
       document.getElementById('svgDimensionsBadge').textContent = `${state.width} × ${state.height} × ${state.depth} мм`;
       document.getElementById('sumCategory').textContent = cat.label;
       document.getElementById('sumDimensions').textContent = `${state.width} × ${state.height} × ${state.depth} мм`;
@@ -2129,7 +2195,7 @@
       } else if (CONFIG.pricingMode === 'demo') {
         priceEl.textContent = `~ ${minPrice.toLocaleString('ru-RU')} – ${maxPrice.toLocaleString('ru-RU')} ₽`;
         priceEl.className = 'font-serif text-3xl sm:text-4xl font-bold text-graphite mt-2';
-        priceLabelForSummary = `~ ${minPrice.toLocaleString('ru-RU')} – ${maxPrice.toLocaleString('ru-RU')} ₽ (примерный демонстрационный расчёт)`;
+        priceLabelForSummary = `~ ${minPrice.toLocaleString('ru-RU')} – ${maxPrice.toLocaleString('ru-RU')} ₽ (предварительный расчёт)`;
       } else {
         priceEl.textContent = 'Требуется уточнение стоимости';
         priceEl.className = 'font-serif text-2xl font-bold text-graphite mt-2';
@@ -2138,7 +2204,7 @@
 
       state.latestSummaryText = [
         `• Тип мебели: ${cat.label}`,
-        `• Габариты (Ш × В × Г): ${state.width} × ${state.height} × ${state.depth} мм${state.isDemoDimensions ? ' (демонстрационные размеры)' : ''}`,
+        `• Габариты (Ш × В × Г): ${state.width} × ${state.height} × ${state.depth} мм`,
         `• Уровень исполнения: ${tierObj.label}`,
         `• Материал фасадов: ${facadeMat.label}`,
         `• Фурнитура: ${hw.label}`,
@@ -2155,9 +2221,6 @@
       renderSchematicSvg();
     }
 
-    /**
-     * Схематичная визуализация пропорций мебели в SVG
-     */
     function renderSchematicSvg() {
       const svg = document.getElementById('furnitureSchematicSvg');
       const boxW = Math.min(250, Math.max(75, (state.width / 4200) * 235));
@@ -2217,9 +2280,6 @@
       `;
     }
 
-    /**
-     * Блок 6: Портфолио и фильтрация
-     */
     function renderPortfolioFilters() {
       const tabs = [
         { id: 'all', label: 'Все проекты' },
@@ -2264,7 +2324,7 @@
             >
               <img src="${p.image}" alt="${p.title}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
-                <span class="px-2.5 py-1 bg-graphite/85 text-white text-[11px] font-medium rounded">Концепт</span>
+                <span class="px-2.5 py-1 bg-graphite/85 text-white text-[11px] font-medium rounded">Концепт PASO</span>
                 <span class="px-2.5 py-1 bg-cardBg/90 text-graphite text-[11px] font-medium rounded">${p.tier}</span>
               </div>
             </div>
@@ -2329,9 +2389,6 @@
       document.getElementById('portfolioModal').classList.add('hidden');
     }
 
-    /**
-     * Блок 9: Аккордеон частых вопросов
-     */
     function renderFAQ() {
       const container = document.getElementById('faqAccordion');
       container.innerHTML = CONFIG.faqList.map((item, idx) => `
@@ -2365,7 +2422,7 @@
     }
 
     /**
-     * Блок 10: Форма заявки и честная обработка отправки
+     * ОТПРАВКА ЗАЯВКИ НА ПОЧТУ (pavlinov_as@mail.ru) И В TELEGRAM (@Pavlin_AS)
      */
     function initContactForm() {
       const form = document.getElementById('projectApplicationForm');
@@ -2382,7 +2439,7 @@
         const file = e.target.files && e.target.files[0];
         fileStatus.textContent = file
           ? `Выбран файл: ${file.name} (${Math.round(file.size / 1024)} КБ)`
-          : 'Файл не выбран (допускаются фото, эскизы, PDF)';
+          : 'Файл не выбран (фото, эскиз от руки или PDF)';
       });
 
       form.addEventListener('submit', async (e) => {
@@ -2392,6 +2449,7 @@
         const contactVal = document.getElementById('clientContactInput').value.trim();
         const commentVal = document.getElementById('clientCommentInput').value.trim();
         const consent = document.getElementById('chkPrivacyConsent').checked;
+        const openTgInstant = document.getElementById('chkOpenTelegramInstant').checked;
 
         const errName = document.getElementById('errClientName');
         const errContact = document.getElementById('errClientContact');
@@ -2419,58 +2477,117 @@
         }
         if (hasErr) return;
 
+        const submitBtn = document.getElementById('submitAppBtn');
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Отправка заявки на почту и в Telegram...';
+
         const file = fileInput.files && fileInput.files[0];
         const compiledPayload = [
-          `Заявка на расчёт мебели — ${CONFIG.studioName}`,
-          `Имя: ${nameVal}`,
-          `Контакт: ${contactVal}`,
-          commentVal ? `Комментарий: ${commentVal}` : '',
-          file ? `Вложенный файл: ${file.name}` : '',
-          chkAttach.checked ? `\nСводка параметров проекта:\n${state.latestSummaryText}` : '',
+          `📐 Новая заявка на расчёт мебели — студия PASO`,
+          `👤 Имя: ${nameVal}`,
+          `📞 Контакт: ${contactVal}`,
+          commentVal ? `💬 Комментарий: ${commentVal}` : '',
+          file ? `📎 Приложен файл: ${file.name} (перешлите его в чат при необходимости)` : '',
+          chkAttach.checked ? `\n--- Параметры из калькулятора ---\n${state.latestSummaryText}` : '',
         ].filter(Boolean).join('\n');
 
-        const resultBox = document.getElementById('formResultBox');
-        const copyBtn = document.getElementById('copyApplicationBtn');
+        // Подготовка ссылок с предзаполненным текстом для Telegram (@Pavlin_AS) и WhatsApp
+        const tgDeepLink = `https://t.me/${CONFIG.telegramUsername}?text=${encodeURIComponent(compiledPayload)}`;
+        const waDeepLink = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(compiledPayload)}`;
 
-        // Если подключён реальный обработчик формы — отправляем POST-запрос
-        if (CONFIG.formEndpoint) {
-          try {
-            const fd = new FormData();
-            fd.append('name', nameVal);
-            fd.append('contact', contactVal);
-            fd.append('comment', commentVal);
-            if (chkAttach.checked) fd.append('summary', state.latestSummaryText);
-            if (file) fd.append('attachment', file);
+        document.getElementById('directTelegramLinkBtn').href = tgDeepLink;
+        document.getElementById('directWhatsappLinkBtn').href = waDeepLink;
 
-            const res = await fetch(CONFIG.formEndpoint, { method: 'POST', body: fd });
-            if (res.ok) {
-              document.getElementById('formResultTitle').textContent = 'Заявка успешно отправлена';
-              document.getElementById('formResultDescription').textContent = 'Мы получили параметры вашего проекта и свяжемся с вами для обсуждения деталей.';
-              resultBox.classList.remove('hidden');
-              return;
-            }
-          } catch (_) {
-            // Переход к резервному режиму со сводкой
+        let emailSentOk = false;
+        let tgBotSentOk = false;
+
+        // 1. Отправка на почту pavlinov_as@mail.ru через FormSubmit
+        try {
+          const emailFormData = new FormData();
+          emailFormData.append('_subject', `Заявка на расчёт мебели PASO от ${nameVal}`);
+          emailFormData.append('Имя_клиента', nameVal);
+          emailFormData.append('Контакт', contactVal);
+          if (commentVal) emailFormData.append('Комментарий', commentVal);
+          if (chkAttach.checked) emailFormData.append('Расчёт_калькулятора', state.latestSummaryText);
+          if (file) emailFormData.append('attachment', file);
+
+          const emailResponse = await fetch(CONFIG.formSubmitAjaxUrl, {
+            method: 'POST',
+            headers: { Accept: 'application/json' },
+            body: emailFormData,
+          });
+          if (emailResponse.ok) {
+            emailSentOk = true;
           }
+        } catch (_) {
+          emailSentOk = false;
         }
 
-        // Показываем подготовленную сводку (без обмана пользователя о фейковой отправке)
+        // 2. Если в CONFIG задан Telegram Bot Token + Chat ID — тихая отправка в Telegram Bot API
+        if (CONFIG.telegramBotToken && CONFIG.telegramChatId) {
+          try {
+            const tgRes = await fetch(`https://api.telegram.org/bot${CONFIG.telegramBotToken}/sendMessage`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                chat_id: CONFIG.telegramChatId,
+                text: compiledPayload,
+              }),
+            });
+            if (tgRes.ok) tgBotSentOk = true;
+
+            if (file) {
+              const docData = new FormData();
+              docData.append('chat_id', CONFIG.telegramChatId);
+              docData.append('document', file);
+              docData.append('caption', `Файл от клиента: ${nameVal} (${contactVal})`);
+              await fetch(`https://api.telegram.org/bot${CONFIG.telegramBotToken}/sendDocument`, {
+                method: 'POST',
+                body: docData,
+              });
+            }
+          } catch (_) {}
+        }
+
+        // 3. Если включена галочка мгновенного перехода в диалог Telegram @Pavlin_AS — открываем окно
+        if (openTgInstant) {
+          window.open(tgDeepLink, '_blank');
+        }
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+
+        const resultBox = document.getElementById('formResultBox');
+        const resultTitle = document.getElementById('formResultTitle');
+        const resultDesc = document.getElementById('formResultDescription');
+        const copyBtn = document.getElementById('copyApplicationBtn');
+
         resultBox.classList.remove('hidden');
+
+        if (emailSentOk && tgBotSentOk) {
+          resultTitle.textContent = '✓ Заявка успешно отправлена на почту и в Telegram студии PASO!';
+          resultDesc.textContent = 'Мы получили параметры вашего проекта и свяжемся с вами в ближайшее время.';
+        } else if (emailSentOk) {
+          resultTitle.textContent = '✓ Заявка отправлена на почту pavlinov_as@mail.ru и подготовлена для Telegram!';
+          resultDesc.textContent = 'Нажмите кнопку «Написать в Telegram (@Pavlin_AS)» ниже, чтобы сразу продублировать расчёт и прислать фото/эскиз в личный диалог с конструктором.';
+        } else {
+          resultTitle.textContent = 'Сводка проекта готова к отправке в Telegram (@Pavlin_AS) и на почту';
+          resultDesc.textContent = 'Нажмите кнопку Telegram или WhatsApp ниже — откроется диалог с конструктором с уже заполненными параметрами вашего расчёта.';
+        }
+
         copyBtn.onclick = async () => {
           try {
             await navigator.clipboard.writeText(compiledPayload);
-            copyBtn.textContent = '✓ Сводка скопирована в буфер обмена';
+            copyBtn.textContent = '✓ Текст скопирован';
             setTimeout(() => {
-              copyBtn.textContent = 'Скопировать текст заявки со сводкой';
+              copyBtn.textContent = 'Скопировать текст заявки';
             }, 2500);
           } catch (_) {}
         };
       });
     }
 
-    /**
-     * Правовые модальные окна в подвале
-     */
     function openLegalModal(type) {
       document.getElementById('legalModalTitle').textContent =
         type === 'privacy' ? 'Политика конфиденциальности' : 'Обработка персональных данных';
