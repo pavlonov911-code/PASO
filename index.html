@@ -1,486 +1,2485 @@
 <!DOCTYPE html>
 <html lang="ru" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>БАЗИС-МЕБЕЛЬ 44 — Инженерное производство мебели на заказ в Костроме</title>
-  <meta name="description" content="Кухни, шкафы-купе, гардеробные и прихожие на заказ в Костроме от инженеров-конструкторов. Точный 3D-проект в Базис-Мебельщик, ЧПУ-раскрой без сколов, цены без накруток салонов.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[НАЗВАНИЕ СТУДИИ] — Корпусная мебель по индивидуальным размерам</title>
+  <meta
+    name="description"
+    content="Проектируем кухни, шкафы, прихожие и рабочие кабинеты по индивидуальным размерам — от первого чертежа до сборки у вас дома. Два уровня исполнения."
+  />
+
+  <!-- Шрифты: выразительный засечковый для заголовков и нейтральный гротеск для текста -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: { sans: ['Inter', 'sans-serif'] },
           colors: {
-            brand: {
-              50: '#fdf8f3',
-              100: '#f9ede0',
-              500: '#d97706',
-              600: '#b45309',
-              900: '#1c1917'
-            }
-          }
-        }
-      }
-    }
+            milk: '#F7F4EF',
+            cardBg: '#FDFBF7',
+            sand: '#EBE5DA',
+            stoneBeige: '#D8CFC2',
+            oak: '#B89772',
+            graphite: '#1E1E1C',
+            mutedText: '#57544E',
+            olive: {
+              DEFAULT: '#55654E',
+              hover: '#44523E',
+              light: '#EBF0E8',
+            },
+            terracotta: {
+              DEFAULT: '#A45A44',
+              light: '#F7ECE8',
+            },
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
   </script>
+
+  <style>
+    body {
+      background-color: #F7F4EF;
+      color: #1E1E1C;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    h1, h2, h3, .font-heading {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+    :focus-visible {
+      outline: 2px solid #55654E;
+      outline-offset: 2px;
+    }
+    input[type='range'] {
+      accent-color: #55654E;
+    }
+    .fade-in {
+      animation: fadeIn 0.25s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
-<body class="bg-stone-950 text-stone-100 font-sans antialiased selection:bg-amber-500 selection:text-stone-950">
 
-  <!-- Верхняя панель акции -->
-  <div class="bg-amber-500 text-stone-950 text-xs sm:text-sm font-semibold py-2.5 px-4 text-center">
-    🔥 АКЦИЯ В КОСТРОМЕ: Возьмем еще 3 заказа в этом месяце с минимальной наценкой 15% за фото- и видеоотзыв в портфолио!
-    <a href="#calculator" class="underline ml-2 font-bold hover:text-stone-800">Рассчитать со скидкой →</a>
-  </div>
+<body class="bg-milk text-graphite antialiased selection:bg-olive selection:text-white min-h-screen flex flex-col">
 
-  <!-- Навигация -->
-  <header class="sticky top-0 z-50 bg-stone-950/90 backdrop-blur-md border-b border-stone-800">
+  <!-- =====================================================================
+       БЛОК 1. ШАПКА САЙТА
+  ====================================================================== -->
+  <header class="sticky top-0 z-40 bg-milk/95 backdrop-blur-sm border-b border-stoneBeige/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-lg bg-amber-500 flex items-center justify-center text-stone-950 font-extrabold text-xl">
-          Б44
-        </div>
-        <div>
-          <span class="font-extrabold text-lg tracking-tight block leading-none text-white">БАЗИС-МЕБЕЛЬ 44</span>
-          <span class="text-xs text-stone-400">Мастерская Павлинова и Соколова • Кострома</span>
-        </div>
+      <a href="#" class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-graphite hover:text-olive transition-colors" data-studio-name>
+        [НАЗВАНИЕ СТУДИИ]
       </a>
 
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-stone-300">
-        <a href="#catalog" class="hover:text-amber-400 transition">Что мы делаем</a>
-        <a href="#advantages" class="hover:text-amber-400 transition">Инженерный подход</a>
-        <a href="#calculator" class="hover:text-amber-400 transition">Калькулятор цены</a>
-        <a href="#steps" class="hover:text-amber-400 transition">Этапы работы</a>
-        <a href="#contacts" class="hover:text-amber-400 transition">Контакты</a>
+      <!-- Десктопное меню -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-graphite/85" aria-label="Основная навигация">
+        <a href="#catalog" class="hover:text-olive transition-colors py-1">Мебель</a>
+        <a href="#portfolio" class="hover:text-olive transition-colors py-1">Наши проекты</a>
+        <a href="#process" class="hover:text-olive transition-colors py-1">Как работаем</a>
+        <a href="#about-studio" class="hover:text-olive transition-colors py-1">О студии</a>
+        <a href="#contact-form" class="hover:text-olive transition-colors py-1">Контакты</a>
       </nav>
 
-      <div class="flex items-center gap-4">
-        <div class="hidden sm:block text-right">
-          <a href="tel:+79632178278" class="font-bold text-white hover:text-amber-400 transition block text-sm">+7 (963) 217-82-78</a>
-          <span class="text-xs text-emerald-400 flex items-center justify-end gap-1">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Выезд на замер — 0 ₽
-          </span>
-        </div>
-        <a href="#calculator" class="bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-sm px-4 py-2.5 rounded-lg transition shadow-lg shadow-amber-500/20">
-          Рассчитать проект
+      <!-- Кнопка справа -->
+      <div class="hidden md:flex items-center">
+        <a
+          href="#calculator"
+          class="inline-flex items-center gap-2 bg-olive hover:bg-olive-hover text-white text-sm font-medium px-5 py-2.5 rounded transition-colors"
+        >
+          <span>Рассчитать стоимость</span>
+        </a>
+      </div>
+
+      <!-- Кнопка мобильного меню -->
+      <button
+        type="button"
+        id="mobileMenuBtn"
+        class="md:hidden p-2.5 text-graphite hover:bg-sand rounded transition-colors"
+        aria-expanded="false"
+        aria-label="Открыть меню"
+      >
+        <svg id="menuIconOpen" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="menuIconClose" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Выпадающее мобильное меню -->
+    <div id="mobileMenuPanel" class="hidden md:hidden bg-milk border-b border-stoneBeige px-4 pt-2 pb-6 space-y-3">
+      <nav class="flex flex-col space-y-1" aria-label="Мобильная навигация">
+        <a href="#catalog" class="mobile-nav-link px-3 py-2.5 text-base font-medium text-graphite hover:bg-sand rounded">Мебель</a>
+        <a href="#portfolio" class="mobile-nav-link px-3 py-2.5 text-base font-medium text-graphite hover:bg-sand rounded">Наши проекты</a>
+        <a href="#process" class="mobile-nav-link px-3 py-2.5 text-base font-medium text-graphite hover:bg-sand rounded">Как работаем</a>
+        <a href="#about-studio" class="mobile-nav-link px-3 py-2.5 text-base font-medium text-graphite hover:bg-sand rounded">О студии</a>
+        <a href="#contact-form" class="mobile-nav-link px-3 py-2.5 text-base font-medium text-graphite hover:bg-sand rounded">Контакты</a>
+      </nav>
+      <div class="pt-2">
+        <a
+          href="#calculator"
+          class="mobile-nav-link w-full inline-flex items-center justify-center bg-olive hover:bg-olive-hover text-white text-sm font-medium px-5 py-3 rounded transition-colors"
+        >
+          Рассчитать стоимость
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Главный экран (Hero) -->
-  <section class="relative overflow-hidden py-16 sm:py-24 lg:py-28 border-b border-stone-800/80">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-500/15 via-stone-950 to-stone-950 -z-10"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12 items-center">
-      
-      <div class="lg:col-span-7 space-y-6">
-        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-stone-900 border border-stone-700 text-amber-400 text-xs font-semibold">
-          <span>⚙️ Дипломированные инженеры-технологи КГУ</span>
-          <span>•</span>
-          <span>ЧПУ-точность до 0,1 мм</span>
+  <main class="flex-1">
+    <!-- =====================================================================
+         БЛОК 2. ПЕРВЫЙ ЭКРАН
+    ====================================================================== -->
+    <section class="relative pt-8 pb-16 sm:py-20 lg:py-24 border-b border-stoneBeige/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div class="lg:col-span-6 space-y-6">
+            <div class="inline-block px-3.5 py-1.5 bg-sand text-mutedText text-xs uppercase tracking-widest font-medium rounded-sm">
+              Студия корпусной мебели на заказ
+            </div>
+
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-graphite leading-[1.1]">
+              Мебель по вашим размерам. Под ваш бюджет
+            </h1>
+
+            <p class="text-base sm:text-lg text-mutedText leading-relaxed max-w-xl">
+              Проектируем кухни, шкафы и корпусную мебель — от первого чертежа до сборки у вас дома.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-3.5 pt-2">
+              <a
+                href="#calculator"
+                class="inline-flex items-center justify-center gap-2 bg-olive hover:bg-olive-hover text-white font-medium px-7 py-3.5 rounded transition-colors text-sm sm:text-base"
+              >
+                <span>Рассчитать стоимость</span>
+                <span>→</span>
+              </a>
+              <a
+                href="#portfolio"
+                class="inline-flex items-center justify-center bg-transparent hover:bg-sand text-graphite border border-graphite/25 font-medium px-7 py-3.5 rounded transition-colors text-sm sm:text-base"
+              >
+                Смотреть проекты
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6">
+            <div class="relative overflow-hidden rounded bg-sand aspect-[4/3] border border-stoneBeige">
+              <img
+                src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1400&q=85"
+                alt="Современный интерьер кухни и корпусной мебели по индивидуальному проекту"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
         </div>
 
-        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
-          Корпусная мебель в Костроме <span class="text-amber-500">без наценок</span> мебельных салонов
-        </h1>
-
-        <p class="text-stone-300 text-base sm:text-lg leading-relaxed max-w-2xl">
-          Проектируем кухни, шкафы-купе и гардеробные в профессиональном САПР <strong>«Базис-Мебельщик»</strong>. Заводской раскрой и присадка на станках с ЧПУ, адресная маркировка каждой детали и чистовой монтаж точно по уровню. Вы платите за материалы и инженерную работу, а не за аренду торгового центра.
-        </p>
-
-        <div class="grid sm:grid-cols-3 gap-4 pt-2">
-          <div class="bg-stone-900/80 border border-stone-800 p-4 rounded-xl">
-            <div class="text-amber-500 font-extrabold text-2xl">0% брака</div>
-            <div class="text-xs text-stone-400 mt-1">Цифровой раскрой и ЧПУ-присадка всех отверстий по чертежам</div>
-          </div>
-          <div class="bg-stone-900/80 border border-stone-800 p-4 rounded-xl">
-            <div class="text-amber-500 font-extrabold text-2xl">До 35% выгоднее</div>
-            <div class="text-xs text-stone-400 mt-1">Работаем напрямую без шоурумов и посредников</div>
-          </div>
-          <div class="bg-stone-900/80 border border-stone-800 p-4 rounded-xl">
-            <div class="text-amber-500 font-extrabold text-2xl">От 14 дней</div>
-            <div class="text-xs text-stone-400 mt-1">Срок изготовления и чистовой сборки у вас дома</div>
-          </div>
-        </div>
-
-        <div class="flex flex-col sm:flex-row gap-4 pt-4">
-          <a href="#calculator" class="bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold px-7 py-4 rounded-xl text-center transition shadow-xl shadow-amber-500/20">
-            Узнать стоимость за 1 минуту
-          </a>
-          <a href="https://t.me/+79632178278" target="_blank" class="bg-stone-900 hover:bg-stone-800 border border-stone-700 text-white font-semibold px-7 py-4 rounded-xl text-center transition flex items-center justify-center gap-2">
-            <span>Написать конструктору в Telegram</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Карточка-визитка основателей -->
-      <div class="lg:col-span-5">
-        <div class="bg-stone-900 border border-stone-800 rounded-2xl p-6 sm:p-8 shadow-2xl relative">
-          <div class="flex items-center justify-between border-b border-stone-800 pb-4 mb-6">
+        <!-- Три коротких преимущества -->
+        <div class="grid md:grid-cols-3 gap-6 mt-12 pt-10 border-t border-stoneBeige/70">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded bg-sand flex items-center justify-center text-olive shrink-0 mt-0.5 font-serif font-bold text-lg">01</div>
             <div>
-              <h3 class="font-bold text-lg text-white">Личная ответственность мастеров</h3>
-              <p class="text-xs text-stone-400">Общаетесь напрямую с теми, кто проектирует и собирает вашу мебель</p>
+              <h2 class="font-sans font-semibold text-base text-graphite">Индивидуальные размеры</h2>
+              <p class="text-sm text-mutedText mt-1 leading-relaxed">
+                Проектируем изделия под реальную ширину, высоту и глубину вашей комнаты или ниши.
+              </p>
             </div>
-            <span class="bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs font-bold px-3 py-1 rounded-md">Кострома</span>
           </div>
 
-          <div class="space-y-5">
-            <div class="flex gap-4 items-start bg-stone-950/60 p-4 rounded-xl border border-stone-800/80">
-              <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center font-bold text-amber-400 shrink-0">
-                АП
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded bg-sand flex items-center justify-center text-olive shrink-0 mt-0.5 font-serif font-bold text-lg">02</div>
+            <div>
+              <h2 class="font-sans font-semibold text-base text-graphite">Два уровня исполнения</h2>
+              <p class="text-sm text-mutedText mt-1 leading-relaxed">
+                Практичная комплектация для оптимизации бюджета или премиальные материалы и фурнитура.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded bg-sand flex items-center justify-center text-olive shrink-0 mt-0.5 font-serif font-bold text-lg">03</div>
+            <div>
+              <h2 class="font-sans font-semibold text-base text-graphite">Проектирование и сборка одним специалистом</h2>
+              <p class="text-sm text-mutedText mt-1 leading-relaxed">
+                Конструктор разрабатывает проект, заказывает промышленный распил с присадкой и лично отвечает за сборку.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         БЛОК 3. КАТАЛОГ МЕБЕЛИ
+    ====================================================================== -->
+    <section id="catalog" class="py-16 sm:py-24 border-b border-stoneBeige/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-12">
+          <span class="text-xs uppercase tracking-widest text-olive font-semibold">Каталог направлений</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-graphite mt-2">
+            Какую мебель мы изготавливаем
+          </h2>
+          <p class="text-mutedText mt-3 text-sm sm:text-base leading-relaxed">
+            Выберите нужную категорию, чтобы перейти к расчёту по вашим размерам или посмотреть концепты проектов.
+          </p>
+        </div>
+
+        <div id="catalogGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <!-- Генерируется из CONFIG.catalogCategories -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         БЛОК 4. ДВА УРОВНЯ ИСПОЛНЕНИЯ
+    ====================================================================== -->
+    <section class="py-16 sm:py-24 bg-sand/50 border-b border-stoneBeige/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div class="max-w-2xl">
+            <span class="text-xs uppercase tracking-widest text-olive font-semibold">Комплектации</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-graphite mt-2">
+              Два уровня исполнения
+            </h2>
+            <p class="text-mutedText mt-3 text-sm sm:text-base leading-relaxed">
+              Мы одинаково тщательно конструируем и собираем мебель в обоих сегментах. Вы выбираете подходящий баланс между стоимостью материалов и сложностью отделки.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            id="toggleCompareBtn"
+            class="inline-flex items-center gap-2 self-start md:self-auto bg-cardBg hover:bg-stoneBeige/40 text-graphite border border-stoneBeige px-5 py-3 rounded text-sm font-medium transition-colors"
+          >
+            <span>Сравнить варианты</span>
+          </button>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Практичный -->
+          <div class="bg-cardBg border border-stoneBeige rounded p-7 sm:p-9 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-4 pb-5 border-b border-stoneBeige/70">
+                <div>
+                  <span class="text-xs uppercase tracking-wider text-mutedText font-medium">Экономичный сегмент</span>
+                  <h3 class="font-serif text-3xl font-bold text-graphite mt-1">Практичный</h3>
+                </div>
+                <span class="px-3 py-1 bg-sand text-graphite text-xs font-medium rounded">Рациональный бюджет</span>
               </div>
-              <div>
-                <div class="font-bold text-white">Павлинов Андрей</div>
-                <div class="text-xs text-amber-400 font-medium mb-1">Главный инженер-конструктор, замерщик</div>
-                <p class="text-xs text-stone-400 leading-relaxed">
-                  Опыт проектирования мебели и запуска цехов до 1000 м². Разрабатывает 3D-модель, конструкторскую документацию в «Базис-Мебельщик» и смету до последнего винтика.
-                </p>
-              </div>
+
+              <ul class="space-y-4 my-7 text-sm sm:text-base text-graphite/90">
+                <li class="flex items-start gap-3">
+                  <span class="text-olive font-bold">✓</span>
+                  <span>Рациональный выбор материалов.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-olive font-bold">✓</span>
+                  <span>Функциональные конструкции.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-olive font-bold">✓</span>
+                  <span>Оптимизация бюджета.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-olive font-bold">✓</span>
+                  <span>Подбор фурнитуры с учётом задач проекта.</span>
+                </li>
+              </ul>
             </div>
 
-            <div class="flex gap-4 items-start bg-stone-950/60 p-4 rounded-xl border border-stone-800/80">
-              <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center font-bold text-amber-400 shrink-0">
-                НС
-              </div>
-              <div>
-                <div class="font-bold text-white">Соколов Никита</div>
-                <div class="text-xs text-amber-400 font-medium mb-1">Руководитель сборки, монтажа и ЧПУ-контроля</div>
-                <p class="text-xs text-stone-400 leading-relaxed">
-                  Более 3 лет опыта бригадиром и оператором ЧПУ на мебельном производстве. Отвечает за идеальную геометрию корпусов, отсутствие сколов и монтаж по лазерному уровню.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-6 pt-5 border-t border-stone-800 flex items-center justify-between text-xs text-stone-400">
-            <span>📍 Приезжаем на замер с образцами ЛДСП и фасадов</span>
-            <a href="#contacts" class="text-amber-400 font-semibold hover:underline">Вызвать замерщика →</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Каталог направлений -->
-  <section id="catalog" class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-14">
-      <h2 class="text-2xl sm:text-4xl font-extrabold text-white">Изготавливаем мебель под ваши размеры с точностью до миллиметра</h2>
-      <p class="text-stone-400 mt-3 text-sm sm:text-base">Используем плиты Свеза, Egger и Kronospan, надежную фурнитуру с доводчиками и фабричные фасады на выбор (пленка ПВХ, пластик HPL/Fenix, AGT, эмаль).</p>
-    </div>
-
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="bg-stone-900 border border-stone-800 rounded-2xl p-6 flex flex-col justify-between hover:border-amber-500/50 transition">
-        <div>
-          <div class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">Хит заказов</div>
-          <h3 class="text-xl font-bold text-white mb-2">Кухни на заказ</h3>
-          <p class="text-sm text-stone-400 leading-relaxed mb-4">
-            Прямые, угловые и кухни под потолок. Влагостойкие столешницы, фасады МДФ (ПВХ, эмаль, пластик HPL, AGT), идеальная присадка под встраиваемую технику.
-          </p>
-        </div>
-        <div class="pt-4 border-t border-stone-800 flex items-center justify-between">
-          <span class="text-sm font-bold text-white">от 28 000 ₽ / п.м.</span>
-          <a href="#calculator" class="text-xs font-bold text-amber-400 hover:underline">Рассчитать →</a>
-        </div>
-      </div>
-
-      <div class="bg-stone-900 border border-stone-800 rounded-2xl p-6 flex flex-col justify-between hover:border-amber-500/50 transition">
-        <div>
-          <div class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">Хранение</div>
-          <h3 class="text-xl font-bold text-white mb-2">Шкафы-купе и распашные</h3>
-          <p class="text-sm text-stone-400 leading-relaxed mb-4">
-            Встроенные и корпусные шкафы в спальню или коридор. Зеркала в пол, скрытый крепеж, продуманные секции под одежду, обувь и бытовую технику.
-          </p>
-        </div>
-        <div class="pt-4 border-t border-stone-800 flex items-center justify-between">
-          <span class="text-sm font-bold text-white">от 35 000 ₽</span>
-          <a href="#calculator" class="text-xs font-bold text-amber-400 hover:underline">Рассчитать →</a>
-        </div>
-      </div>
-
-      <div class="bg-stone-900 border border-stone-800 rounded-2xl p-6 flex flex-col justify-between hover:border-amber-500/50 transition">
-        <div>
-          <div class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">Эргономика</div>
-          <h3 class="text-xl font-bold text-white mb-2">Гардеробные и прихожие</h3>
-          <p class="text-sm text-stone-400 leading-relaxed mb-4">
-            Задействуем каждый сантиметр ниши. Выдвижные ящики полного выдвижения, пантографы, обувницы, мягкие зоны с каретной стяжкой или рейками.
-          </p>
-        </div>
-        <div class="pt-4 border-t border-stone-800 flex items-center justify-between">
-          <span class="text-sm font-bold text-white">от 30 000 ₽</span>
-          <a href="#calculator" class="text-xs font-bold text-amber-400 hover:underline">Рассчитать →</a>
-        </div>
-      </div>
-
-      <div class="bg-stone-900 border border-stone-800 rounded-2xl p-6 flex flex-col justify-between hover:border-amber-500/50 transition">
-        <div>
-          <div class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">Для дома и офиса</div>
-          <h3 class="text-xl font-bold text-white mb-2">Рабочие зоны и ТВ-группы</h3>
-          <p class="text-sm text-stone-400 leading-relaxed mb-4">
-            Компьютерные и геймерские столы со скрытым кабель-менеджментом, детские комнаты, подвесные тумбы под ТВ и стеллажи.
-          </p>
-        </div>
-        <div class="pt-4 border-t border-stone-800 flex items-center justify-between">
-          <span class="text-sm font-bold text-white">от 18 000 ₽</span>
-          <a href="#calculator" class="text-xs font-bold text-amber-400 hover:underline">Рассчитать →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Почему мы (Инженерный подход) -->
-  <section id="advantages" class="py-16 bg-stone-900/60 border-y border-stone-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mb-12">
-        <h2 class="text-2xl sm:text-4xl font-extrabold text-white">Почему наша мебель собирается без перекосов, щелей и нервов</h2>
-        <p class="text-stone-400 mt-3 text-sm sm:text-base">Мы перенесли стандарты крупного цифрового производства в индивидуальные заказы.</p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-stone-950 border border-stone-800 p-6 rounded-2xl">
-          <div class="w-10 h-10 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold mb-4">01</div>
-          <h3 class="font-bold text-lg text-white mb-2">Проектирование в «Базис-Мебельщик»</h3>
-          <p class="text-sm text-stone-400 leading-relaxed">
-            Никаких рисунков «на коленке». Вы получаете точный 3D-проект и полную конструкторскую документацию, где каждое отверстие под петлю или направляющую рассчитано программой без человеческого фактора.
-          </p>
-        </div>
-
-        <div class="bg-stone-950 border border-stone-800 p-6 rounded-2xl">
-          <div class="w-10 h-10 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold mb-4">02</div>
-          <h3 class="font-bold text-lg text-white mb-2">ЧПУ-раскрой, ПУР/ПВХ-кромка и маркировка</h3>
-          <p class="text-sm text-stone-400 leading-relaxed">
-            Детали раскраиваются и сверлятся на промышленных станках с ЧПУ по нашим электронным картам. На каждую деталь клеится бирка с маркировкой — на монтаже у вас дома не будет гор опилок и лишних дырок.
-          </p>
-        </div>
-
-        <div class="bg-stone-950 border border-stone-800 p-6 rounded-2xl">
-          <div class="w-10 h-10 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold mb-4">03</div>
-          <h3 class="font-bold text-lg text-white mb-2">Контрольная сборка перед выездом</h3>
-          <p class="text-sm text-stone-400 leading-relaxed">
-            Мы предварительно собираем и проверяем ключевые модули в нашей мастерской, комплектуем фурнитуру и приезжаем к вам уже с готовыми узлами для быстрой и чистой установки.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Интерактивный калькулятор стоимости -->
-  <section id="calculator" class="py-16 sm:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="bg-stone-900 border border-stone-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
-      <div class="text-center max-w-2xl mx-auto mb-8">
-        <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Онлайн-смета</span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Рассчитайте ориентировочную стоимость вашей мебели</h2>
-        <p class="text-stone-400 text-sm mt-2">Выберите параметры и отправьте расчет напрямую конструктору Андрею Павлинову для точной деталировки в «Базис-Смета».</p>
-      </div>
-
-      <div class="grid md:grid-cols-12 gap-8 items-center">
-        <div class="md:col-span-7 space-y-6">
-          
-          <!-- Тип изделия -->
-          <div>
-            <label class="block text-sm font-semibold text-stone-300 mb-2">1. Что нужно изготовить?</label>
-            <div class="grid grid-cols-2 gap-3" id="typeSelector">
-              <button type="button" onclick="setProductType('Кухня на заказ', 32000, this)" class="calc-type-btn active border-2 border-amber-500 bg-amber-500/10 text-white font-semibold py-3 px-4 rounded-xl text-sm text-left transition">
-                🍳 Кухня
-              </button>
-              <button type="button" onclick="setProductType('Шкаф-купе / Распашной', 19000, this)" class="calc-type-btn border border-stone-700 bg-stone-950 text-stone-300 font-semibold py-3 px-4 rounded-xl text-sm text-left transition hover:border-stone-500">
-                🚪 Шкаф в потолок
-              </button>
-              <button type="button" onclick="setProductType('Гардеробная система', 16000, this)" class="calc-type-btn border border-stone-700 bg-stone-950 text-stone-300 font-semibold py-3 px-4 rounded-xl text-sm text-left transition hover:border-stone-500">
-                🧥 Гардеробная
-              </button>
-              <button type="button" onclick="setProductType('Прихожая / Рабочая зона', 15000, this)" class="calc-type-btn border border-stone-700 bg-stone-950 text-stone-300 font-semibold py-3 px-4 rounded-xl text-sm text-left transition hover:border-stone-500">
-                🏠 Прихожая / Стол
-              </button>
-            </div>
-          </div>
-
-          <!-- Длина в погонных метрах -->
-          <div>
-            <div class="flex justify-between text-sm font-semibold mb-2">
-              <label for="lengthRange" class="text-stone-300">2. Примерная длина по стене:</label>
-              <span class="text-amber-400 font-bold"><span id="lengthVal">3.0</span> пог. м</span>
-            </div>
-            <input id="lengthRange" type="range" min="1.0" max="6.5" step="0.5" value="3.0" oninput="updateCalculation()" class="w-full accent-amber-500 cursor-pointer">
-            <div class="flex justify-between text-xs text-stone-500 mt-1">
-              <span>1.0 м</span>
-              <span>3.5 м (средняя)</span>
-              <span>6.5 м</span>
-            </div>
-          </div>
-
-          <!-- Материал фасадов -->
-          <div>
-            <label for="facadeSelect" class="block text-sm font-semibold text-stone-300 mb-2">3. Материал фасадов и фурнитура:</label>
-            <select id="facadeSelect" onchange="updateCalculation()" class="w-full bg-stone-950 border border-stone-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500">
-              <option value="1.0">Практичный: ЛДСП Egger / Свеза в кромке ПВХ 2 мм</option>
-              <option value="1.25" selected>Оптимальный: МДФ в пленке ПВХ + петли с доводчиками</option>
-              <option value="1.45">Премиум: Панели AGT / Пластик HPL / Матовая эмаль</option>
-            </select>
-          </div>
-
-          <!-- Галочка акции "За отзыв" -->
-          <label class="flex items-start gap-3 bg-amber-500/10 border border-amber-500/30 p-4 rounded-xl cursor-pointer">
-            <input id="promoCheck" type="checkbox" checked onchange="updateCalculation()" class="mt-1 w-4 h-4 accent-amber-500 rounded">
-            <span class="text-xs sm:text-sm text-stone-200">
-              <strong>Хочу спеццену «За портфолио» (наценка всего 15–20%):</strong> разрешаю сделать красивое фото и видео готовой мебели после монтажа для вашего каталога.
-            </span>
-          </label>
-
-        </div>
-
-        <!-- Блок результата -->
-        <div class="md:col-span-5 bg-stone-950 border border-stone-800 rounded-2xl p-6 space-y-5">
-          <div>
-            <div class="text-xs text-stone-400">Ориентировочная стоимость под ключ:</div>
-            <div class="text-3xl sm:text-4xl font-extrabold text-amber-400 mt-1" id="finalPrice">96 000 ₽</div>
-            <div class="text-xs text-stone-500 line-through mt-1" id="oldPrice">В мебельных салонах: ~145 000 ₽</div>
-          </div>
-
-          <ul class="text-xs text-stone-300 space-y-2 border-y border-stone-800 py-4">
-            <li class="flex items-center gap-2">✅ Выезд на замер по Костроме и 3D-проект — <strong>0 ₽</strong></li>
-            <li class="flex items-center gap-2">✅ Заводской ЧПУ-раскрой и присадка отверстий</li>
-            <li class="flex items-center gap-2">✅ Сборка и чистовой монтаж включены</li>
-          </ul>
-
-          <div class="space-y-3">
-            <input id="clientPhone" type="tel" placeholder="Ваш телефон (для связи или Telegram)" class="w-full bg-stone-900 border border-stone-700 rounded-xl px-4 py-3 text-sm text-white placeholder-stone-500 focus:outline-none focus:border-amber-500">
-            <button type="button" onclick="sendCalcToTelegram()" class="w-full bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold py-3.5 px-4 rounded-xl text-sm transition shadow-lg shadow-amber-500/20">
-              Зафиксировать расчет и вызвать замерщика
+            <button
+              type="button"
+              onclick="selectTierFromBlock('practical')"
+              class="w-full py-3.5 px-5 bg-sand hover:bg-stoneBeige text-graphite font-medium text-sm rounded transition-colors"
+            >
+              Рассчитать вариант «Практичный»
             </button>
           </div>
-          <p class="text-[11px] text-stone-500 text-center">После нажатия откроется чат с конструктором с уже заполненными параметрами вашего расчета.</p>
+
+          <!-- Премиум -->
+          <div class="bg-cardBg border-2 border-olive/70 rounded p-7 sm:p-9 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-4 pb-5 border-b border-stoneBeige/70">
+                <div>
+                  <span class="text-xs uppercase tracking-wider text-olive font-semibold">Премиальный сегмент</span>
+                  <h3 class="font-serif text-3xl font-bold text-graphite mt-1">Премиум</h3>
+                </div>
+                <span class="px-3 py-1 bg-olive-light text-olive text-xs font-semibold rounded">Расширенный выбор</span>
+              </div>
+
+              <ul class="space-y-4 my-7 text-sm sm:text-base text-graphite/90">
+                <li class="flex items-start gap-3">
+                  <span class="text-olive font-bold">✓</span>
+                  <span>Более широкий выбор материалов и фасадов.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-olive font-bold">✓</span>
+                  <span>Возможность использовать эмаль, шпон и другие подходящие покрытия.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-olive font-bold">✓</span>
+                  <span>Фурнитура более высокого класса.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-olive font-bold">✓</span>
+                  <span>Более сложные конструктивные и дизайнерские решения.</span>
+                </li>
+              </ul>
+            </div>
+
+            <button
+              type="button"
+              onclick="selectTierFromBlock('premium')"
+              class="w-full py-3.5 px-5 bg-olive hover:bg-olive-hover text-white font-medium text-sm rounded transition-colors"
+            >
+              Рассчитать вариант «Премиум»
+            </button>
+          </div>
+        </div>
+
+        <!-- Раскрывающееся наглядное сравнение -->
+        <div id="comparisonTableContainer" class="hidden mt-8 bg-cardBg border border-stoneBeige rounded p-6 sm:p-8 fade-in">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="font-serif text-2xl font-bold text-graphite">Наглядное сравнение уровней исполнения</h3>
+            <button type="button" id="closeCompareBtn" class="text-sm text-mutedText hover:text-graphite underline">
+              Свернуть
+            </button>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-sm">
+              <thead>
+                <tr class="border-b border-stoneBeige text-mutedText">
+                  <th class="py-3 pr-4 font-semibold w-1/4">Критерий</th>
+                  <th class="py-3 px-4 font-semibold w-3/8 text-graphite">Практичный</th>
+                  <th class="py-3 pl-4 font-semibold w-3/8 text-olive">Премиум</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-stoneBeige/60">
+                <tr>
+                  <td class="py-3.5 pr-4 font-medium text-graphite">Материалы корпуса</td>
+                  <td class="py-3.5 px-4 text-mutedText">Ламинированная плита (ЛДСП) с износостойкой кромкой ПВХ</td>
+                  <td class="py-3.5 pl-4 text-graphite">ЛДСП, МДФ или комбинированные детали со шпонированными элементами</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 pr-4 font-medium text-graphite">Фасады</td>
+                  <td class="py-3.5 px-4 text-mutedText">ЛДСП или практичный МДФ в плёнке</td>
+                  <td class="py-3.5 pl-4 text-graphite">МДФ в матовой/глянцевой эмали, натуральный шпон, фрезеровка</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 pr-4 font-medium text-graphite">Фурнитура</td>
+                  <td class="py-3.5 px-4 text-mutedText">Базовая или средняя категория под расчётную нагрузку</td>
+                  <td class="py-3.5 pl-4 text-graphite">Системы более высокого класса со скрытым монтажом и плавным ходом</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 pr-4 font-medium text-graphite">Конструирование и сборка</td>
+                  <td class="py-3.5 px-4 text-mutedText">Разработка чертежа, проверка присадки и сборка конструктором</td>
+                  <td class="py-3.5 pl-4 text-graphite">Разработка чертежа, сложные узлы, проверка присадки и сборка конструктором</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Этапы работы -->
-  <section id="steps" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-2xl sm:text-4xl font-extrabold text-white text-center mb-12">5 простых шагов от идеи до готовой мебели</h2>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-      <div class="bg-stone-900 border border-stone-800 p-5 rounded-2xl">
-        <div class="text-amber-500 font-black text-xl mb-2">Шаг 1</div>
-        <h3 class="font-bold text-white text-sm mb-1">Лазерный замер и образцы</h3>
-        <p class="text-xs text-stone-400">Приезжаем в удобное время с раскладками ЛДСП, столешниц и пленок фасадов. Замеряем стены и углы лазером.</p>
-      </div>
-      <div class="bg-stone-900 border border-stone-800 p-5 rounded-2xl">
-        <div class="text-amber-500 font-black text-xl mb-2">Шаг 2</div>
-        <h3 class="font-bold text-white text-sm mb-1">3D-проект и смета</h3>
-        <p class="text-xs text-stone-400">Андрей проектирует мебель в «Базис-Мебельщик» и формирует прозрачную смету в «Базис-Смета» без скрытых доплат.</p>
-      </div>
-      <div class="bg-stone-900 border border-stone-800 p-5 rounded-2xl">
-        <div class="text-amber-500 font-black text-xl mb-2">Шаг 3</div>
-        <h3 class="font-bold text-white text-sm mb-1">ЧПУ-раскрой и фасады</h3>
-        <p class="text-xs text-stone-400">Передаем цифровые карты раскроя и присадки на промышленный станок, а фасады заказываем на профильной фабрике.</p>
-      </div>
-      <div class="bg-stone-900 border border-stone-800 p-5 rounded-2xl">
-        <div class="text-amber-500 font-black text-xl mb-2">Шаг 4</div>
-        <h3 class="font-bold text-white text-sm mb-1">Сборка узлов в мастерской</h3>
-        <p class="text-xs text-stone-400">Никита принимает детали по биркам, проверяет качество кромки и собирает основные корпуса в нашей мастерской.</p>
-      </div>
-      <div class="bg-stone-900 border border-stone-800 p-5 rounded-2xl">
-        <div class="text-amber-500 font-black text-xl mb-2">Шаг 5</div>
-        <h3 class="font-bold text-white text-sm mb-1">Чистовой монтаж у вас</h3>
-        <p class="text-xs text-stone-400">Аккуратно заносим, выставляем мебель по уровню, навешиваем и регулируем фасады, убираем за собой упаковку.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Контакты и подвал -->
-  <footer id="contacts" class="bg-stone-900 border-t border-stone-800 py-14">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-10">
-      <div>
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-9 h-9 rounded-lg bg-amber-500 flex items-center justify-center text-stone-950 font-extrabold">Б44</div>
-          <span class="font-extrabold text-lg text-white">БАЗИС-МЕБЕЛЬ 44</span>
+    <!-- =====================================================================
+         БЛОК 5. ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР МЕБЕЛИ
+    ====================================================================== -->
+    <section id="calculator" class="py-16 sm:py-24 border-b border-stoneBeige/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-12">
+          <span class="text-xs uppercase tracking-widest text-olive font-semibold">Онлайн-оценка проекта</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-graphite mt-2">
+            Рассчитайте примерную стоимость мебели
+          </h2>
+          <p class="text-mutedText mt-3 text-sm sm:text-base leading-relaxed">
+            Укажите основные параметры — и мы подготовим предварительную оценку проекта.
+          </p>
         </div>
-        <p class="text-xs text-stone-400 leading-relaxed">
-          Инженерное проектирование и производство корпусной мебели на заказ в г. Кострома и Костромской области.
-        </p>
+
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          <!-- Левая колонка: Шаги 1–6 -->
+          <div class="lg:col-span-7 space-y-8 bg-cardBg border border-stoneBeige rounded p-6 sm:p-8">
+
+            <!-- Шаг 1. Выбор типа мебели -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-semibold uppercase tracking-wider text-olive">Шаг 1</span>
+                <span class="text-xs text-mutedText">Влияет на параметры и схему</span>
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-graphite mb-3">Выберите тип мебели</h3>
+              <div id="calcCategoryButtons" class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                <!-- Генерируется скриптом -->
+              </div>
+              <p id="calcCategoryHint" class="text-xs text-mutedText mt-2.5"></p>
+            </div>
+
+            <hr class="border-stoneBeige/70" />
+
+            <!-- Шаг 2. Размеры -->
+            <div>
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <span class="text-xs font-semibold uppercase tracking-wider text-olive">Шаг 2</span>
+                <span id="demoDimensionsBadge" class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-terracotta-light text-terracotta text-xs font-medium rounded">
+                  Установлены демонстрационные значения — вы можете изменить их
+                </span>
+              </div>
+
+              <h3 class="font-serif text-2xl font-bold text-graphite mb-4">Размеры изделия (мм)</h3>
+
+              <div class="space-y-5">
+                <!-- 1. Ширина / длина -->
+                <div class="p-4 bg-milk rounded border border-stoneBeige/80">
+                  <div class="flex flex-wrap justify-between items-baseline gap-2 mb-2">
+                    <label for="inputWidth" id="labelWidth" class="text-sm font-semibold text-graphite">
+                      1. Ширина / длина мебели, мм
+                    </label>
+                    <span id="exampleWidth" class="text-xs text-mutedText"></span>
+                  </div>
+                  <div class="flex items-center gap-3 mt-3">
+                    <button type="button" onclick="stepDimension('width', -1)" class="w-10 h-10 rounded bg-sand hover:bg-stoneBeige font-bold text-graphite shrink-0" aria-label="Уменьшить ширину">−</button>
+                    <div class="relative max-w-[150px] flex-1">
+                      <input id="inputWidth" type="number" min="1" max="10000" class="w-full px-3 py-2 bg-cardBg border border-stoneBeige rounded text-center font-semibold text-graphite" />
+                      <span class="absolute right-2.5 top-2.5 text-xs text-mutedText">мм</span>
+                    </div>
+                    <button type="button" onclick="stepDimension('width', 1)" class="w-10 h-10 rounded bg-sand hover:bg-stoneBeige font-bold text-graphite shrink-0" aria-label="Увеличить ширину">+</button>
+                    <div class="flex-1 hidden sm:block pl-2">
+                      <input id="rangeWidth" type="range" class="w-full cursor-pointer" />
+                      <div class="flex justify-between text-[11px] text-mutedText">
+                        <span id="minWidthLabel"></span>
+                        <span id="maxWidthLabel"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sm:hidden mt-3">
+                    <input id="rangeWidthMobile" type="range" class="w-full cursor-pointer" />
+                  </div>
+                  <p id="errorWidth" class="hidden text-xs text-terracotta mt-2 font-medium"></p>
+                </div>
+
+                <!-- 2. Высота -->
+                <div class="p-4 bg-milk rounded border border-stoneBeige/80">
+                  <div class="flex flex-wrap justify-between items-baseline gap-2 mb-2">
+                    <label for="inputHeight" class="text-sm font-semibold text-graphite">
+                      2. Высота мебели, мм
+                    </label>
+                    <span class="text-xs text-mutedText">Например: 2500 мм (под потолок) или 750 мм (стол)</span>
+                  </div>
+                  <div class="flex items-center gap-3 mt-3">
+                    <button type="button" onclick="stepDimension('height', -1)" class="w-10 h-10 rounded bg-sand hover:bg-stoneBeige font-bold text-graphite shrink-0" aria-label="Уменьшить высоту">−</button>
+                    <div class="relative max-w-[150px] flex-1">
+                      <input id="inputHeight" type="number" min="1" max="5000" class="w-full px-3 py-2 bg-cardBg border border-stoneBeige rounded text-center font-semibold text-graphite" />
+                      <span class="absolute right-2.5 top-2.5 text-xs text-mutedText">мм</span>
+                    </div>
+                    <button type="button" onclick="stepDimension('height', 1)" class="w-10 h-10 rounded bg-sand hover:bg-stoneBeige font-bold text-graphite shrink-0" aria-label="Увеличить высоту">+</button>
+                    <div class="flex-1 hidden sm:block pl-2">
+                      <input id="rangeHeight" type="range" class="w-full cursor-pointer" />
+                      <div class="flex justify-between text-[11px] text-mutedText">
+                        <span id="minHeightLabel"></span>
+                        <span id="maxHeightLabel"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sm:hidden mt-3">
+                    <input id="rangeHeightMobile" type="range" class="w-full cursor-pointer" />
+                  </div>
+                  <p id="errorHeight" class="hidden text-xs text-terracotta mt-2 font-medium"></p>
+                </div>
+
+                <!-- 3. Глубина -->
+                <div class="p-4 bg-milk rounded border border-stoneBeige/80">
+                  <div class="flex flex-wrap justify-between items-baseline gap-2 mb-2">
+                    <label for="inputDepth" class="text-sm font-semibold text-graphite">
+                      3. Глубина мебели, мм
+                    </label>
+                    <span class="text-xs text-mutedText">Например: 600 мм (кухня/шкаф), 400–450 мм (прихожая)</span>
+                  </div>
+                  <div class="flex items-center gap-3 mt-3">
+                    <button type="button" onclick="stepDimension('depth', -1)" class="w-10 h-10 rounded bg-sand hover:bg-stoneBeige font-bold text-graphite shrink-0" aria-label="Уменьшить глубину">−</button>
+                    <div class="relative max-w-[150px] flex-1">
+                      <input id="inputDepth" type="number" min="1" max="2000" class="w-full px-3 py-2 bg-cardBg border border-stoneBeige rounded text-center font-semibold text-graphite" />
+                      <span class="absolute right-2.5 top-2.5 text-xs text-mutedText">мм</span>
+                    </div>
+                    <button type="button" onclick="stepDimension('depth', 1)" class="w-10 h-10 rounded bg-sand hover:bg-stoneBeige font-bold text-graphite shrink-0" aria-label="Увеличить глубину">+</button>
+                    <div class="flex-1 hidden sm:block pl-2">
+                      <input id="rangeDepth" type="range" class="w-full cursor-pointer" />
+                      <div class="flex justify-between text-[11px] text-mutedText">
+                        <span id="minDepthLabel"></span>
+                        <span id="maxDepthLabel"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sm:hidden mt-3">
+                    <input id="rangeDepthMobile" type="range" class="w-full cursor-pointer" />
+                  </div>
+                  <p id="errorDepth" class="hidden text-xs text-terracotta mt-2 font-medium"></p>
+                </div>
+              </div>
+
+              <p class="text-xs text-mutedText mt-3">
+                ℹ️ Размеры предварительные. Точные параметры уточняются при проектировании.
+              </p>
+            </div>
+
+            <hr class="border-stoneBeige/70" />
+
+            <!-- Шаг 3. Уровень исполнения -->
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-olive block mb-2">Шаг 3</span>
+              <h3 class="font-serif text-2xl font-bold text-graphite mb-3">Уровень исполнения</h3>
+              <div id="calcTierButtons" class="grid sm:grid-cols-2 gap-3">
+                <!-- Генерируется скриптом -->
+              </div>
+            </div>
+
+            <hr class="border-stoneBeige/70" />
+
+            <!-- Шаг 4. Материалы фасадов -->
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-olive block mb-2">Шаг 4</span>
+              <h3 class="font-serif text-2xl font-bold text-graphite mb-3">Материалы фасадов</h3>
+              <div id="calcFacadeButtons" class="grid sm:grid-cols-2 gap-3">
+                <!-- Генерируется скриптом с учётом зависимостей от категории -->
+              </div>
+            </div>
+
+            <hr class="border-stoneBeige/70" />
+
+            <!-- Шаг 5. Фурнитура -->
+            <div>
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <span class="text-xs font-semibold uppercase tracking-wider text-olive">Шаг 5</span>
+                <span class="text-xs text-mutedText">Выбор класса фурнитуры влияет на итоговую стоимость</span>
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-graphite mb-3">Фурнитура</h3>
+              <div id="calcHardwareButtons" class="grid sm:grid-cols-3 gap-3">
+                <!-- Генерируется скриптом -->
+              </div>
+            </div>
+
+            <hr class="border-stoneBeige/70" />
+
+            <!-- Шаг 6. Дополнительные параметры (условное отображение) -->
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-olive block mb-2">Шаг 6</span>
+              <h3 class="font-serif text-2xl font-bold text-graphite mb-4">Дополнительные параметры</h3>
+
+              <div class="grid sm:grid-cols-2 gap-4 mb-4">
+                <!-- Количество ящиков -->
+                <div id="optDrawersBlock" class="p-3.5 bg-milk border border-stoneBeige rounded flex items-center justify-between">
+                  <div>
+                    <span class="text-sm font-medium text-graphite block">Количество ящиков</span>
+                    <span class="text-xs text-mutedText">Выдвижные секции</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <button type="button" onclick="changeCounter('drawersCount', -1)" class="w-8 h-8 rounded bg-sand hover:bg-stoneBeige font-bold">−</button>
+                    <span id="valDrawersCount" class="w-6 text-center font-semibold text-sm">0</span>
+                    <button type="button" onclick="changeCounter('drawersCount', 1)" class="w-8 h-8 rounded bg-sand hover:bg-stoneBeige font-bold">+</button>
+                  </div>
+                </div>
+
+                <!-- Количество дверей -->
+                <div id="optDoorsBlock" class="p-3.5 bg-milk border border-stoneBeige rounded flex items-center justify-between">
+                  <div>
+                    <span class="text-sm font-medium text-graphite block">Количество дверей</span>
+                    <span id="doorsSubLabel" class="text-xs text-mutedText">Фасады / створки</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <button type="button" onclick="changeCounter('doorsCount', -1)" class="w-8 h-8 rounded bg-sand hover:bg-stoneBeige font-bold">−</button>
+                    <span id="valDoorsCount" class="w-6 text-center font-semibold text-sm">0</span>
+                    <button type="button" onclick="changeCounter('doorsCount', 1)" class="w-8 h-8 rounded bg-sand hover:bg-stoneBeige font-bold">+</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Чекбоксы по категории -->
+              <div class="grid sm:grid-cols-2 gap-3 mb-5">
+                <label id="optOpenShelvesBlock" class="flex items-center gap-3 p-3 bg-milk border border-stoneBeige rounded cursor-pointer hover:bg-sand/50">
+                  <input id="chkOpenShelves" type="checkbox" class="w-4 h-4 accent-olive" />
+                  <span class="text-sm text-graphite">Открытые полки</span>
+                </label>
+
+                <label id="optCountertopBlock" class="flex items-center gap-3 p-3 bg-milk border border-stoneBeige rounded cursor-pointer hover:bg-sand/50">
+                  <input id="chkCountertop" type="checkbox" class="w-4 h-4 accent-olive" />
+                  <span class="text-sm text-graphite">Столешница</span>
+                </label>
+
+                <label id="optLightingBlock" class="flex items-center gap-3 p-3 bg-milk border border-stoneBeige rounded cursor-pointer hover:bg-sand/50">
+                  <input id="chkLighting" type="checkbox" class="w-4 h-4 accent-olive" />
+                  <span class="text-sm text-graphite">Подсветка</span>
+                </label>
+
+                <label id="optPullOutsBlock" class="flex items-center gap-3 p-3 bg-milk border border-stoneBeige rounded cursor-pointer hover:bg-sand/50">
+                  <input id="chkPullOuts" type="checkbox" class="w-4 h-4 accent-olive" />
+                  <span class="text-sm text-graphite">Системы выдвижения</span>
+                </label>
+
+                <label class="flex items-center gap-3 p-3 bg-milk border border-stoneBeige rounded cursor-pointer hover:bg-sand/50 sm:col-span-2">
+                  <input id="chkAssembly" type="checkbox" checked class="w-4 h-4 accent-olive" />
+                  <span class="text-sm font-medium text-graphite">Монтаж и доставка</span>
+                </label>
+              </div>
+
+              <!-- Сложность конструкции -->
+              <div>
+                <span class="block text-xs font-semibold uppercase tracking-wider text-mutedText mb-2">Сложность конструкции</span>
+                <div id="calcComplexityButtons" class="grid sm:grid-cols-3 gap-2.5">
+                  <!-- Генерируется скриптом -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Правая колонка: Схема пропорций + Шаг 7 (Предварительная стоимость) -->
+          <div class="lg:col-span-5 lg:sticky lg:top-28 space-y-6">
+            <div class="bg-cardBg border border-stoneBeige rounded p-6 sm:p-7">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-semibold uppercase tracking-wider text-olive">Визуальное представление</span>
+                <span id="svgDimensionsBadge" class="text-xs text-mutedText font-medium"></span>
+              </div>
+
+              <!-- Динамическая схема пропорций -->
+              <div class="bg-milk border border-stoneBeige/70 rounded p-4 flex flex-col items-center justify-center min-h-[240px]">
+                <svg id="furnitureSchematicSvg" viewBox="0 0 360 250" class="w-full max-w-[340px] h-auto" role="img" aria-label="Схематичное представление габаритов мебели">
+                  <!-- Отрисовывается динамически в renderSchematicSvg() -->
+                </svg>
+                <p class="text-[11px] text-mutedText text-center mt-2">
+                  Схематичная иллюстрация пропорций по выбранным габаритам. Точный чертёж разрабатывается при проектировании.
+                </p>
+              </div>
+
+              <!-- Сводка параметров -->
+              <div class="mt-6 space-y-2 text-sm">
+                <h3 class="font-serif text-2xl font-bold text-graphite">Предварительная оценка</h3>
+                <dl class="divide-y divide-stoneBeige/60 text-xs sm:text-sm">
+                  <div class="py-2 flex justify-between gap-4">
+                    <dt class="text-mutedText">Тип мебели:</dt>
+                    <dd id="sumCategory" class="font-medium text-graphite text-right"></dd>
+                  </div>
+                  <div class="py-2 flex justify-between gap-4">
+                    <dt class="text-mutedText">Ширина × Высота × Глубина:</dt>
+                    <dd id="sumDimensions" class="font-medium text-graphite text-right"></dd>
+                  </div>
+                  <div class="py-2 flex justify-between gap-4">
+                    <dt class="text-mutedText">Уровень исполнения:</dt>
+                    <dd id="sumTier" class="font-medium text-graphite text-right"></dd>
+                  </div>
+                  <div class="py-2 flex justify-between gap-4">
+                    <dt class="text-mutedText">Материалы и фурнитура:</dt>
+                    <dd id="sumMaterials" class="font-medium text-graphite text-right"></dd>
+                  </div>
+                  <div class="py-2 flex justify-between gap-4">
+                    <dt class="text-mutedText">Дополнительные опции:</dt>
+                    <dd id="sumExtras" class="font-medium text-graphite text-right"></dd>
+                  </div>
+                </dl>
+              </div>
+
+              <!-- Блок итогового диапазона стоимости -->
+              <div class="mt-6 p-5 bg-sand/70 border border-stoneBeige rounded">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-xs font-semibold uppercase tracking-wider text-mutedText">Предварительный диапазон</span>
+                  <span class="px-2 py-0.5 bg-cardBg border border-stoneBeige text-[11px] font-medium text-mutedText rounded">
+                    Примерный расчёт
+                  </span>
+                </div>
+
+                <div id="priceOutputValue" class="font-serif text-3xl sm:text-4xl font-bold text-graphite mt-2">
+                  —
+                </div>
+
+                <p id="priceDisclaimerText" class="text-xs text-mutedText mt-2 leading-relaxed">
+                  Расчёт выполнен в демонстрационном режиме по условным ставкам. Итоговая стоимость зависит от точной деталировки, количества деталей, распила, присадки и выбранных декоров.
+                </p>
+
+                <button
+                  type="button"
+                  id="transferToFormBtn"
+                  class="mt-5 w-full inline-flex items-center justify-center gap-2 bg-olive hover:bg-olive-hover disabled:bg-stoneBeige text-white font-medium py-3.5 px-5 rounded transition-colors text-sm"
+                >
+                  Отправить заявку на расчёт
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         БЛОК 6. ПОРТФОЛИО
+    ====================================================================== -->
+    <section id="portfolio" class="py-16 sm:py-24 bg-sand/40 border-b border-stoneBeige/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-10">
+          <span class="text-xs uppercase tracking-widest text-olive font-semibold">Примеры и концепты</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-graphite mt-2">
+            Наши проекты и концептуальные решения
+          </h2>
+          <p class="text-mutedText mt-3 text-sm sm:text-base leading-relaxed">
+            Демонстрационные концепты показывают возможные планировки, сочетания фасадов и конструктивные узлы, которые мы можем адаптировать под ваши размеры.
+          </p>
+        </div>
+
+        <!-- Фильтры портфолио -->
+        <div id="portfolioFilterTabs" class="flex flex-wrap gap-2 mb-10" role="tablist">
+          <!-- Генерируется скриптом -->
+        </div>
+
+        <!-- Сетка проектов -->
+        <div id="portfolioGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+          <!-- Генерируется скриптом -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         БЛОК 7. КАК МЫ РАБОТАЕМ
+    ====================================================================== -->
+    <section id="process" class="py-16 sm:py-24 border-b border-stoneBeige/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-12">
+          <span class="text-xs uppercase tracking-widest text-olive font-semibold">Этапы проекта</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-graphite mt-2">
+            Как мы работаем
+          </h2>
+          <p class="text-mutedText mt-3 text-sm sm:text-base leading-relaxed">
+            Вы общаетесь напрямую с конструктором, который сопровождает проект от первых замеров и чертежей до сборки готовой мебели у вас дома.
+          </p>
+        </div>
+
+        <!-- Горизонтальная последовательность на ПК, вертикальная на телефоне -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-6 gap-5">
+          <div class="bg-cardBg border border-stoneBeige rounded p-6 flex flex-col justify-between">
+            <div>
+              <div class="font-serif text-3xl font-bold text-olive mb-3">01</div>
+              <h3 class="font-sans font-semibold text-base text-graphite mb-2">Обсуждаем задачу и пожелания</h3>
+              <p class="text-xs sm:text-sm text-mutedText leading-relaxed">
+                Выясняем назначение мебели, сценарии использования и ориентир по бюджету.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-cardBg border border-stoneBeige rounded p-6 flex flex-col justify-between">
+            <div>
+              <div class="font-serif text-3xl font-bold text-olive mb-3">02</div>
+              <h3 class="font-sans font-semibold text-base text-graphite mb-2">Уточняем размеры и ограничения помещения</h3>
+              <p class="text-xs sm:text-sm text-mutedText leading-relaxed">
+                Учитываем габариты ниши, геометрию стен, выводы коммуникаций, розетки и плинтусы.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-cardBg border border-stoneBeige rounded p-6 flex flex-col justify-between">
+            <div>
+              <div class="font-serif text-3xl font-bold text-olive mb-3">03</div>
+              <h3 class="font-sans font-semibold text-base text-graphite mb-2">Разрабатываем конструкцию и рассчитываем стоимость</h3>
+              <p class="text-xs sm:text-sm text-mutedText leading-relaxed">
+                Проектируем схему секций, внутреннее наполнение и формируем понятный расчёт.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-cardBg border border-stoneBeige rounded p-6 flex flex-col justify-between">
+            <div>
+              <div class="font-serif text-3xl font-bold text-olive mb-3">04</div>
+              <h3 class="font-sans font-semibold text-base text-graphite mb-2">Согласовываем материалы и комплектацию</h3>
+              <p class="text-xs sm:text-sm text-mutedText leading-relaxed">
+                Утверждаем декоры корпуса, покрытие фасадов и подходящий класс фурнитуры.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-cardBg border border-stoneBeige rounded p-6 flex flex-col justify-between">
+            <div>
+              <div class="font-serif text-3xl font-bold text-olive mb-3">05</div>
+              <h3 class="font-sans font-semibold text-base text-graphite mb-2">Заказываем распил и присадку деталей</h3>
+              <p class="text-xs sm:text-sm text-mutedText leading-relaxed">
+                Передаём точные карты кроя и сверления отверстий профильным производственным подрядчикам.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-cardBg border border-stoneBeige rounded p-6 flex flex-col justify-between">
+            <div>
+              <div class="font-serif text-3xl font-bold text-olive mb-3">06</div>
+              <h3 class="font-sans font-semibold text-base text-graphite mb-2">Собираем мебель и доставляем клиенту</h3>
+              <p class="text-xs sm:text-sm text-mutedText leading-relaxed">
+                Контролируем качество деталей, самостоятельно собираем изделие и доставляем вам.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         БЛОК 8. ПОЧЕМУ ТАКОЙ ПОДХОД УДОБЕН
+    ====================================================================== -->
+    <section id="about-studio" class="py-16 sm:py-24 bg-sand/30 border-b border-stoneBeige/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-10 items-start">
+          <div class="lg:col-span-5">
+            <span class="text-xs uppercase tracking-widest text-olive font-semibold">Преимущества формата</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-graphite mt-2">
+              Почему такой подход удобен
+            </h2>
+            <p class="text-mutedText mt-4 text-sm sm:text-base leading-relaxed">
+              Мы не строим из себя гигантскую фабрику с дорогими салонами. Наша ценность — в грамотном инженерном конструировании, оптимизации стоимости материалов и личной ответственности за сборку.
+            </p>
+          </div>
+
+          <div class="lg:col-span-7 grid sm:grid-cols-2 gap-5">
+            <div class="bg-cardBg border border-stoneBeige rounded p-6">
+              <h3 class="font-sans font-semibold text-base text-graphite">Не нужно подгонять помещение под готовую мебель</h3>
+              <p class="text-sm text-mutedText mt-1.5 leading-relaxed">
+                Каждый миллиметр ширины, высоты и глубины рассчитывается под вашу комнату или нишу.
+              </p>
+            </div>
+
+            <div class="bg-cardBg border border-stoneBeige rounded p-6">
+              <h3 class="font-sans font-semibold text-base text-graphite">Можно выбрать материалы под бюджет</h3>
+              <p class="text-sm text-mutedText mt-1.5 leading-relaxed">
+                Подскажем, где рационально применить базовые плиты ЛДСП, а где оправданы эмаль или шпон.
+              </p>
+            </div>
+
+            <div class="bg-cardBg border border-stoneBeige rounded p-6">
+              <h3 class="font-sans font-semibold text-base text-graphite">Конструкция разрабатывается под конкретные размеры</h3>
+              <p class="text-sm text-mutedText mt-1.5 leading-relaxed">
+                Высота полок, штанг, выдвижных ящиков и рабочих поверхностей проектируется под ваши задачи.
+              </p>
+            </div>
+
+            <div class="bg-cardBg border border-stoneBeige rounded p-6">
+              <h3 class="font-sans font-semibold text-base text-graphite">Можно заранее согласовать состав проекта</h3>
+              <p class="text-sm text-mutedText mt-1.5 leading-relaxed">
+                Вы заранее понимаете конфигурацию, материалы фасадов и выбранную фурнитуру до заказа распила.
+              </p>
+            </div>
+
+            <div class="bg-cardBg border border-stoneBeige rounded p-6 sm:col-span-2">
+              <h3 class="font-sans font-semibold text-base text-graphite">Один специалист понимает конструкцию и собирает готовое изделие</h3>
+              <p class="text-sm text-mutedText mt-1.5 leading-relaxed">
+                Проект не теряется при передаче между отделами: конструктор, разработавший чертёж, сам проверяет детали и отвечает за сборку.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         БЛОК 9. ЧАСТЫЕ ВОПРОСЫ
+    ====================================================================== -->
+    <section class="py-16 sm:py-24 border-b border-stoneBeige/60">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <span class="text-xs uppercase tracking-widest text-olive font-semibold">Вопросы и ответы</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-graphite mt-2">Частые вопросы</h2>
+        </div>
+
+        <div id="faqAccordion" class="space-y-3">
+          <!-- Генерируется скриптом -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         БЛОК 10. ФИНАЛЬНЫЙ ПРИЗЫВ И ФОРМА ЗАЯВКИ
+    ====================================================================== -->
+    <section id="contact-form" class="py-16 sm:py-24 bg-sand/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+          <div class="lg:col-span-5 space-y-6">
+            <span class="text-xs uppercase tracking-widest text-olive font-semibold">Обсуждение проекта</span>
+            <h2 class="font-serif text-3xl sm:text-5xl font-bold text-graphite leading-tight">
+              Есть идея? Давайте превратим её в проект
+            </h2>
+            <p class="text-mutedText text-base leading-relaxed">
+              Расскажите, какая мебель вам нужна. Обсудим размеры, материалы и возможные варианты исполнения.
+            </p>
+
+            <div>
+              <button
+                type="button"
+                onclick="document.getElementById('clientNameInput').focus()"
+                class="inline-flex items-center gap-2 bg-olive hover:bg-olive-hover text-white text-sm font-medium px-6 py-3 rounded transition-colors"
+              >
+                Обсудить проект
+              </button>
+            </div>
+
+            <div class="pt-4 space-y-3 border-t border-stoneBeige text-sm">
+              <div class="text-xs font-semibold uppercase tracking-wider text-mutedText">
+                Каналы связи (заглушки для ваших контактов)
+              </div>
+              <div class="p-3.5 bg-cardBg border border-stoneBeige rounded">
+                <span class="text-xs text-mutedText block">Телефон:</span>
+                <span class="font-medium text-graphite" data-studio-phone>[ТЕЛЕФОН СТУДИИ]</span>
+              </div>
+              <div class="p-3.5 bg-cardBg border border-stoneBeige rounded">
+                <span class="text-xs text-mutedText block">Электронная почта:</span>
+                <span class="font-medium text-graphite" data-studio-email>[EMAIL СТУДИИ]</span>
+              </div>
+              <div class="p-3.5 bg-cardBg border border-stoneBeige rounded">
+                <span class="text-xs text-mutedText block">Мессенджеры:</span>
+                <div class="flex flex-wrap gap-3 mt-1 font-medium text-olive">
+                  <a href="#contact-form" class="hover:underline">[TELEGRAM]</a>
+                  <span>•</span>
+                  <a href="#contact-form" class="hover:underline">[WHATSAPP]</a>
+                  <span>•</span>
+                  <a href="#contact-form" class="hover:underline">[ВКОНТАКТЕ]</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-cardBg border border-stoneBeige rounded p-6 sm:p-9">
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-graphite mb-6">
+              Форма заявки на расчёт
+            </h3>
+
+            <form id="projectApplicationForm" novalidate class="space-y-5">
+              <!-- Сводка проекта перед отправкой -->
+              <div class="p-4 bg-milk border border-stoneBeige rounded">
+                <div class="flex items-center justify-between gap-2">
+                  <label class="flex items-center gap-2 text-xs sm:text-sm font-semibold text-graphite cursor-pointer">
+                    <input id="chkAttachSummary" type="checkbox" checked class="w-4 h-4 accent-olive" />
+                    <span>Приложить сводку параметров из калькулятора</span>
+                  </label>
+                  <a href="#calculator" class="text-xs text-olive hover:underline font-medium">Изменить в калькуляторе</a>
+                </div>
+                <pre id="formProjectSummaryPreview" class="text-xs text-mutedText whitespace-pre-wrap font-sans bg-cardBg p-3 rounded border border-stoneBeige/70 mt-3 leading-relaxed"></pre>
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label for="clientNameInput" class="block text-xs font-semibold uppercase tracking-wider text-graphite mb-2">
+                    Имя *
+                  </label>
+                  <input
+                    id="clientNameInput"
+                    type="text"
+                    required
+                    placeholder="Как к вам обращаться"
+                    class="w-full px-4 py-3 bg-milk border border-stoneBeige rounded text-sm text-graphite"
+                  />
+                  <p id="errClientName" class="hidden text-xs text-terracotta mt-1.5"></p>
+                </div>
+
+                <div>
+                  <label for="clientContactInput" class="block text-xs font-semibold uppercase tracking-wider text-graphite mb-2">
+                    Телефон или другой контакт *
+                  </label>
+                  <input
+                    id="clientContactInput"
+                    type="text"
+                    required
+                    placeholder="Телефон, Telegram или Email"
+                    class="w-full px-4 py-3 bg-milk border border-stoneBeige rounded text-sm text-graphite"
+                  />
+                  <p id="errClientContact" class="hidden text-xs text-terracotta mt-1.5"></p>
+                </div>
+              </div>
+
+              <div>
+                <label for="clientCommentInput" class="block text-xs font-semibold uppercase tracking-wider text-graphite mb-2">
+                  Комментарий к проекту
+                </label>
+                <textarea
+                  id="clientCommentInput"
+                  rows="3"
+                  placeholder="Опишите задачу, пожелания по материалам или особенности помещения..."
+                  class="w-full px-4 py-3 bg-milk border border-stoneBeige rounded text-sm text-graphite"
+                ></textarea>
+              </div>
+
+              <!-- Прикрепление фотографии, эскиза или чертежа -->
+              <div>
+                <label for="clientFileInput" class="block text-xs font-semibold uppercase tracking-wider text-graphite mb-2">
+                  Приложить фотографию, эскиз или чертёж
+                </label>
+                <div class="flex flex-wrap items-center gap-3">
+                  <label class="inline-flex items-center gap-2 px-4 py-2.5 bg-milk hover:bg-sand border border-stoneBeige rounded text-xs sm:text-sm font-medium text-graphite cursor-pointer transition-colors">
+                    <span>📎 Выбрать файл</span>
+                    <input id="clientFileInput" type="file" accept="image/*,.pdf,.dwg" class="hidden" />
+                  </label>
+                  <span id="fileStatusText" class="text-xs text-mutedText">Файл не выбран (допускаются фото, эскизы, PDF)</span>
+                </div>
+              </div>
+
+              <div>
+                <label class="flex items-start gap-2.5 cursor-pointer text-xs text-mutedText">
+                  <input id="chkPrivacyConsent" type="checkbox" checked class="mt-0.5 w-4 h-4 accent-olive" />
+                  <span>
+                    Я соглашаюсь с политикой конфиденциальности и даю согласие на обработку персональных данных.
+                  </span>
+                </label>
+                <p id="errPrivacyConsent" class="hidden text-xs text-terracotta mt-1"></p>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-olive hover:bg-olive-hover text-white font-medium py-4 px-6 rounded transition-colors text-sm sm:text-base"
+              >
+                Отправить заявку на расчёт
+              </button>
+
+              <!-- Результат обработки формы (честный статус без имитации фейковой отправки) -->
+              <div id="formResultBox" class="hidden p-5 bg-olive-light border border-olive rounded space-y-3 fade-in">
+                <div class="font-semibold text-sm text-graphite" id="formResultTitle">
+                  Сводка заявки подготовлена
+                </div>
+                <p class="text-xs text-mutedText leading-relaxed" id="formResultDescription">
+                  Серверный обработчик формы (`CONFIG.formEndpoint`) пока не подключён. Чтобы не имитировать фиктивную отправку, мы собрали вашу заявку и параметры расчёта в готовый текст — скопируйте его одной кнопкой ниже или укажите URL вашего обработчика в настройках.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                  <button
+                    type="button"
+                    id="copyApplicationBtn"
+                    class="inline-flex items-center gap-1.5 bg-olive text-white text-xs font-medium px-4 py-2.5 rounded hover:bg-olive-hover transition-colors"
+                  >
+                    Скопировать текст заявки со сводкой
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================================
+       БЛОК 11. ПОДВАЛ
+  ====================================================================== -->
+  <footer class="bg-graphite text-milk py-14 border-t border-stoneBeige/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-12 gap-10 pb-10 border-b border-white/10">
+        <div class="md:col-span-5 space-y-3">
+          <a href="#" class="font-serif text-2xl font-bold text-white tracking-tight" data-studio-name>
+            [НАЗВАНИЕ СТУДИИ]
+          </a>
+          <p class="text-sm text-stoneBeige/80 max-w-sm leading-relaxed">
+            Студия изготовления корпусной мебели по индивидуальным размерам. Проектирование, оптимизация стоимости и ответственная сборка.
+          </p>
+        </div>
+
+        <div class="md:col-span-3 space-y-2.5">
+          <div class="text-xs font-semibold uppercase tracking-wider text-oak">Навигация</div>
+          <ul class="space-y-2 text-sm text-stoneBeige/85">
+            <li><a href="#catalog" class="hover:text-white transition-colors">Мебель</a></li>
+            <li><a href="#calculator" class="hover:text-white transition-colors">Калькулятор</a></li>
+            <li><a href="#portfolio" class="hover:text-white transition-colors">Наши проекты</a></li>
+            <li><a href="#process" class="hover:text-white transition-colors">Как работаем</a></li>
+            <li><a href="#about-studio" class="hover:text-white transition-colors">О студии</a></li>
+            <li><a href="#contact-form" class="hover:text-white transition-colors">Контакты</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4 space-y-2.5 text-sm">
+          <div class="text-xs font-semibold uppercase tracking-wider text-oak">Контакты</div>
+          <p class="text-stoneBeige/85">Регион: <span data-studio-city>[ГОРОД / РЕГИОН]</span></p>
+          <p class="text-stoneBeige/85">Телефон: <span data-studio-phone>[ТЕЛЕФОН СТУДИИ]</span></p>
+          <p class="text-stoneBeige/85">Email: <span data-studio-email>[EMAIL СТУДИИ]</span></p>
+        </div>
       </div>
 
-      <div>
-        <h4 class="font-bold text-white text-sm mb-3">Прямая связь с основателями:</h4>
-        <ul class="space-y-2 text-sm text-stone-300">
-          <li>
-            <span class="text-stone-500 text-xs block">Проектирование, замер и расчет сметы (Андрей):</span>
-            <a href="tel:+79632178278" class="font-bold text-amber-400 hover:underline">+7 (963) 217-82-78</a> (Telegram / Звонок)
-          </li>
-          <li>
-            <span class="text-stone-500 text-xs block">Сборка, доставка и монтаж (Никита):</span>
-            <a href="tel:+79536605759" class="font-bold text-white hover:underline">+7 (953) 660-57-59</a>
-          </li>
-          <li>
-            <span class="text-stone-500 text-xs block">Почта для дизайн-проектов и эскизов:</span>
-            <a href="mailto:pavlinov_as@mail.ru" class="text-stone-300 hover:text-amber-400">pavlinov_as@mail.ru</a>
-          </li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="font-bold text-white text-sm mb-3">Есть эскиз или расчет из другого салона?</h4>
-        <p class="text-xs text-stone-400 mb-4">
-          Пришлите нам проект любого костромского салона в Telegram — мы пересчитаем его в «Базис-Смета» и покажем, сколько вы сэкономите без потери качества материалов.
-        </p>
-        <a href="https://t.me/+79632178278" target="_blank" class="inline-block bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs px-5 py-3 rounded-xl transition">
-          Отправить эскиз на пересчет в Telegram →
-        </a>
+      <div class="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-stoneBeige/70">
+        <div>
+          © <span id="currentYear"></span> <span data-studio-name>[НАЗВАНИЕ СТУДИИ]</span>. Все права защищены.
+        </div>
+        <div class="flex flex-wrap gap-5">
+          <button type="button" onclick="openLegalModal('privacy')" class="hover:text-white underline underline-offset-4">
+            Политика конфиденциальности
+          </button>
+          <button type="button" onclick="openLegalModal('personal')" class="hover:text-white underline underline-offset-4">
+            Обработка персональных данных
+          </button>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- Скрипт калькулятора -->
+  <!-- =====================================================================
+       МОДАЛЬНОЕ ОКНО ПРОЕКТА ПОРТФОЛИО
+  ====================================================================== -->
+  <div id="portfolioModal" class="hidden fixed inset-0 z-50 bg-graphite/65 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto" role="dialog" aria-modal="true">
+    <div class="bg-cardBg border border-stoneBeige rounded max-w-3xl w-full overflow-hidden shadow-xl my-8 fade-in">
+      <div class="relative aspect-[16/9] bg-sand">
+        <img id="modalProjectImage" src="" alt="" class="w-full h-full object-cover" />
+        <button
+          type="button"
+          onclick="closePortfolioModal()"
+          class="absolute top-4 right-4 w-10 h-10 rounded-full bg-cardBg/90 hover:bg-white text-graphite font-bold flex items-center justify-center"
+          aria-label="Закрыть окно"
+        >
+          ✕
+        </button>
+        <div class="absolute bottom-4 left-4">
+          <span class="px-3 py-1 bg-graphite/90 text-white text-xs font-medium rounded">
+            Демонстрационный концепт
+          </span>
+        </div>
+      </div>
+      <div class="p-6 sm:p-8 space-y-5">
+        <div>
+          <div id="modalProjectMeta" class="text-xs uppercase tracking-wider text-olive font-semibold"></div>
+          <h3 id="modalProjectTitle" class="font-serif text-3xl font-bold text-graphite mt-1"></h3>
+          <p id="modalProjectDesc" class="text-sm sm:text-base text-mutedText mt-2"></p>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-6 pt-4 border-t border-stoneBeige/70 text-sm">
+          <div>
+            <h4 class="font-semibold text-graphite mb-2">Материалы концепта:</h4>
+            <ul id="modalProjectMaterials" class="space-y-1.5 text-mutedText"></ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-graphite mb-2">Особенности конструкции:</h4>
+            <ul id="modalProjectFeatures" class="space-y-1.5 text-mutedText"></ul>
+          </div>
+        </div>
+        <div class="pt-4 border-t border-stoneBeige/70 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div id="modalProjectDims" class="text-xs text-mutedText"></div>
+          <button
+            type="button"
+            id="modalCalcSimilarBtn"
+            class="w-full sm:w-auto bg-olive hover:bg-olive-hover text-white text-sm font-medium px-5 py-3 rounded transition-colors"
+          >
+            Рассчитать похожий проект в калькуляторе →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       МОДАЛЬНОЕ ОКНО ПРАВОВОЙ ИНФОРМАЦИИ
+  ====================================================================== -->
+  <div id="legalModal" class="hidden fixed inset-0 z-50 bg-graphite/65 flex items-center justify-center p-4" role="dialog" aria-modal="true">
+    <div class="bg-cardBg text-graphite border border-stoneBeige rounded max-w-2xl w-full p-6 sm:p-8 space-y-4 fade-in">
+      <div class="flex items-center justify-between border-b border-stoneBeige pb-3">
+        <h3 id="legalModalTitle" class="font-serif text-2xl font-bold"></h3>
+        <button type="button" onclick="closeLegalModal()" class="text-mutedText hover:text-graphite font-bold">✕</button>
+      </div>
+      <div class="text-sm text-mutedText space-y-3 leading-relaxed">
+        <p>
+          Данный раздел подготовлен для размещения юридических реквизитов вашей студии (<strong data-studio-name>[НАЗВАНИЕ СТУДИИ]</strong>). Перед коммерческим запуском укажите здесь данные оператора персональных данных и актуальный контактный адрес (<span data-studio-email>[EMAIL СТУДИИ]</span>).
+        </p>
+        <p>
+          Информация, передаваемая через форму расчёта стоимости (имя, контактные данные, габариты мебели и приложенные эскизы), используется исключительно для подготовки предварительной оценки проекта и связи с клиентом.
+        </p>
+      </div>
+      <div class="pt-2 flex justify-end">
+        <button type="button" onclick="closeLegalModal()" class="px-5 py-2.5 bg-olive text-white text-xs font-medium rounded">
+          Закрыть
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       ЕДИНЫЙ КОНФИГУРАЦИОННЫЙ И ВЫЧИСЛИТЕЛЬНЫЙ СКРИПТ
+  ====================================================================== -->
   <script>
-    let currentProduct = 'Кухня на заказ';
-    let baseRatePerMeter = 32000;
+    /**
+     * 1. КОНФИГУРАЦИЯ СТУДИИ И ТАРИФОВ КАЛЬКУЛЯТОРА
+     * Все заглушки, расценки, коэффициенты и диапазоны размеров настраиваются здесь.
+     */
+    const CONFIG = {
+      studioName: '[НАЗВАНИЕ СТУДИИ]',
+      city: '[ГОРОД / РЕГИОН РАБОТЫ]',
+      phone: '[ТЕЛЕФОН СТУДИИ]',
+      email: '[EMAIL СТУДИИ]',
+      formEndpoint: '', // Укажите URL вашего серверного обработчика форм, когда он будет готов
 
-    function setProductType(name, rate, btnElement) {
-      currentProduct = name;
-      baseRatePerMeter = rate;
-      document.querySelectorAll('.calc-type-btn').forEach(btn => {
-        btn.className = 'calc-type-btn border border-stone-700 bg-stone-950 text-stone-300 font-semibold py-3 px-4 rounded-xl text-sm text-left transition hover:border-stone-500';
+      // Режим расчёта: 'demo' (демонстрационный расчёт с предупреждением) | 'upon_request' («Требуется уточнение стоимости»)
+      pricingMode: 'demo',
+
+      // Условные демонстрационные ставки (легко заменить на реальные расценки)
+      demoRates: {
+        minOrderCost: 18000,
+        baseEngineeringFee: 4500,
+        corpusSheetPerM2: 2400,
+        slidingSystemPerDoor: 6500,
+        drawerBaseCost: 2200,
+        doorHingeSetCost: 900,
+        countertopPerLinearMeter: 5800,
+        lightingBaseCost: 4800,
+        advancedPullOutsCost: 8500,
+        assemblyAndDeliveryRate: 0.12,
+        minAssemblyFee: 3500,
+        priceSpreadPercent: 0.12,
+      },
+
+      tiers: {
+        practical: {
+          label: 'Практичный',
+          description: 'Рациональный выбор материалов и оптимизация бюджета.',
+          multiplier: 1.0,
+        },
+        premium: {
+          label: 'Премиум',
+          description: 'Расширенный выбор фасадов, покрытий и фурнитуры высокого класса.',
+          multiplier: 1.28,
+        },
+      },
+
+      facadeMaterials: {
+        ldsp: {
+          label: 'ЛДСП',
+          description: 'Практичные плитные фасады в защитной кромке.',
+          demoRatePerM2: 2800,
+        },
+        mdf_film: {
+          label: 'МДФ в плёнке',
+          description: 'Универсальное покрытие с большим выбором матовых и древесных декоров.',
+          demoRatePerM2: 5600,
+        },
+        mdf_enamel: {
+          label: 'МДФ в эмали',
+          description: 'Окрашенные фасады с гладкой матовой или фрезерованной поверхностью.',
+          demoRatePerM2: 9800,
+        },
+        veneer_custom: {
+          label: 'Шпон или другой вариант',
+          description: 'Натуральный шпон, акрил, HPL-компакт или комбинированные фасады.',
+          demoRatePerM2: 12500,
+        },
+      },
+
+      hardwareClasses: {
+        basic: {
+          label: 'Базовая',
+          description: 'Надёжная проверенная фурнитура для базовых задач.',
+          multiplier: 1.0,
+        },
+        standard: {
+          label: 'Средний класс',
+          description: 'Петли и направляющие с доводчиками плавного закрывания.',
+          multiplier: 1.22,
+        },
+        premium: {
+          label: 'Премиальная',
+          description: 'Системы скрытого монтажа с повышенным ресурсом и плавным ходом.',
+          multiplier: 1.5,
+        },
+      },
+
+      complexityLevels: {
+        standard: {
+          label: 'Стандартная',
+          description: 'Прямоугольные секции без сложных подрезок.',
+          multiplier: 1.0,
+        },
+        medium: {
+          label: 'Средняя',
+          description: 'Встраивание в нишу, антресоли или обход коммуникаций.',
+          multiplier: 1.15,
+        },
+        complex: {
+          label: 'Сложная',
+          description: 'Нестандартные узлы, сложные стыки или индивидуальная фрезеровка.',
+          multiplier: 1.3,
+        },
+      },
+
+      categories: {
+        kitchen: {
+          label: 'Кухня',
+          hint: 'Для кухни ширина означает общую длину гарнитура по стенам.',
+          widthLabel: '1. Ширина / общая длина гарнитура, мм',
+          widthExample: 'Пример: 2800 мм (2,8 м)',
+          defaults: { width: 2800, height: 2500, depth: 600 },
+          limits: {
+            width: { min: 1200, max: 6000, step: 50 },
+            height: { min: 1800, max: 3200, step: 50 },
+            depth: { min: 450, max: 900, step: 10 },
+          },
+          allowedFacades: ['ldsp', 'mdf_film', 'mdf_enamel', 'veneer_custom'],
+          availableOptions: { drawers: true, doors: true, openShelves: true, lighting: true, countertop: true, pullOuts: true },
+          defaultOptions: { drawersCount: 4, doorsCount: 6, openShelves: false, lighting: true, countertop: true, pullOuts: false },
+          internalDensity: 2.3,
+          facadeCoverage: 0.72,
+        },
+        wardrobe: {
+          label: 'Шкаф',
+          hint: 'Корпусный или встроенный распашной шкаф по вашим размерам.',
+          widthLabel: '1. Общая ширина шкафа, мм',
+          widthExample: 'Пример: 2000 мм',
+          defaults: { width: 2000, height: 2500, depth: 600 },
+          limits: {
+            width: { min: 600, max: 5000, step: 50 },
+            height: { min: 1500, max: 3200, step: 50 },
+            depth: { min: 350, max: 800, step: 10 },
+          },
+          allowedFacades: ['ldsp', 'mdf_film', 'mdf_enamel', 'veneer_custom'],
+          availableOptions: { drawers: true, doors: true, openShelves: true, lighting: true, countertop: false, pullOuts: true },
+          defaultOptions: { drawersCount: 3, doorsCount: 4, openShelves: false, lighting: false, countertop: false, pullOuts: false },
+          internalDensity: 1.9,
+          facadeCoverage: 0.9,
+        },
+        sliding_wardrobe: {
+          label: 'Шкаф-купе',
+          hint: 'Шкаф с раздвижными дверьми, полками, штангами и ящиками.',
+          widthLabel: '1. Общая ширина шкафа-купе, мм',
+          widthExample: 'Пример: 2400 мм',
+          defaults: { width: 2400, height: 2550, depth: 650 },
+          limits: {
+            width: { min: 1000, max: 5500, step: 50 },
+            height: { min: 1800, max: 3200, step: 50 },
+            depth: { min: 450, max: 850, step: 10 },
+          },
+          allowedFacades: ['ldsp', 'mdf_film', 'veneer_custom'],
+          availableOptions: { drawers: true, doors: true, openShelves: true, lighting: true, countertop: false, pullOuts: true },
+          defaultOptions: { drawersCount: 3, doorsCount: 3, openShelves: false, lighting: false, countertop: false, pullOuts: false },
+          internalDensity: 1.85,
+          facadeCoverage: 0.92,
+        },
+        hallway: {
+          label: 'Прихожая',
+          hint: 'Мебель для входной зоны с хранением верхней одежды и обуви.',
+          widthLabel: '1. Общая ширина прихожей, мм',
+          widthExample: 'Пример: 1800 мм',
+          defaults: { width: 1800, height: 2450, depth: 450 },
+          limits: {
+            width: { min: 800, max: 4500, step: 50 },
+            height: { min: 1600, max: 3200, step: 50 },
+            depth: { min: 300, max: 700, step: 10 },
+          },
+          allowedFacades: ['ldsp', 'mdf_film', 'mdf_enamel', 'veneer_custom'],
+          availableOptions: { drawers: true, doors: true, openShelves: true, lighting: true, countertop: false, pullOuts: false },
+          defaultOptions: { drawersCount: 2, doorsCount: 3, openShelves: true, lighting: false, countertop: false, pullOuts: false },
+          internalDensity: 1.75,
+          facadeCoverage: 0.65,
+        },
+        office: {
+          label: 'Рабочий кабинет',
+          hint: 'Домашний офис со столом, тумбами, пеналами и стеллажами.',
+          widthLabel: '1. Ширина рабочей зоны и стеллажей, мм',
+          widthExample: 'Пример: 2600 мм',
+          defaults: { width: 2600, height: 2400, depth: 600 },
+          limits: {
+            width: { min: 1200, max: 5500, step: 50 },
+            height: { min: 750, max: 3200, step: 50 },
+            depth: { min: 400, max: 850, step: 10 },
+          },
+          allowedFacades: ['ldsp', 'mdf_film', 'mdf_enamel', 'veneer_custom'],
+          availableOptions: { drawers: true, doors: true, openShelves: true, lighting: true, countertop: true, pullOuts: false },
+          defaultOptions: { drawersCount: 4, doorsCount: 4, openShelves: true, lighting: true, countertop: true, pullOuts: false },
+          internalDensity: 1.8,
+          facadeCoverage: 0.5,
+        },
+        table: {
+          label: 'Стол',
+          hint: 'Письменный или рабочий стол по индивидуальной длине и глубине.',
+          widthLabel: '1. Длина столешницы, мм',
+          widthExample: 'Пример: 1500 мм',
+          defaults: { width: 1500, height: 750, depth: 700 },
+          limits: {
+            width: { min: 800, max: 3000, step: 50 },
+            height: { min: 650, max: 1100, step: 10 },
+            depth: { min: 450, max: 1100, step: 10 },
+          },
+          allowedFacades: ['ldsp', 'mdf_enamel', 'veneer_custom'],
+          availableOptions: { drawers: true, doors: false, openShelves: true, lighting: false, countertop: true, pullOuts: false },
+          defaultOptions: { drawersCount: 2, doorsCount: 0, openShelves: true, lighting: false, countertop: true, pullOuts: false },
+          internalDensity: 1.25,
+          facadeCoverage: 0.35,
+        },
+        cabinet_shelf: {
+          label: 'Тумба или стеллаж',
+          hint: 'Тумба под ТВ, комод, стеллаж или гардеробный модуль.',
+          widthLabel: '1. Ширина изделия, мм',
+          widthExample: 'Пример: 1600 мм',
+          defaults: { width: 1600, height: 900, depth: 450 },
+          limits: {
+            width: { min: 400, max: 4000, step: 50 },
+            height: { min: 350, max: 2800, step: 50 },
+            depth: { min: 250, max: 700, step: 10 },
+          },
+          allowedFacades: ['ldsp', 'mdf_film', 'mdf_enamel', 'veneer_custom'],
+          availableOptions: { drawers: true, doors: true, openShelves: true, lighting: true, countertop: false, pullOuts: false },
+          defaultOptions: { drawersCount: 3, doorsCount: 2, openShelves: true, lighting: false, countertop: false, pullOuts: false },
+          internalDensity: 1.6,
+          facadeCoverage: 0.6,
+        },
+        other: {
+          label: 'Другая мебель',
+          hint: 'Гардеробная система или корпусная мебель по нестандартному проекту.',
+          widthLabel: '1. Ширина / длина мебели, мм',
+          widthExample: 'Пример: 2000 мм',
+          defaults: { width: 2000, height: 2200, depth: 550 },
+          limits: {
+            width: { min: 400, max: 6000, step: 50 },
+            height: { min: 350, max: 3400, step: 50 },
+            depth: { min: 200, max: 1000, step: 10 },
+          },
+          allowedFacades: ['ldsp', 'mdf_film', 'mdf_enamel', 'veneer_custom'],
+          availableOptions: { drawers: true, doors: true, openShelves: true, lighting: true, countertop: true, pullOuts: true },
+          defaultOptions: { drawersCount: 2, doorsCount: 2, openShelves: true, lighting: false, countertop: false, pullOuts: false },
+          internalDensity: 1.7,
+          facadeCoverage: 0.65,
+        },
+      },
+
+      catalogCards: [
+        {
+          calcId: 'kitchen',
+          portfolioFilter: 'kitchen',
+          title: 'Кухни',
+          description: 'Гарнитуры по индивидуальным размерам с продуманной эргономикой и точной интеграцией техники.',
+          image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1000&q=80',
+        },
+        {
+          calcId: 'wardrobe',
+          portfolioFilter: 'wardrobe',
+          title: 'Шкафы',
+          description: 'Распашные шкафы, шкафы-купе и гардеробные системы под габариты вашей ниши или комнаты.',
+          image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&q=80',
+        },
+        {
+          calcId: 'hallway',
+          portfolioFilter: 'hallway',
+          title: 'Прихожие',
+          description: 'Входные группы с закрытыми секциями для верхней одежды, обувницами и антресолями.',
+          image: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1000&q=80',
+        },
+        {
+          calcId: 'office',
+          portfolioFilter: 'office',
+          title: 'Рабочие кабинеты',
+          description: 'Домашние офисы, библиотеки и функциональные рабочие места с системами хранения.',
+          image: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=1000&q=80',
+        },
+        {
+          calcId: 'table',
+          portfolioFilter: 'office',
+          title: 'Столы',
+          description: 'Письменные и рабочие столы индивидуальной длины и глубины с надёжным конструктивом.',
+          image: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1000&q=80',
+        },
+        {
+          calcId: 'cabinet_shelf',
+          portfolioFilter: 'other',
+          title: 'Другая мебель',
+          description: 'Тумбы, стеллажи, гардеробные и другая корпусная мебель по индивидуальным проектам.',
+          image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=80',
+        },
+      ],
+
+      portfolioProjects: [
+        {
+          id: 'p1',
+          title: 'Угловая кухня с антресолями до потолка',
+          filter: 'kitchen',
+          categoryLabel: 'Кухни',
+          tier: 'Премиум',
+          dimensions: '3400 × 2650 × 600 мм',
+          image: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1000&q=80',
+          shortDesc: 'Концепт лаконичного кухонного гарнитура в светло-бежевой гамме с акцентами под натуральный дуб.',
+          materials: ['Корпус: ЛДСП в тёплом бежевом декоре', 'Фасады: МДФ в матовой эмали', 'Столешница: HPL-пластик'],
+          features: ['Трёхуровневое хранение под потолок', 'Выдвижные ящики полного выдвижения', 'Интегрированная подсветка рабочей зоны'],
+        },
+        {
+          id: 'p2',
+          title: 'Прямая кухня рациональной комплектации',
+          filter: 'kitchen',
+          categoryLabel: 'Кухни',
+          tier: 'Практичный',
+          dimensions: '2400 × 2400 × 600 мм',
+          image: 'https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=1000&q=80',
+          shortDesc: 'Концепт компактного прямого гарнитура с оптимизированным раскроем и износостойкими фасадами.',
+          materials: ['Корпус: ЛДСП 16 мм с кромкой ПВХ', 'Фасады: МДФ в плёнке', 'Влагостойкая столешница 38 мм'],
+          features: ['Рациональная разбивка модулей без перерасхода листа', 'Ниша под встроенную вытяжку', 'Петли с плавным закрыванием'],
+        },
+        {
+          id: 'p3',
+          title: 'Встроенный распашной шкаф в нишу',
+          filter: 'wardrobe',
+          categoryLabel: 'Шкафы',
+          tier: 'Премиум',
+          dimensions: '2200 × 2600 × 600 мм',
+          image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&q=80',
+          shortDesc: 'Концепт шкафа во всю высоту помещения с секциями для длинной одежды и внутренними ящиками.',
+          materials: ['Корпус: ЛДСП древесной текстуры', 'Фасады: МДФ в эмали', 'Фурнитура скрытого монтажа'],
+          features: ['Точная подгонка фальшпланок по стенам', 'Внутренний блок выдвижных ящиков', 'Верхняя антресольная полка'],
+        },
+        {
+          id: 'p4',
+          title: 'Входная группа для узкого коридора',
+          filter: 'hallway',
+          categoryLabel: 'Прихожие',
+          tier: 'Практичный',
+          dimensions: '1800 × 2500 × 450 мм',
+          image: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1000&q=80',
+          shortDesc: 'Концепт прихожей глубиной 450 мм с закрытым шкафом, обувницей и открытой вешалкой.',
+          materials: ['Корпус: ЛДСП под натуральный дуб', 'Фасады: ЛДСП в графитовом декоре'],
+          features: ['Эргономичная глубина 450 мм', 'Торцевые выдвижные вешалки', 'Нижняя секция под повседневную обувь'],
+        },
+        {
+          id: 'p5',
+          title: 'Домашний кабинет со стеллажами',
+          filter: 'office',
+          categoryLabel: 'Кабинеты',
+          tier: 'Премиум',
+          dimensions: '2800 × 2500 × 650 мм',
+          image: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=1000&q=80',
+          shortDesc: 'Концепт рабочей зоны на два монитора с опорными тумбами и высокими стеллажами.',
+          materials: ['Столешница утолщённая', 'Корпус стеллажей: ЛДСП', 'Фасады тумб: МДФ'],
+          features: ['Жёсткая конструкция столешницы без прогиба', 'Кабель-каналы для проводов', 'Комбинация открытых и закрытых полок'],
+        },
+        {
+          id: 'p6',
+          title: 'Подвесная ТВ-тумба и стеллаж в гостиную',
+          filter: 'other',
+          categoryLabel: 'Другая мебель',
+          tier: 'Практичный',
+          dimensions: '2600 × 2100 × 400 мм',
+          image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=80',
+          shortDesc: 'Концепт современной системы хранения для гостиной с лаконичными фасадами без лицевых ручек.',
+          materials: ['Корпус: ЛДСП песочного оттенка', 'Фасады: МДФ в матовой плёнке'],
+          features: ['Скрытый настенный монтаж', 'Открывание фасадов от нажатия', 'Секция под аудио- и видеотехнику'],
+        },
+      ],
+
+      faqList: [
+        {
+          q: 'Сколько стоит мебель на заказ?',
+          a: 'Стоимость зависит от габаритов (ширины, высоты и глубины), количества внутренних деталей, материала фасадов, класса фурнитуры и сложности конструкции. Предварительный ориентир можно получить в калькуляторе на сайте, а точная смета составляется конструктором после разработки деталировки.',
+        },
+        {
+          q: 'Можно ли изготовить мебель по фотографии?',
+          a: 'Да. Пришлите фотографию понравившегося интерьера, эскиз от руки или проект дизайнера. Конструктор адаптирует пропорции под ваше помещение, предложит подходящие материалы и разработает рабочий чертёж.',
+        },
+        {
+          q: 'Что делать, если точных размеров пока нет?',
+          a: 'Для предварительной оценки достаточно ориентировочных размеров, снятых рулеткой или взятых из плана помещения. Перед разработкой финального чертежа и заказом деталей точные габариты обязательно выверяются.',
+        },
+        {
+          q: 'Можно ли заказать только проект?',
+          a: 'Да, мы можем разработать конструкторскую документацию, схему сборки и карты раскроя с присадкой под ваш проект. Условия подготовки отдельного проекта уточняются индивидуально.',
+        },
+        {
+          q: 'Кто выполняет распил и присадку?',
+          a: 'Распил листовых материалов, кромление торцов и сверление отверстий (присадку) мы заказываем у профильных подрядчиков с промышленным оборудованием по нашим точным цифровым чертежам. Это гарантирует заводское качество обработки торцов и точность сверления.',
+        },
+        {
+          q: 'Вы доставляете и собираете мебель?',
+          a: 'Да. Мы самостоятельно проверяем комплектность деталей после распила, собираем мебель и доставляем её клиенту. Эту опцию можно сразу отметить в калькуляторе.',
+        },
+        {
+          q: 'Можно ли выбрать бюджетные материалы?',
+          a: 'Да, в рамках комплектации «Практичный» мы подбираем проверенные плиты ЛДСП и надёжную базовую фурнитуру, оптимизируя конструкцию так, чтобы уложиться в разумный бюджет.',
+        },
+        {
+          q: 'Можно ли сделать премиальную мебель по индивидуальному проекту?',
+          a: 'Да, в комплектации «Премиум» доступны фасады в эмали и натуральном шпоне, фурнитура высокого класса, интегрированная подсветка и нестандартные конструктивные узлы.',
+        },
+      ],
+    };
+
+    /**
+     * 2. СОСТОЯНИЕ ПРИЛОЖЕНИЯ
+     */
+    const state = {
+      categoryId: 'kitchen',
+      width: 2800,
+      height: 2500,
+      depth: 600,
+      isDemoDimensions: true,
+      tier: 'practical',
+      facadeMaterial: 'mdf_film',
+      hardwareClass: 'standard',
+      options: {
+        drawersCount: 4,
+        doorsCount: 6,
+        openShelves: false,
+        lighting: true,
+        countertop: true,
+        pullOuts: false,
+        assembly: true,
+        complexity: 'standard',
+      },
+      portfolioFilter: 'all',
+      latestSummaryText: '',
+    };
+
+    /**
+     * 3. ИНИЦИАЛИЗАЦИЯ СТРАНИЦЫ
+     */
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+      // Подстановка заглушек из CONFIG
+      document.querySelectorAll('[data-studio-name]').forEach(el => el.textContent = CONFIG.studioName);
+      document.querySelectorAll('[data-studio-city]').forEach(el => el.textContent = CONFIG.city);
+      document.querySelectorAll('[data-studio-phone]').forEach(el => el.textContent = CONFIG.phone);
+      document.querySelectorAll('[data-studio-email]').forEach(el => el.textContent = CONFIG.email);
+
+      initMobileMenu();
+      initComparisonToggle();
+      renderCatalog();
+      initCalculatorEvents();
+      selectCalculatorCategory('kitchen', true);
+      renderPortfolioFilters();
+      renderPortfolioGrid();
+      renderFAQ();
+      initContactForm();
+    });
+
+    /**
+     * Мобильное меню
+     */
+    function initMobileMenu() {
+      const btn = document.getElementById('mobileMenuBtn');
+      const panel = document.getElementById('mobileMenuPanel');
+      const iconOpen = document.getElementById('menuIconOpen');
+      const iconClose = document.getElementById('menuIconClose');
+
+      const toggleMenu = (forceClose = false) => {
+        const isOpen = !panel.classList.contains('hidden');
+        const nextOpen = forceClose ? false : !isOpen;
+        panel.classList.toggle('hidden', !nextOpen);
+        iconOpen.classList.toggle('hidden', nextOpen);
+        iconClose.classList.toggle('hidden', !nextOpen);
+        btn.setAttribute('aria-expanded', String(nextOpen));
+      };
+
+      btn.addEventListener('click', () => toggleMenu());
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => toggleMenu(true));
       });
-      btnElement.className = 'calc-type-btn active border-2 border-amber-500 bg-amber-500/10 text-white font-semibold py-3 px-4 rounded-xl text-sm text-left transition';
-      updateCalculation();
     }
 
-    function updateCalculation() {
-      const length = parseFloat(document.getElementById('lengthRange').value);
-      const facadeMultiplier = parseFloat(document.getElementById('facadeSelect').value);
-      const isPromo = document.getElementById('promoCheck').checked;
+    /**
+     * Блок 4: Сравнение уровней исполнения
+     */
+    function initComparisonToggle() {
+      const toggleBtn = document.getElementById('toggleCompareBtn');
+      const closeBtn = document.getElementById('closeCompareBtn');
+      const container = document.getElementById('comparisonTableContainer');
 
-      document.getElementById('lengthVal').innerText = length.toFixed(1);
+      toggleBtn.addEventListener('click', () => {
+        const isHidden = container.classList.contains('hidden');
+        container.classList.toggle('hidden', !isHidden);
+        toggleBtn.querySelector('span').textContent = isHidden ? 'Скрыть сравнение' : 'Сравнить варианты';
+      });
 
-      let standardPrice = Math.round((baseRatePerMeter * length * facadeMultiplier) / 1000) * 1000;
-      let calculatedPrice = isPromo ? Math.round((standardPrice * 0.72) / 1000) * 1000 : standardPrice;
-      let salonPrice = Math.round((standardPrice * 1.35) / 1000) * 1000;
-
-      document.getElementById('finalPrice').innerText = calculatedPrice.toLocaleString('ru-RU') + ' ₽';
-      document.getElementById('oldPrice').innerText = 'В мебельных салонах: ~' + salonPrice.toLocaleString('ru-RU') + ' ₽';
+      closeBtn.addEventListener('click', () => {
+        container.classList.add('hidden');
+        toggleBtn.querySelector('span').textContent = 'Сравнить варианты';
+      });
     }
 
-    function sendCalcToTelegram() {
-      const length = document.getElementById('lengthRange').value;
-      const facadeText = document.getElementById('facadeSelect').options[document.getElementById('facadeSelect').selectedIndex].text;
-      const isPromo = document.getElementById('promoCheck').checked ? 'Да (По акции за фотоотзыв)' : 'Стандартный заказ';
-      const price = document.getElementById('finalPrice').innerText;
-      const phone = document.getElementById('clientPhone').value || 'не указан';
-
-      const msg = `Здравствуйте, Андрей! Хочу рассчитать мебель на заказ в Костроме:\n` +
-                  `• Изделие: ${currentProduct}\n` +
-                  `• Длина: ${length} п.м.\n` +
-                  `• Комплектация: ${facadeText}\n` +
-                  `• Спеццена за отзыв: ${isPromo}\n` +
-                  `• Расчет на сайте: ${price}\n` +
-                  `• Мой телефон: ${phone}`;
-
-      const telegramUrl = `https://t.me/+79632178278?text=${encodeURIComponent(msg)}`;
-      window.open(telegramUrl, '_blank');
+    function selectTierFromBlock(tierKey) {
+      state.tier = tierKey;
+      if (tierKey === 'premium') {
+        state.hardwareClass = 'premium';
+      }
+      renderCalculatorControls();
+      recalculateAndRender();
+      document.getElementById('calculator').scrollIntoView({ behavior: 'smooth' });
     }
 
-    updateCalculation();
+    /**
+     * Блок 3: Рендер каталога мебели
+     */
+    function renderCatalog() {
+      const grid = document.getElementById('catalogGrid');
+      grid.innerHTML = CONFIG.catalogCards.map(card => `
+        <article class="group bg-cardBg border border-stoneBeige/80 rounded overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-oak">
+          <div>
+            <div
+              onclick="jumpToCalcCategory('${card.calcId}')"
+              role="button"
+              tabindex="0"
+              class="aspect-[16/10] overflow-hidden bg-sand cursor-pointer relative"
+            >
+              <img
+                src="${card.image}"
+                alt="${card.title}"
+                loading="lazy"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="font-serif text-2xl font-bold text-graphite">${card.title}</h3>
+              <p class="text-sm text-mutedText mt-2 leading-relaxed">${card.description}</p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-3 border-t border-stoneBeige/50 flex items-center justify-between gap-3">
+            <button
+              type="button"
+              onclick="jumpToCalcCategory('${card.calcId}')"
+              class="text-sm font-medium text-olive hover:text-olive-hover transition-colors"
+            >
+              Рассчитать стоимость →
+            </button>
+            <button
+              type="button"
+              onclick="jumpToPortfolioFilter('${card.portfolioFilter}')"
+              class="text-xs font-medium text-mutedText hover:text-graphite underline underline-offset-4"
+            >
+              Примеры
+            </button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function jumpToCalcCategory(categoryId) {
+      selectCalculatorCategory(categoryId, false);
+      document.getElementById('calculator').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function jumpToPortfolioFilter(filterKey) {
+      state.portfolioFilter = filterKey;
+      renderPortfolioFilters();
+      renderPortfolioGrid();
+      document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /**
+     * Блок 5: Калькулятор мебели
+     */
+    function selectCalculatorCategory(categoryId, isInitial = false) {
+      const cat = CONFIG.categories[categoryId];
+      state.categoryId = categoryId;
+      state.width = cat.defaults.width;
+      state.height = cat.defaults.height;
+      state.depth = cat.defaults.depth;
+      state.isDemoDimensions = true;
+
+      if (!cat.allowedFacades.includes(state.facadeMaterial)) {
+        state.facadeMaterial = cat.allowedFacades[0];
+      }
+
+      state.options = {
+        ...cat.defaultOptions,
+        assembly: isInitial ? true : state.options.assembly,
+        complexity: isInitial ? 'standard' : state.options.complexity,
+      };
+
+      syncDimensionInputsToState();
+      renderCalculatorControls();
+      recalculateAndRender();
+    }
+
+    function syncDimensionInputsToState() {
+      const cat = CONFIG.categories[state.categoryId];
+
+      ['width', 'height', 'depth'].forEach(dim => {
+        const cap = dim.charAt(0).toUpperCase() + dim.slice(1);
+        const numInput = document.getElementById('input' + cap);
+        const rangeDesktop = document.getElementById('range' + cap);
+        const rangeMobile = document.getElementById('range' + cap + 'Mobile');
+        const lim = cat.limits[dim];
+
+        numInput.value = state[dim];
+
+        [rangeDesktop, rangeMobile].forEach(rng => {
+          rng.min = lim.min;
+          rng.max = lim.max;
+          rng.step = lim.step;
+          rng.value = Math.min(lim.max, Math.max(lim.min, state[dim] || lim.min));
+        });
+
+        document.getElementById('min' + cap + 'Label').textContent = lim.min + ' мм';
+        document.getElementById('max' + cap + 'Label').textContent = lim.max + ' мм';
+      });
+
+      document.getElementById('labelWidth').textContent = cat.widthLabel;
+      document.getElementById('exampleWidth').textContent = cat.widthExample;
+      document.getElementById('calcCategoryHint').textContent = cat.hint;
+      document.getElementById('demoDimensionsBadge').classList.toggle('hidden', !state.isDemoDimensions);
+    }
+
+    function initCalculatorEvents() {
+      ['width', 'height', 'depth'].forEach(dim => {
+        const cap = dim.charAt(0).toUpperCase() + dim.slice(1);
+        const numInput = document.getElementById('input' + cap);
+        const rangeDesktop = document.getElementById('range' + cap);
+        const rangeMobile = document.getElementById('range' + cap + 'Mobile');
+
+        numInput.addEventListener('input', (e) => {
+          const val = parseInt(e.target.value, 10);
+          state[dim] = Number.isNaN(val) ? 0 : val;
+          state.isDemoDimensions = false;
+          const catLim = CONFIG.categories[state.categoryId].limits[dim];
+          const clamped = Math.min(catLim.max, Math.max(catLim.min, state[dim] || catLim.min));
+          rangeDesktop.value = clamped;
+          rangeMobile.value = clamped;
+          document.getElementById('demoDimensionsBadge').classList.add('hidden');
+          recalculateAndRender();
+        });
+
+        [rangeDesktop, rangeMobile].forEach(rng => {
+          rng.addEventListener('input', (e) => {
+            const val = parseInt(e.target.value, 10);
+            state[dim] = val;
+            state.isDemoDimensions = false;
+            numInput.value = val;
+            rangeDesktop.value = val;
+            rangeMobile.value = val;
+            document.getElementById('demoDimensionsBadge').classList.add('hidden');
+            recalculateAndRender();
+          });
+        });
+      });
+
+      // Чекбоксы опций
+      const bindCheckbox = (id, key) => {
+        document.getElementById(id).addEventListener('change', (e) => {
+          state.options[key] = e.target.checked;
+          recalculateAndRender();
+        });
+      };
+      bindCheckbox('chkOpenShelves', 'openShelves');
+      bindCheckbox('chkCountertop', 'countertop');
+      bindCheckbox('chkLighting', 'lighting');
+      bindCheckbox('chkPullOuts', 'pullOuts');
+      bindCheckbox('chkAssembly', 'assembly');
+
+      // Кнопка передачи параметров в форму заявки
+      document.getElementById('transferToFormBtn').addEventListener('click', () => {
+        document.getElementById('chkAttachSummary').checked = true;
+        document.getElementById('formProjectSummaryPreview').classList.remove('hidden');
+        document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => document.getElementById('clientNameInput').focus(), 450);
+      });
+    }
+
+    function stepDimension(dim, direction) {
+      const lim = CONFIG.categories[state.categoryId].limits[dim];
+      const current = state[dim] > 0 ? state[dim] : lim.min;
+      const next = Math.min(lim.max, Math.max(lim.min, current + direction * lim.step));
+      state[dim] = next;
+      state.isDemoDimensions = false;
+      syncDimensionInputsToState();
+      recalculateAndRender();
+    }
+
+    function changeCounter(optionKey, delta) {
+      const minVal = (optionKey === 'doorsCount' && state.categoryId === 'sliding_wardrobe') ? 2 : 0;
+      const maxVal = 14;
+      state.options[optionKey] = Math.min(maxVal, Math.max(minVal, state.options[optionKey] + delta));
+      renderCalculatorControls();
+      recalculateAndRender();
+    }
+
+    function renderCalculatorControls() {
+      const cat = CONFIG.categories[state.categoryId];
+
+      // 1. Кнопки категорий
+      document.getElementById('calcCategoryButtons').innerHTML = Object.keys(CONFIG.categories).map(catKey => {
+        const item = CONFIG.categories[catKey];
+        const active = state.categoryId === catKey;
+        return `
+          <button
+            type="button"
+            onclick="selectCalculatorCategory('${catKey}', false)"
+            class="px-3.5 py-3 rounded text-left text-xs sm:text-sm font-medium border transition-colors ${
+              active
+                ? 'bg-olive text-white border-olive'
+                : 'bg-milk hover:bg-sand text-graphite border-stoneBeige'
+            }"
+          >
+            ${item.label}
+          </button>
+        `;
+      }).join('');
+
+      // 3. Кнопки уровня исполнения
+      document.getElementById('calcTierButtons').innerHTML = Object.keys(CONFIG.tiers).map(tKey => {
+        const tObj = CONFIG.tiers[tKey];
+        const active = state.tier === tKey;
+        return `
+          <button
+            type="button"
+            onclick="state.tier='${tKey}'; renderCalculatorControls(); recalculateAndRender();"
+            class="p-4 rounded border text-left transition-colors ${
+              active
+                ? 'bg-olive-light border-olive text-graphite'
+                : 'bg-milk hover:bg-sand border-stoneBeige text-graphite'
+            }"
+          >
+            <div class="font-semibold text-sm flex items-center justify-between">
+              <span>${tObj.label}</span>
+              ${active ? '<span class="text-olive font-bold">✓</span>' : ''}
+            </div>
+            <p class="text-xs text-mutedText mt-1">${tObj.description}</p>
+          </button>
+        `;
+      }).join('');
+
+      // 4. Материалы фасадов с зависимостями от категории
+      document.getElementById('calcFacadeButtons').innerHTML = Object.keys(CONFIG.facadeMaterials).map(mKey => {
+        const mObj = CONFIG.facadeMaterials[mKey];
+        const allowed = cat.allowedFacades.includes(mKey);
+        const active = state.facadeMaterial === mKey;
+        return `
+          <button
+            type="button"
+            ${!allowed ? 'disabled' : ''}
+            onclick="if(${allowed}) { state.facadeMaterial='${mKey}'; renderCalculatorControls(); recalculateAndRender(); }"
+            class="p-4 rounded border text-left transition-colors ${
+              !allowed
+                ? 'bg-sand/40 border-stoneBeige/50 text-mutedText/50 cursor-not-allowed'
+                : active
+                ? 'bg-olive-light border-olive text-graphite'
+                : 'bg-milk hover:bg-sand border-stoneBeige text-graphite'
+            }"
+          >
+            <div class="font-semibold text-sm flex items-center justify-between">
+              <span>${mObj.label}</span>
+              ${!allowed ? '<span class="text-[11px] font-normal">Не для этой категории</span>' : ''}
+            </div>
+            <p class="text-xs text-mutedText mt-1">${mObj.description}</p>
+          </button>
+        `;
+      }).join('');
+
+      // 5. Фурнитура
+      document.getElementById('calcHardwareButtons').innerHTML = Object.keys(CONFIG.hardwareClasses).map(hKey => {
+        const hObj = CONFIG.hardwareClasses[hKey];
+        const active = state.hardwareClass === hKey;
+        return `
+          <button
+            type="button"
+            onclick="state.hardwareClass='${hKey}'; renderCalculatorControls(); recalculateAndRender();"
+            class="p-3.5 rounded border text-left transition-colors ${
+              active
+                ? 'bg-olive-light border-olive text-graphite'
+                : 'bg-milk hover:bg-sand border-stoneBeige text-graphite'
+            }"
+          >
+            <div class="font-semibold text-sm">${hObj.label}</div>
+            <p class="text-xs text-mutedText mt-1">${hObj.description}</p>
+          </button>
+        `;
+      }).join('');
+
+      // 6. Условное отображение дополнительных опций
+      document.getElementById('optDrawersBlock').classList.toggle('hidden', !cat.availableOptions.drawers);
+      document.getElementById('optDoorsBlock').classList.toggle('hidden', !cat.availableOptions.doors);
+      document.getElementById('optOpenShelvesBlock').classList.toggle('hidden', !cat.availableOptions.openShelves);
+      document.getElementById('optCountertopBlock').classList.toggle('hidden', !cat.availableOptions.countertop);
+      document.getElementById('optLightingBlock').classList.toggle('hidden', !cat.availableOptions.lighting);
+      document.getElementById('optPullOutsBlock').classList.toggle('hidden', !cat.availableOptions.pullOuts);
+
+      document.getElementById('valDrawersCount').textContent = state.options.drawersCount;
+      document.getElementById('valDoorsCount').textContent = state.options.doorsCount;
+      document.getElementById('doorsSubLabel').textContent =
+        state.categoryId === 'sliding_wardrobe' ? 'Раздвижные двери' : 'Распашные фасады';
+
+      document.getElementById('chkOpenShelves').checked = state.options.openShelves;
+      document.getElementById('chkCountertop').checked = state.options.countertop;
+      document.getElementById('chkLighting').checked = state.options.lighting;
+      document.getElementById('chkPullOuts').checked = state.options.pullOuts;
+      document.getElementById('chkAssembly').checked = state.options.assembly;
+
+      // Сложность конструкции
+      document.getElementById('calcComplexityButtons').innerHTML = Object.keys(CONFIG.complexityLevels).map(cKey => {
+        const cObj = CONFIG.complexityLevels[cKey];
+        const active = state.options.complexity === cKey;
+        return `
+          <button
+            type="button"
+            onclick="state.options.complexity='${cKey}'; renderCalculatorControls(); recalculateAndRender();"
+            class="p-3 rounded border text-left text-xs transition-colors ${
+              active
+                ? 'bg-olive-light border-olive text-graphite font-semibold'
+                : 'bg-milk hover:bg-sand border-stoneBeige text-mutedText'
+            }"
+          >
+            <div class="text-graphite font-medium">${cObj.label}</div>
+            <div class="mt-1 text-[11px] leading-snug">${cObj.description}</div>
+          </button>
+        `;
+      }).join('');
+    }
+
+    /**
+     * Вычисление предварительной стоимости (с учётом Ш, В, Г, площади деталей, фасадов и фурнитуры)
+     */
+    function recalculateAndRender() {
+      const cat = CONFIG.categories[state.categoryId];
+      const rates = CONFIG.demoRates;
+
+      // Валидация габаритов
+      let isValid = true;
+      ['width', 'height', 'depth'].forEach(dim => {
+        const cap = dim.charAt(0).toUpperCase() + dim.slice(1);
+        const errEl = document.getElementById('error' + cap);
+        const val = state[dim];
+        const lim = cat.limits[dim];
+
+        if (!Number.isFinite(val) || val <= 0) {
+          isValid = false;
+          errEl.textContent = 'Размер должен быть больше 0 мм';
+          errEl.classList.remove('hidden');
+        } else if (val < lim.min || val > lim.max) {
+          errEl.textContent = `Рекомендуемый диапазон: ${lim.min}–${lim.max} мм (расчёт выполнен для ${val} мм)`;
+          errEl.classList.remove('hidden');
+        } else {
+          errEl.classList.add('hidden');
+        }
+      });
+
+      const wM = Math.max(100, state.width) / 1000;
+      const hM = Math.max(100, state.height) / 1000;
+      const dM = Math.max(100, state.depth) / 1000;
+
+      // Площадь деталей корпуса (перегородки, полки, горизонты — зависят от Ш, В и Г)
+      const verticalsCount = Math.max(2, Math.ceil(wM / 0.6) + 1);
+      const horizontalsCount = Math.max(2, Math.ceil(hM / 0.45) + 1);
+      const corpusAreaM2 = ((verticalsCount * hM * dM) + (horizontalsCount * wM * dM) + (wM * hM * 0.45)) * (cat.internalDensity / 1.7);
+
+      // Площадь фасадов
+      const openShelfFactor = (cat.availableOptions.openShelves && state.options.openShelves) ? 0.78 : 1.0;
+      const facadeAreaM2 = wM * hM * cat.facadeCoverage * openShelfFactor;
+
+      const corpusCost = corpusAreaM2 * rates.corpusSheetPerM2;
+      const facadeMat = CONFIG.facadeMaterials[state.facadeMaterial];
+      const facadeCost = facadeAreaM2 * facadeMat.demoRatePerM2;
+
+      const hw = CONFIG.hardwareClasses[state.hardwareClass];
+      const drawersCost = (cat.availableOptions.drawers ? state.options.drawersCount : 0) * rates.drawerBaseCost * hw.multiplier;
+
+      let doorsCost = 0;
+      if (cat.availableOptions.doors) {
+        doorsCost = state.categoryId === 'sliding_wardrobe'
+          ? state.options.doorsCount * rates.slidingSystemPerDoor * hw.multiplier
+          : state.options.doorsCount * rates.doorHingeSetCost * hw.multiplier;
+      }
+
+      let extrasCost = 0;
+      if (cat.availableOptions.countertop && state.options.countertop) {
+        const depthFactor = dM > 0.65 ? dM / 0.6 : 1.0;
+        extrasCost += wM * rates.countertopPerLinearMeter * depthFactor;
+      }
+      if (cat.availableOptions.lighting && state.options.lighting) {
+        extrasCost += rates.lightingBaseCost + wM * 1200;
+      }
+      if (cat.availableOptions.pullOuts && state.options.pullOuts) {
+        extrasCost += rates.advancedPullOutsCost * hw.multiplier;
+      }
+
+      const tierObj = CONFIG.tiers[state.tier];
+      const compObj = CONFIG.complexityLevels[state.options.complexity];
+
+      const manufacturingTotal =
+        (rates.baseEngineeringFee + corpusCost + facadeCost + drawersCost + doorsCost + extrasCost) *
+        tierObj.multiplier *
+        compObj.multiplier;
+
+      const assemblyCost = state.options.assembly
+        ? Math.max(rates.minAssemblyFee, manufacturingTotal * rates.assemblyAndDeliveryRate)
+        : 0;
+
+      const rawTotal = Math.max(rates.minOrderCost, manufacturingTotal + assemblyCost);
+      const minPrice = Math.round((rawTotal * (1 - rates.priceSpreadPercent)) / 500) * 500;
+      const maxPrice = Math.round((rawTotal * (1 + rates.priceSpreadPercent)) / 500) * 500;
+
+      // Список активных опций
+      const activeExtras = [];
+      if (cat.availableOptions.drawers && state.options.drawersCount > 0) activeExtras.push(`ящики: ${state.options.drawersCount} шт.`);
+      if (cat.availableOptions.doors && state.options.doorsCount > 0) activeExtras.push(`двери: ${state.options.doorsCount} шт.`);
+      if (cat.availableOptions.openShelves && state.options.openShelves) activeExtras.push('открытые полки');
+      if (cat.availableOptions.countertop && state.options.countertop) activeExtras.push('столешница');
+      if (cat.availableOptions.lighting && state.options.lighting) activeExtras.push('подсветка');
+      if (cat.availableOptions.pullOuts && state.options.pullOuts) activeExtras.push('системы выдвижения');
+      if (state.options.assembly) activeExtras.push('монтаж и доставка');
+
+      // Обновление DOM сводки
+      document.getElementById('svgDimensionsBadge').textContent = `${state.width} × ${state.height} × ${state.depth} мм`;
+      document.getElementById('sumCategory').textContent = cat.label;
+      document.getElementById('sumDimensions').textContent = `${state.width} × ${state.height} × ${state.depth} мм`;
+      document.getElementById('sumTier').textContent = tierObj.label;
+      document.getElementById('sumMaterials').textContent = `${facadeMat.label}, фурнитура: ${hw.label.toLowerCase()}`;
+      document.getElementById('sumExtras').textContent = activeExtras.length > 0 ? activeExtras.join(', ') : 'Без доп. опций';
+
+      const priceEl = document.getElementById('priceOutputValue');
+      const transferBtn = document.getElementById('transferToFormBtn');
+      transferBtn.disabled = !isValid;
+
+      let priceLabelForSummary = '';
+      if (!isValid) {
+        priceEl.textContent = 'Укажите размеры > 0 мм';
+        priceEl.className = 'font-sans text-lg font-semibold text-terracotta mt-2';
+        priceLabelForSummary = 'Требуется корректный ввод размеров';
+      } else if (CONFIG.pricingMode === 'demo') {
+        priceEl.textContent = `~ ${minPrice.toLocaleString('ru-RU')} – ${maxPrice.toLocaleString('ru-RU')} ₽`;
+        priceEl.className = 'font-serif text-3xl sm:text-4xl font-bold text-graphite mt-2';
+        priceLabelForSummary = `~ ${minPrice.toLocaleString('ru-RU')} – ${maxPrice.toLocaleString('ru-RU')} ₽ (примерный демонстрационный расчёт)`;
+      } else {
+        priceEl.textContent = 'Требуется уточнение стоимости';
+        priceEl.className = 'font-serif text-2xl font-bold text-graphite mt-2';
+        priceLabelForSummary = 'Требуется уточнение стоимости конструктором';
+      }
+
+      state.latestSummaryText = [
+        `• Тип мебели: ${cat.label}`,
+        `• Габариты (Ш × В × Г): ${state.width} × ${state.height} × ${state.depth} мм${state.isDemoDimensions ? ' (демонстрационные размеры)' : ''}`,
+        `• Уровень исполнения: ${tierObj.label}`,
+        `• Материал фасадов: ${facadeMat.label}`,
+        `• Фурнитура: ${hw.label}`,
+        `• Сложность конструкции: ${compObj.label}`,
+        `• Доп. параметры: ${activeExtras.length ? activeExtras.join(', ') : 'нет'}`,
+        `• Предварительная оценка: ${priceLabelForSummary}`,
+      ].join('\n');
+
+      const previewEl = document.getElementById('formProjectSummaryPreview');
+      if (previewEl) {
+        previewEl.textContent = state.latestSummaryText;
+      }
+
+      renderSchematicSvg();
+    }
+
+    /**
+     * Схематичная визуализация пропорций мебели в SVG
+     */
+    function renderSchematicSvg() {
+      const svg = document.getElementById('furnitureSchematicSvg');
+      const boxW = Math.min(250, Math.max(75, (state.width / 4200) * 235));
+      const boxH = Math.min(175, Math.max(50, (state.height / 3000) * 160));
+      const depthOff = Math.min(35, Math.max(10, (state.depth / 900) * 32));
+
+      const x0 = 50;
+      const yBottom = 215;
+      const yTop = yBottom - boxH;
+
+      const sections = Math.max(
+        1,
+        CONFIG.categories[state.categoryId].availableOptions.doors && state.options.doorsCount > 0
+          ? state.options.doorsCount
+          : Math.round(state.width / 600)
+      );
+
+      let innerMarkup = '';
+      if (state.categoryId === 'table') {
+        innerMarkup = `
+          <rect x="${x0}" y="${yTop}" width="${boxW}" height="10" fill="#B89772" stroke="#1E1E1C" stroke-width="1.5" />
+          <rect x="${x0 + 8}" y="${yTop + 10}" width="${Math.min(55, boxW * 0.28)}" height="${boxH - 10}" fill="#EBE5DA" stroke="#1E1E1C" stroke-width="1.2" />
+        `;
+      } else {
+        const cols = Math.min(8, sections);
+        for (let i = 1; i < cols; i++) {
+          const lx = x0 + (boxW / cols) * i;
+          const dash = state.categoryId === 'sliding_wardrobe' ? 'stroke-dasharray="4 2"' : '';
+          innerMarkup += `<line x1="${lx}" y1="${yTop}" x2="${lx}" y2="${yBottom}" stroke="#55654E" stroke-width="1" ${dash} />`;
+        }
+        if (state.categoryId === 'kitchen' || state.categoryId === 'office') {
+          const counterY = yBottom - boxH * 0.38;
+          innerMarkup += `<line x1="${x0}" y1="${counterY}" x2="${x0 + boxW}" y2="${counterY}" stroke="#B89772" stroke-width="3" />`;
+        }
+      }
+
+      svg.innerHTML = `
+        <polygon
+          points="${x0},${yTop} ${x0 + depthOff},${yTop - depthOff * 0.65} ${x0 + boxW + depthOff},${yTop - depthOff * 0.65} ${x0 + boxW},${yTop}"
+          fill="#E5DEC9" stroke="#55654E" stroke-width="1.5"
+        />
+        <polygon
+          points="${x0 + boxW},${yTop} ${x0 + boxW + depthOff},${yTop - depthOff * 0.65} ${x0 + boxW + depthOff},${yBottom - depthOff * 0.65} ${x0 + boxW},${yBottom}"
+          fill="#D8CFC2" stroke="#55654E" stroke-width="1.5"
+        />
+        <rect x="${x0}" y="${yTop}" width="${boxW}" height="${boxH}" fill="#F7F4EF" stroke="#1E1E1C" stroke-width="2" />
+        ${innerMarkup}
+        <text x="${x0 + boxW / 2}" y="236" text-anchor="middle" fill="#1E1E1C" font-size="11" font-weight="600">
+          Ш/Д: ${state.width} мм
+        </text>
+        <text x="42" y="${yBottom - boxH / 2}" text-anchor="end" fill="#1E1E1C" font-size="11" font-weight="600">
+          В: ${state.height}
+        </text>
+        <text x="${x0 + boxW + depthOff + 4}" y="${yTop - 4}" text-anchor="start" fill="#55654E" font-size="11" font-weight="600">
+          Г: ${state.depth} мм
+        </text>
+      `;
+    }
+
+    /**
+     * Блок 6: Портфолио и фильтрация
+     */
+    function renderPortfolioFilters() {
+      const tabs = [
+        { id: 'all', label: 'Все проекты' },
+        { id: 'kitchen', label: 'Кухни' },
+        { id: 'wardrobe', label: 'Шкафы' },
+        { id: 'hallway', label: 'Прихожие' },
+        { id: 'office', label: 'Кабинеты' },
+        { id: 'other', label: 'Другая мебель' },
+      ];
+
+      document.getElementById('portfolioFilterTabs').innerHTML = tabs.map(t => {
+        const active = state.portfolioFilter === t.id;
+        return `
+          <button
+            type="button"
+            onclick="state.portfolioFilter='${t.id}'; renderPortfolioFilters(); renderPortfolioGrid();"
+            class="px-4 py-2.5 rounded text-xs sm:text-sm font-medium transition-colors border ${
+              active
+                ? 'bg-graphite text-white border-graphite'
+                : 'bg-cardBg hover:bg-sand text-graphite border-stoneBeige'
+            }"
+          >
+            ${t.label}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function renderPortfolioGrid() {
+      const items = state.portfolioFilter === 'all'
+        ? CONFIG.portfolioProjects
+        : CONFIG.portfolioProjects.filter(p => p.filter === state.portfolioFilter);
+
+      document.getElementById('portfolioGrid').innerHTML = items.map(p => `
+        <article class="bg-cardBg border border-stoneBeige rounded overflow-hidden flex flex-col justify-between group fade-in">
+          <div>
+            <div
+              onclick="openPortfolioModal('${p.id}')"
+              role="button"
+              tabindex="0"
+              class="relative aspect-[4/3] bg-sand overflow-hidden cursor-pointer"
+            >
+              <img src="${p.image}" alt="${p.title}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 bg-graphite/85 text-white text-[11px] font-medium rounded">Концепт</span>
+                <span class="px-2.5 py-1 bg-cardBg/90 text-graphite text-[11px] font-medium rounded">${p.tier}</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="text-xs text-olive font-semibold uppercase tracking-wider">${p.categoryLabel} • ${p.dimensions}</div>
+              <h3 class="font-serif text-2xl font-bold text-graphite mt-1">${p.title}</h3>
+              <p class="text-sm text-mutedText mt-2 leading-relaxed">${p.shortDesc}</p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-3 border-t border-stoneBeige/60 flex items-center justify-between">
+            <button
+              type="button"
+              onclick="openPortfolioModal('${p.id}')"
+              class="text-sm font-medium text-graphite hover:text-olive transition-colors"
+            >
+              Подробнее о проекте →
+            </button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function openPortfolioModal(projectId) {
+      const proj = CONFIG.portfolioProjects.find(p => p.id === projectId);
+      if (!proj) return;
+
+      document.getElementById('modalProjectImage').src = proj.image;
+      document.getElementById('modalProjectImage').alt = proj.title;
+      document.getElementById('modalProjectMeta').textContent = `${proj.categoryLabel} • Комплектация «${proj.tier}»`;
+      document.getElementById('modalProjectTitle').textContent = proj.title;
+      document.getElementById('modalProjectDesc').textContent = proj.shortDesc;
+      document.getElementById('modalProjectDims').innerHTML = `Ориентировочные габариты концепта: <strong class="text-graphite">${proj.dimensions}</strong>`;
+
+      document.getElementById('modalProjectMaterials').innerHTML = proj.materials
+        .map(m => `<li class="flex items-start gap-2"><span class="text-olive font-bold">✓</span><span>${m}</span></li>`)
+        .join('');
+      document.getElementById('modalProjectFeatures').innerHTML = proj.features
+        .map(f => `<li class="flex items-start gap-2"><span class="text-olive font-bold">✓</span><span>${f}</span></li>`)
+        .join('');
+
+      const mapFilterToCalc = {
+        kitchen: 'kitchen',
+        wardrobe: 'wardrobe',
+        hallway: 'hallway',
+        office: 'office',
+        other: 'cabinet_shelf',
+      };
+
+      document.getElementById('modalCalcSimilarBtn').onclick = () => {
+        closePortfolioModal();
+        selectCalculatorCategory(mapFilterToCalc[proj.filter] || 'kitchen', false);
+        state.tier = proj.tier === 'Премиум' ? 'premium' : 'practical';
+        renderCalculatorControls();
+        recalculateAndRender();
+        document.getElementById('calculator').scrollIntoView({ behavior: 'smooth' });
+      };
+
+      document.getElementById('portfolioModal').classList.remove('hidden');
+    }
+
+    function closePortfolioModal() {
+      document.getElementById('portfolioModal').classList.add('hidden');
+    }
+
+    /**
+     * Блок 9: Аккордеон частых вопросов
+     */
+    function renderFAQ() {
+      const container = document.getElementById('faqAccordion');
+      container.innerHTML = CONFIG.faqList.map((item, idx) => `
+        <div class="bg-cardBg border border-stoneBeige rounded overflow-hidden">
+          <button
+            type="button"
+            onclick="toggleFaqItem(${idx})"
+            class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 hover:bg-sand/40 transition-colors"
+            aria-expanded="${idx === 0 ? 'true' : 'false'}"
+            id="faqBtn-${idx}"
+          >
+            <span class="font-sans font-semibold text-base text-graphite">${item.q}</span>
+            <span id="faqIcon-${idx}" class="text-olive font-bold text-lg">${idx === 0 ? '−' : '+'}</span>
+          </button>
+          <div id="faqPanel-${idx}" class="${idx === 0 ? '' : 'hidden'} px-6 pb-5 pt-1 text-sm sm:text-base text-mutedText leading-relaxed border-t border-stoneBeige/40">
+            ${item.a}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleFaqItem(index) {
+      const panel = document.getElementById('faqPanel-' + index);
+      const icon = document.getElementById('faqIcon-' + index);
+      const btn = document.getElementById('faqBtn-' + index);
+      const isHidden = panel.classList.contains('hidden');
+
+      panel.classList.toggle('hidden', !isHidden);
+      icon.textContent = isHidden ? '−' : '+';
+      btn.setAttribute('aria-expanded', String(isHidden));
+    }
+
+    /**
+     * Блок 10: Форма заявки и честная обработка отправки
+     */
+    function initContactForm() {
+      const form = document.getElementById('projectApplicationForm');
+      const fileInput = document.getElementById('clientFileInput');
+      const fileStatus = document.getElementById('fileStatusText');
+      const chkAttach = document.getElementById('chkAttachSummary');
+      const summaryPreview = document.getElementById('formProjectSummaryPreview');
+
+      chkAttach.addEventListener('change', (e) => {
+        summaryPreview.classList.toggle('hidden', !e.target.checked);
+      });
+
+      fileInput.addEventListener('change', (e) => {
+        const file = e.target.files && e.target.files[0];
+        fileStatus.textContent = file
+          ? `Выбран файл: ${file.name} (${Math.round(file.size / 1024)} КБ)`
+          : 'Файл не выбран (допускаются фото, эскизы, PDF)';
+      });
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const nameVal = document.getElementById('clientNameInput').value.trim();
+        const contactVal = document.getElementById('clientContactInput').value.trim();
+        const commentVal = document.getElementById('clientCommentInput').value.trim();
+        const consent = document.getElementById('chkPrivacyConsent').checked;
+
+        const errName = document.getElementById('errClientName');
+        const errContact = document.getElementById('errClientContact');
+        const errConsent = document.getElementById('errPrivacyConsent');
+
+        errName.classList.add('hidden');
+        errContact.classList.add('hidden');
+        errConsent.classList.add('hidden');
+
+        let hasErr = false;
+        if (nameVal.length < 2) {
+          errName.textContent = 'Пожалуйста, укажите ваше имя';
+          errName.classList.remove('hidden');
+          hasErr = true;
+        }
+        if (contactVal.length < 5) {
+          errContact.textContent = 'Укажите телефон или удобный способ связи';
+          errContact.classList.remove('hidden');
+          hasErr = true;
+        }
+        if (!consent) {
+          errConsent.textContent = 'Необходимо согласие на обработку персональных данных';
+          errConsent.classList.remove('hidden');
+          hasErr = true;
+        }
+        if (hasErr) return;
+
+        const file = fileInput.files && fileInput.files[0];
+        const compiledPayload = [
+          `Заявка на расчёт мебели — ${CONFIG.studioName}`,
+          `Имя: ${nameVal}`,
+          `Контакт: ${contactVal}`,
+          commentVal ? `Комментарий: ${commentVal}` : '',
+          file ? `Вложенный файл: ${file.name}` : '',
+          chkAttach.checked ? `\nСводка параметров проекта:\n${state.latestSummaryText}` : '',
+        ].filter(Boolean).join('\n');
+
+        const resultBox = document.getElementById('formResultBox');
+        const copyBtn = document.getElementById('copyApplicationBtn');
+
+        // Если подключён реальный обработчик формы — отправляем POST-запрос
+        if (CONFIG.formEndpoint) {
+          try {
+            const fd = new FormData();
+            fd.append('name', nameVal);
+            fd.append('contact', contactVal);
+            fd.append('comment', commentVal);
+            if (chkAttach.checked) fd.append('summary', state.latestSummaryText);
+            if (file) fd.append('attachment', file);
+
+            const res = await fetch(CONFIG.formEndpoint, { method: 'POST', body: fd });
+            if (res.ok) {
+              document.getElementById('formResultTitle').textContent = 'Заявка успешно отправлена';
+              document.getElementById('formResultDescription').textContent = 'Мы получили параметры вашего проекта и свяжемся с вами для обсуждения деталей.';
+              resultBox.classList.remove('hidden');
+              return;
+            }
+          } catch (_) {
+            // Переход к резервному режиму со сводкой
+          }
+        }
+
+        // Показываем подготовленную сводку (без обмана пользователя о фейковой отправке)
+        resultBox.classList.remove('hidden');
+        copyBtn.onclick = async () => {
+          try {
+            await navigator.clipboard.writeText(compiledPayload);
+            copyBtn.textContent = '✓ Сводка скопирована в буфер обмена';
+            setTimeout(() => {
+              copyBtn.textContent = 'Скопировать текст заявки со сводкой';
+            }, 2500);
+          } catch (_) {}
+        };
+      });
+    }
+
+    /**
+     * Правовые модальные окна в подвале
+     */
+    function openLegalModal(type) {
+      document.getElementById('legalModalTitle').textContent =
+        type === 'privacy' ? 'Политика конфиденциальности' : 'Обработка персональных данных';
+      document.getElementById('legalModal').classList.remove('hidden');
+    }
+
+    function closeLegalModal() {
+      document.getElementById('legalModal').classList.add('hidden');
+    }
   </script>
 </body>
 </html>
