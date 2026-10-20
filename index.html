@@ -1097,15 +1097,16 @@
               <!-- Прикрепление фотографии, эскиза или чертежа -->
               <div>
                 <label for="clientFileInput" class="block text-xs font-semibold uppercase tracking-wider text-graphite mb-2">
-                  Приложить фотографию, эскиз или чертёж
+                  Приложить фотографии, эскизы или чертежи
                 </label>
                 <div class="flex flex-wrap items-center gap-3">
                   <label class="inline-flex items-center gap-2 px-4 py-2.5 bg-milk hover:bg-sand border border-stoneBeige rounded text-xs sm:text-sm font-medium text-graphite cursor-pointer transition-colors">
-                    <span>📎 Выбрать файл</span>
-                    <input id="clientFileInput" name="attachment" type="file" accept="image/*,.pdf,.dwg" class="hidden" />
+                    <span>📎 Выбрать файлы</span>
+                    <input id="clientFileInput" name="attachment" type="file" multiple accept="image/*,.pdf,.dwg" class="hidden" />
                   </label>
-                  <span id="fileStatusText" class="text-xs text-mutedText">Файл не выбран (фото, эскиз от руки или PDF)</span>
+                  <span id="fileStatusText" class="text-xs text-mutedText">Файлы не выбраны (можно прикрепить несколько фото, эскизов или PDF)</span>
                 </div>
+                <div id="fileListContainer" class="hidden mt-2.5 flex flex-wrap gap-2"></div>
               </div>
 
               <!-- Выбор способа дублирования в мессенджер -->
@@ -2446,18 +2447,60 @@
       const form = document.getElementById('projectApplicationForm');
       const fileInput = document.getElementById('clientFileInput');
       const fileStatus = document.getElementById('fileStatusText');
+      const fileListContainer = document.getElementById('fileListContainer');
       const chkAttach = document.getElementById('chkAttachSummary');
       const summaryPreview = document.getElementById('formProjectSummaryPreview');
+
+      let attachedFiles = [];
+
+      function renderAttachedFiles() {
+        if (attachedFiles.length === 0) {
+          fileStatus.textContent = 'Файлы не выбраны (можно прикрепить несколько фото, эскизов или PDF)';
+          if (fileListContainer) {
+            fileListContainer.innerHTML = '';
+            fileListContainer.classList.add('hidden');
+          }
+          return;
+        }
+
+        const totalKb = Math.max(1, Math.round(attachedFiles.reduce((acc, f) => acc + f.size, 0) / 1024));
+        fileStatus.textContent = `Выбрано файлов: ${attachedFiles.length} (${totalKb} КБ)`;
+
+        if (fileListContainer) {
+          fileListContainer.classList.remove('hidden');
+          fileListContainer.innerHTML = attachedFiles.map((f, idx) => `
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-milk border border-stoneBeige rounded text-xs text-graphite">
+              <span class="truncate max-w-[200px]">${f.name}</span>
+              <button type="button" data-remove-idx="${idx}" class="text-mutedText hover:text-terracotta font-bold ml-1" aria-label="Удалить файл">✕</button>
+            </span>
+          `).join('');
+
+          fileListContainer.querySelectorAll('button[data-remove-idx]').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const removeIdx = parseInt(btn.getAttribute('data-remove-idx'), 10);
+              attachedFiles.splice(removeIdx, 1);
+              renderAttachedFiles();
+            });
+          });
+        }
+      }
 
       chkAttach.addEventListener('change', (e) => {
         summaryPreview.classList.toggle('hidden', !e.target.checked);
       });
 
       fileInput.addEventListener('change', (e) => {
-        const file = e.target.files && e.target.files[0];
-        fileStatus.textContent = file
-          ? `Выбран файл: ${file.name} (${Math.round(file.size / 1024)} КБ)`
-          : 'Файл не выбран (фото, эскиз от руки или PDF)';
+        const incoming = Array.from(e.target.files || []);
+        incoming.forEach(newFile => {
+          const exists = attachedFiles.some(
+            f => f.name === newFile.name && f.size === newFile.size && f.lastModified === newFile.lastModified
+          );
+          if (!exists) {
+            attachedFiles.push(newFile);
+          }
+        });
+        fileInput.value = '';
+        renderAttachedFiles();
       });
 
       form.addEventListener('submit', async (e) => {
@@ -2500,13 +2543,17 @@
         submitBtn.disabled = true;
         submitBtn.textContent = 'Отправка заявки на почту и в Telegram...';
 
-        const file = fileInput.files && fileInput.files[0];
+        const filesNamesList = attachedFiles.map(f => f.name).join(', ');
         const compiledPayload = [
           `📐 Новая заявка на расчёт мебели — студия PASO`,
           `👤 Имя: ${nameVal}`,
           `📞 Контакт: ${contactVal}`,
           commentVal ? `💬 Комментарий: ${commentVal}` : '',
-          file ? `📎 Приложен файл: ${file.name} (перешлите его в чат при необходимости)` : '',
+          attachedFiles.length === 1
+            ? `📎 Приложен файл: ${filesNamesList} (перешлите его в чат при необходимости)`
+            : attachedFiles.length > 1
+            ? `📎 Приложены файлы (${attachedFiles.length} шт.): ${filesNamesList} (перешлите их в чат при необходимости)`
+            : '',
           chkAttach.checked ? `\n--- Параметры из калькулятора ---\n${state.latestSummaryText}` : '',
         ].filter(Boolean).join('\n');
 
@@ -2528,7 +2575,9 @@
           emailFormData.append('Контакт', contactVal);
           if (commentVal) emailFormData.append('Комментарий', commentVal);
           if (chkAttach.checked) emailFormData.append('Расчёт_калькулятора', state.latestSummaryText);
-          if (file) emailFormData.append('attachment', file);
+          attachedFiles.forEach((file, idx) => {
+            emailFormData.append(idx === 0 ? 'attachment' : `attachment_${idx + 1}`, file);
+          });
 
           const emailResponse = await fetch(CONFIG.formSubmitAjaxUrl, {
             method: 'POST',
@@ -2555,11 +2604,17 @@
             });
             if (tgRes.ok) tgBotSentOk = true;
 
-            if (file) {
+            for (let i = 0; i < attachedFiles.length; i++) {
+              const file = attachedFiles[i];
               const docData = new FormData();
               docData.append('chat_id', CONFIG.telegramChatId);
               docData.append('document', file);
-              docData.append('caption', `Файл от клиента: ${nameVal} (${contactVal})`);
+              docData.append(
+                'caption',
+                attachedFiles.length > 1
+                  ? `Файл ${i + 1} из ${attachedFiles.length} от клиента: ${nameVal} (${contactVal})`
+                  : `Файл от клиента: ${nameVal} (${contactVal})`
+              );
               await fetch(`https://api.telegram.org/bot${CONFIG.telegramBotToken}/sendDocument`, {
                 method: 'POST',
                 body: docData,
