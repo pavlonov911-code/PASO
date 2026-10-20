@@ -1094,27 +1094,26 @@
                 ></textarea>
               </div>
 
-          <!-- Прикрепление нескольких фотографий, эскизов или чертежей -->
+              <!-- Прикрепление фотографии, эскиза или чертежа -->
               <div>
                 <label for="clientFileInput" class="block text-xs font-semibold uppercase tracking-wider text-graphite mb-2">
-                  Приложить фотографии, эскизы или чертежи (можно несколько)
+                  Приложить фотографию, эскиз или чертёж
                 </label>
                 <div class="flex flex-wrap items-center gap-3">
                   <label class="inline-flex items-center gap-2 px-4 py-2.5 bg-milk hover:bg-sand border border-stoneBeige rounded text-xs sm:text-sm font-medium text-graphite cursor-pointer transition-colors">
-                    <span>📎 Добавить файлы</span>
-                    <input id="clientFileInput" name="attachment" type="file" multiple accept="image/*,.pdf,.dwg" class="hidden" />
+                    <span>📎 Выбрать файл</span>
+                    <input id="clientFileInput" name="attachment" type="file" accept="image/*,.pdf,.dwg" class="hidden" />
                   </label>
-                  <button
-                    type="button"
-                    id="clearFilesBtn"
-                    class="hidden text-xs text-terracotta hover:underline font-medium"
-                  >
-                    Очистить список
-                  </button>
+                  <span id="fileStatusText" class="text-xs text-mutedText">Файл не выбран (фото, эскиз от руки или PDF)</span>
                 </div>
-                <div id="fileStatusText" class="text-xs text-mutedText mt-2">
-                  Файлы не выбраны (можно выбрать сразу несколько фото, эскизов или PDF)
-                </div>
+              </div>
+
+              <!-- Выбор способа дублирования в мессенджер -->
+              <div class="p-3.5 bg-milk border border-stoneBeige rounded">
+                <label class="flex items-center gap-2.5 cursor-pointer text-xs sm:text-sm font-medium text-graphite">
+                  <input id="chkOpenTelegramInstant" type="checkbox" checked class="w-4 h-4 accent-olive" />
+                  <span>После отправки на почту сразу открыть диалог в Telegram (@Pavlin_AS) с текстом моего расчёта</span>
+                </label>
               </div>
 
               <div>
@@ -2443,50 +2442,22 @@
     /**
      * ОТПРАВКА ЗАЯВКИ НА ПОЧТУ (pavlinov_as@mail.ru) И В TELEGRAM (@Pavlin_AS)
      */
-   /**
-     * ОТПРАВКА ЗАЯВКИ И НЕСКОЛЬКИХ ФАЙЛОВ НА ПОЧТУ И В TELEGRAM (БЕЗ РЕДИРЕКТА)
-     */
     function initContactForm() {
       const form = document.getElementById('projectApplicationForm');
       const fileInput = document.getElementById('clientFileInput');
       const fileStatus = document.getElementById('fileStatusText');
-      const clearFilesBtn = document.getElementById('clearFilesBtn');
       const chkAttach = document.getElementById('chkAttachSummary');
       const summaryPreview = document.getElementById('formProjectSummaryPreview');
-
-      // Массив для хранения всех прикреплённых файлов (можно добавлять по одному или сразу пачкой)
-      let attachedFiles = [];
 
       chkAttach.addEventListener('change', (e) => {
         summaryPreview.classList.toggle('hidden', !e.target.checked);
       });
 
-      function updateFilesUI() {
-        if (attachedFiles.length === 0) {
-          fileStatus.textContent = 'Файлы не выбраны (можно выбрать сразу несколько фото, эскизов или PDF)';
-          clearFilesBtn.classList.add('hidden');
-        } else {
-          const names = attachedFiles
-            .map((f, i) => `${i + 1}. ${f.name} (${Math.round(f.size / 1024)} КБ)`)
-            .join(' • ');
-          fileStatus.textContent = `Прикреплено файлов (${attachedFiles.length}): ${names}`;
-          clearFilesBtn.classList.remove('hidden');
-        }
-      }
-
       fileInput.addEventListener('change', (e) => {
-        const newFiles = Array.from(e.target.files || []);
-        if (newFiles.length > 0) {
-          attachedFiles = [...attachedFiles, ...newFiles];
-          updateFilesUI();
-          fileInput.value = ''; // Сбрасываем input, чтобы можно было докинуть ещё файлы
-        }
-      });
-
-      clearFilesBtn.addEventListener('click', () => {
-        attachedFiles = [];
-        fileInput.value = '';
-        updateFilesUI();
+        const file = e.target.files && e.target.files[0];
+        fileStatus.textContent = file
+          ? `Выбран файл: ${file.name} (${Math.round(file.size / 1024)} КБ)`
+          : 'Файл не выбран (фото, эскиз от руки или PDF)';
       });
 
       form.addEventListener('submit', async (e) => {
@@ -2496,6 +2467,7 @@
         const contactVal = document.getElementById('clientContactInput').value.trim();
         const commentVal = document.getElementById('clientCommentInput').value.trim();
         const consent = document.getElementById('chkPrivacyConsent').checked;
+        const openTgInstant = document.getElementById('chkOpenTelegramInstant').checked;
 
         const errName = document.getElementById('errClientName');
         const errContact = document.getElementById('errClientContact');
@@ -2526,19 +2498,19 @@
         const submitBtn = document.getElementById('submitAppBtn');
         const originalBtnText = submitBtn.textContent;
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Отправка заявки и файлов...';
+        submitBtn.textContent = 'Отправка заявки на почту и в Telegram...';
 
-        const filesNamesList = attachedFiles.map(f => f.name).join(', ');
+        const file = fileInput.files && fileInput.files[0];
         const compiledPayload = [
           `📐 Новая заявка на расчёт мебели — студия PASO`,
           `👤 Имя: ${nameVal}`,
           `📞 Контакт: ${contactVal}`,
           commentVal ? `💬 Комментарий: ${commentVal}` : '',
-          attachedFiles.length > 0 ? `📎 Приложено файлов (${attachedFiles.length}): ${filesNamesList}` : '',
+          file ? `📎 Приложен файл: ${file.name} (перешлите его в чат при необходимости)` : '',
           chkAttach.checked ? `\n--- Параметры из калькулятора ---\n${state.latestSummaryText}` : '',
         ].filter(Boolean).join('\n');
 
-        // Оставляем ссылки на случай, если клиент сам захочет нажать кнопку под формой
+        // Подготовка ссылок с предзаполненным текстом для Telegram (@Pavlin_AS) и WhatsApp
         const tgDeepLink = `https://t.me/${CONFIG.telegramUsername}?text=${encodeURIComponent(compiledPayload)}`;
         const waDeepLink = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(compiledPayload)}`;
 
@@ -2548,7 +2520,7 @@
         let emailSentOk = false;
         let tgBotSentOk = false;
 
-        // 1. Фоновая отправка на почту pavlinov_as@mail.ru (все прикреплённые файлы)
+        // 1. Отправка на почту pavlinov_as@mail.ru через FormSubmit
         try {
           const emailFormData = new FormData();
           emailFormData.append('_subject', `Заявка на расчёт мебели PASO от ${nameVal}`);
@@ -2556,10 +2528,7 @@
           emailFormData.append('Контакт', contactVal);
           if (commentVal) emailFormData.append('Комментарий', commentVal);
           if (chkAttach.checked) emailFormData.append('Расчёт_калькулятора', state.latestSummaryText);
-
-          attachedFiles.forEach((file, index) => {
-            emailFormData.append(`attachment_${index + 1}`, file);
-          });
+          if (file) emailFormData.append('attachment', file);
 
           const emailResponse = await fetch(CONFIG.formSubmitAjaxUrl, {
             method: 'POST',
@@ -2573,7 +2542,7 @@
           emailSentOk = false;
         }
 
-        // 2. Тихая фоновая отправка в Telegram-бот (текст + каждый файл по очереди)
+        // 2. Если в CONFIG задан Telegram Bot Token + Chat ID — тихая отправка в Telegram Bot API
         if (CONFIG.telegramBotToken && CONFIG.telegramChatId) {
           try {
             const tgRes = await fetch(`https://api.telegram.org/bot${CONFIG.telegramBotToken}/sendMessage`, {
@@ -2586,11 +2555,11 @@
             });
             if (tgRes.ok) tgBotSentOk = true;
 
-            for (let i = 0; i < attachedFiles.length; i++) {
+            if (file) {
               const docData = new FormData();
               docData.append('chat_id', CONFIG.telegramChatId);
-              docData.append('document', attachedFiles[i]);
-              docData.append('caption', `Файл ${i + 1} из ${attachedFiles.length} от ${nameVal} (${contactVal})`);
+              docData.append('document', file);
+              docData.append('caption', `Файл от клиента: ${nameVal} (${contactVal})`);
               await fetch(`https://api.telegram.org/bot${CONFIG.telegramBotToken}/sendDocument`, {
                 method: 'POST',
                 body: docData,
@@ -2598,36 +2567,6 @@
             }
           } catch (_) {}
         }
-
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalBtnText;
-
-        const resultBox = document.getElementById('formResultBox');
-        const resultTitle = document.getElementById('formResultTitle');
-        const resultDesc = document.getElementById('formResultDescription');
-        const copyBtn = document.getElementById('copyApplicationBtn');
-
-        resultBox.classList.remove('hidden');
-
-        if (emailSentOk || tgBotSentOk) {
-          resultTitle.textContent = '✓ Заявка успешно отправлена!';
-          resultDesc.textContent = 'Мы получили параметры вашего проекта и приложенные файлы. Свяжемся с вами в ближайшее время.';
-        } else {
-          resultTitle.textContent = 'Сводка проекта сформирована';
-          resultDesc.textContent = 'Вы можете скопировать текст расчёта кнопкой ниже или отправить его в удобный мессенджер.';
-        }
-
-        copyBtn.onclick = async () => {
-          try {
-            await navigator.clipboard.writeText(compiledPayload);
-            copyBtn.textContent = '✓ Текст скопирован';
-            setTimeout(() => {
-              copyBtn.textContent = 'Скопировать текст заявки';
-            }, 2500);
-          } catch (_) {}
-        };
-      });
-    }
 
         // 3. Если включена галочка мгновенного перехода в диалог Telegram @Pavlin_AS — открываем окно
         if (openTgInstant) {
